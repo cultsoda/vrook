@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router'
+"use client"
+
+import { useState, useEffect } from 'react'
 import ko from '../locales/ko.json'
 import en from '../locales/en.json'
-
-type TranslationKey = keyof typeof ko
 
 const translations = {
   ko,
@@ -10,12 +10,19 @@ const translations = {
 }
 
 export function useTranslation() {
-  const router = useRouter()
-  const { locale = 'ko' } = router
+  const [locale, setLocale] = useState<'ko' | 'en'>('ko')
+
+  // 브라우저 저장소에서 언어 설정 로드
+  useEffect(() => {
+    const savedLocale = localStorage.getItem('vrook-locale') as 'ko' | 'en'
+    if (savedLocale && (savedLocale === 'ko' || savedLocale === 'en')) {
+      setLocale(savedLocale)
+    }
+  }, [])
 
   const t = (key: string): string => {
     const keys = key.split('.')
-    let translation: any = translations[locale as keyof typeof translations]
+    let translation: any = translations[locale]
     
     for (const k of keys) {
       translation = translation?.[k]
@@ -24,8 +31,9 @@ export function useTranslation() {
     return translation || key
   }
 
-  const changeLanguage = (newLocale: string) => {
-    router.push(router.asPath, router.asPath, { locale: newLocale })
+  const changeLanguage = (newLocale: 'ko' | 'en') => {
+    setLocale(newLocale)
+    localStorage.setItem('vrook-locale', newLocale)
   }
 
   return {
