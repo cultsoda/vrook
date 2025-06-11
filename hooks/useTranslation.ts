@@ -1,13 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-import ko from '../locales/ko.json'
-import en from '../locales/en.json'
-
-const translations = {
-  ko,
-  en,
-}
+import translations from '../locales/translations.json'
 
 interface TranslationContextType {
   t: (key: string) => string
@@ -17,7 +11,7 @@ interface TranslationContextType {
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-export function TranslationProvider({ children }: { children: ReactNode }) {
+export function TranslationProvider({ children }: { children: ReactNode }): JSX.Element {
   const [locale, setLocale] = useState<'ko' | 'en'>('ko')
 
   // 초기 언어 설정 로드
@@ -35,14 +29,22 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
 
   const t = (key: string): string => {
     const keys = key.split('.')
-    let translation: any = translations[locale]
+    let translation: any = translations
     
+    // 중첩된 키를 따라가며 번역 객체 찾기
     for (const k of keys) {
       translation = translation?.[k]
     }
     
-    console.log(`Translating "${key}" (${locale}):`, translation)
-    return translation || key
+    // 번역 객체가 있고 현재 언어 키가 있으면 해당 언어의 번역 반환
+    if (translation && typeof translation === 'object' && translation[locale]) {
+      console.log(`Translating "${key}" (${locale}):`, translation[locale])
+      return translation[locale]
+    }
+    
+    // 번역이 없으면 키 자체를 반환
+    console.log(`Translation not found for "${key}" (${locale})`)
+    return key
   }
 
   const changeLanguage = (newLocale: 'ko' | 'en') => {
@@ -57,10 +59,10 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  return React.createElement(
-    TranslationContext.Provider,
-    { value: { t, locale, changeLanguage } },
-    children
+  return (
+    <TranslationContext.Provider value={{ t, locale, changeLanguage }}>
+      {children}
+    </TranslationContext.Provider>
   )
 }
 
