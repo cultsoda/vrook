@@ -63,7 +63,7 @@ export default function HomePage() {
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center text-white mb-12">{t('home.serviceComponents')}</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <Headphones className="w-12 h-12 text-pink-400 mx-auto mb-4" />
@@ -80,9 +80,16 @@ export default function HomePage() {
             </Card>
             <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
-                <Sparkles className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <Eye className="w-12 h-12 text-blue-400 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">{t('home.specialVideos')}</h3>
                 <p className="text-slate-300">{t('home.specialVideosDesc')}</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
+                <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">{t('home.aiPhotos')}</h3>
+                <p className="text-slate-300">{t('home.aiPhotosDesc')}</p>
               </CardContent>
             </Card>
           </div>
