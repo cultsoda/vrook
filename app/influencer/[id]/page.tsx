@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { influencers, packages } from "@/data/influencers"
-import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera } from "lucide-react"
+import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image } from "lucide-react"
 
 export default function InfluencerDetailPage() {
   const params = useParams()
@@ -30,16 +30,86 @@ export default function InfluencerDetailPage() {
     )
   }
 
-  // 상품별 개별 링크 매핑
-  const productLinks = {
-    photos: "https://xromeda.com/play/2d/photo-gallery-001",
-    video: "https://xromeda.com/play/2d/video-content-002", 
-    vr: "https://xromeda.com/play/vr/immersive-experience-003",
-    ai: "https://xromeda.com/play/ai/generated-content-004"
+  // 인플루언서별 상품 링크 매핑
+  const influencerProductLinks = {
+    gyeoudi: {
+      photos: "https://stg.xromeda.com/play/2d/mazvc9h9vrbwm419",
+      bcuts: "https://stg.xromeda.com/play/2d/gukqxxyva6vzjuzr",
+      video: "https://stg.xromeda.com/play/media/opxtqff6u9wqch1t",
+      vr: "https://stg.xromeda.com/play/media/tetf4z2pwdkcsnyi",
+      vrFull: "https://stg.xromeda.com/play/media/xo3pg10md1i96fot",
+      ai: "https://stg.xromeda.com/play/2d/btq0c4w2jaf0rmox"
+    },
+    momorina: {
+      photos: "https://stg.xromeda.com/play/2d/vpu20s7qpaj1pu6j",
+      bcuts: "https://stg.xromeda.com/play/2d/cdysghp7925gxuht",
+      video: "https://stg.xromeda.com/play/media/1y6ghrtma0fis6a8",
+      vr: "https://stg.xromeda.com/play/media/4lqkzg3rmao1boy4",
+      vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5",
+      ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl"
+    },
+    // 다른 인플루언서들의 기본 링크 (나중에 추가 가능)
+    yanghyewon: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    trollya: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    ssoblly: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    kkyunyangnyang: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    dodaram: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    ina: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    },
+    jeongdabyeol: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    }
   }
 
   const handleProductClick = (productType: string) => {
-    const link = productLinks[productType as keyof typeof productLinks] || "https://xromeda.com/play/2d/wg7ppwtgi548iba2"
+    const currentInfluencerLinks = influencerProductLinks[influencer.id as keyof typeof influencerProductLinks]
+    const link = currentInfluencerLinks?.[productType as keyof typeof currentInfluencerLinks] || "https://stg.xromeda.com/play/2d/default"
     window.open(link, "_blank")
   }
 
@@ -52,6 +122,15 @@ export default function InfluencerDetailPage() {
       icon: <Camera className="w-6 h-6" />,
       badge: "20장",
       color: "from-blue-500 to-cyan-500",
+    },
+    {
+      id: "bcuts",
+      name: "B컷 화보",
+      description: "촬영 과정에서 나온 자연스러운 B컷 화보",
+      thumbnail: influencer.galleryImages[1] || "/placeholder.svg",
+      icon: <Image className="w-6 h-6" />,
+      badge: "B컷",
+      color: "from-indigo-500 to-purple-500",
     },
     {
       id: "video",
@@ -70,6 +149,15 @@ export default function InfluencerDetailPage() {
       icon: <Eye className="w-6 h-6" />,
       badge: "VR 체험",
       color: "from-purple-500 to-pink-500",
+    },
+    {
+      id: "vrFull",
+      name: "VR 영상(풀버전)",
+      description: "완전한 VR 경험을 제공하는 풀버전 영상",
+      thumbnail: influencer.vrPreview || "/placeholder.svg",
+      icon: <Eye className="w-6 h-6" />,
+      badge: "풀버전",
+      color: "from-pink-500 to-rose-500",
     },
     {
       id: "ai",
@@ -133,7 +221,7 @@ export default function InfluencerDetailPage() {
             {influencer.name}의 다양한 콘텐츠를 개별적으로 선택하여 구매할 수 있습니다
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => {
               const isPurchased = purchasedProducts.includes(product.id)
 
@@ -162,7 +250,7 @@ export default function InfluencerDetailPage() {
 
                       {/* Play/View Icon Overlay */}
                       <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                        {product.id === "video" || product.id === "vr" ? (
+                        {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
                           <Play className="w-12 h-12 text-white" />
                         ) : (
                           <Eye className="w-12 h-12 text-white" />
