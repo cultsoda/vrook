@@ -30,9 +30,17 @@ export default function InfluencerDetailPage() {
     )
   }
 
+  // 상품별 개별 링크 매핑
+  const productLinks = {
+    photos: "https://xromeda.com/play/2d/photo-gallery-001",
+    video: "https://xromeda.com/play/2d/video-content-002", 
+    vr: "https://xromeda.com/play/vr/immersive-experience-003",
+    ai: "https://xromeda.com/play/ai/generated-content-004"
+  }
+
   const handleProductClick = (productType: string) => {
-    // XROMEDA 링크로 이동
-    window.open("https://xromeda.com/play/2d/wg7ppwtgi548iba2", "_blank")
+    const link = productLinks[productType as keyof typeof productLinks] || "https://xromeda.com/play/2d/wg7ppwtgi548iba2"
+    window.open(link, "_blank")
   }
 
   const products = [
