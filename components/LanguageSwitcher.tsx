@@ -1,20 +1,16 @@
 "use client"
 
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter, usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Globe } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { Globe, ChevronDown } from 'lucide-react'
 
 export default function LanguageSwitcher() {
   const router = useRouter()
-  const { locale, locales, asPath } = router
+  const pathname = usePathname()
+  
+  // 현재 언어 감지 (URL에서 추출)
+  const currentLocale = pathname.startsWith('/en') ? 'en' : 'ko'
 
   const languages = {
     ko: { name: '한국어', flag: '🇰🇷' },
@@ -22,36 +18,31 @@ export default function LanguageSwitcher() {
   }
 
   const changeLanguage = (newLocale: string) => {
-    router.push(asPath, asPath, { locale: newLocale })
+    if (newLocale === 'ko') {
+      // 한국어는 기본 경로
+      if (pathname.startsWith('/en')) {
+        router.push(pathname.replace('/en', '') || '/')
+      }
+    } else {
+      // 영어는 /en 접두사 추가
+      if (!pathname.startsWith('/en')) {
+        router.push(`/en${pathname}`)
+      }
+    }
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="text-white hover:text-purple-400">
-          <Globe className="w-4 h-4 mr-2" />
-          {languages[locale as keyof typeof languages]?.flag} {languages[locale as keyof typeof languages]?.name}
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-slate-800 border-slate-700">
-        {locales?.map((loc) => (
-          <DropdownMenuItem
-            key={loc}
-            onClick={() => changeLanguage(loc)}
-            className={`cursor-pointer hover:bg-slate-700 ${
-              locale === loc ? 'bg-slate-700' : ''
-            }`}
-          >
-            <span className="mr-2">{languages[loc as keyof typeof languages]?.flag}</span>
-            {languages[loc as keyof typeof languages]?.name}
-            {locale === loc && (
-              <Badge variant="secondary" className="ml-auto text-xs">
-                Current
-              </Badge>
-            )}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="relative">
+      <Button 
+        variant="ghost" 
+        size="sm" 
+        className="text-white hover:text-purple-400"
+        onClick={() => changeLanguage(currentLocale === 'ko' ? 'en' : 'ko')}
+      >
+        <Globe className="w-4 h-4 mr-2" />
+        {languages[currentLocale as keyof typeof languages]?.flag} {languages[currentLocale as keyof typeof languages]?.name}
+        <ChevronDown className="w-3 h-3 ml-1" />
+      </Button>
+    </div>
   )
 }
