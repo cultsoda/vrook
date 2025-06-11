@@ -74,5 +74,13 @@
     "artDesign": "Art & Design",
     "gamingEntertainment": "Gaming & Entertainment",
     "educationLifestyle": "Education & Lifestyle"
+  },
+  "productBadges": {
+    "photos": "20 pics",
+    "bcuts": "B-cut",
+    "video": "HD Video",
+    "vr": "VR Experience",
+    "vrFull": "Full Ver.",
+    "ai": "3 pics"
   }
 }

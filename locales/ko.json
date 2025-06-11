@@ -74,5 +74,13 @@
     "artDesign": "아트 & 디자인",
     "gamingEntertainment": "게임 & 엔터테인먼트",
     "educationLifestyle": "교육 & 라이프스타일"
+  },
+  "productBadges": {
+    "photos": "20장",
+    "bcuts": "B컷",
+    "video": "HD 영상",
+    "vr": "VR 체험",
+    "vrFull": "풀버전",
+    "ai": "3장"
   }
 }

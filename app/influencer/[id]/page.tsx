@@ -7,10 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { influencers, packages } from "@/data/influencers"
 import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image } from "lucide-react"
+import LanguageSwitcher from "@/components/LanguageSwitcher"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function InfluencerDetailPage() {
   const params = useParams()
   const router = useRouter()
+  const { t, locale } = useTranslation()
 
   // 각 상품의 구매 상태를 관리 (실제로는 서버에서 가져와야 함)
   const [purchasedProducts, setPurchasedProducts] = useState<string[]>([])
@@ -21,9 +24,9 @@ export default function InfluencerDetailPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">인플루언서를 찾을 수 없습니다</h1>
+          <h1 className="text-2xl font-bold text-white mb-4">{t('influencer.notFound')}</h1>
           <Button onClick={() => router.push("/")} variant="outline">
-            홈으로 돌아가기
+            {t('influencer.backToHome')}
           </Button>
         </div>
       </div>
@@ -48,7 +51,7 @@ export default function InfluencerDetailPage() {
       vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5",
       ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl"
     },
-    // 다른 인플루언서들의 기본 링크 (나중에 추가 가능)
+    // 다른 인플루언서들의 기본 링크
     yanghyewon: {
       photos: "https://stg.xromeda.com/play/2d/default-photo",
       bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
@@ -116,59 +119,72 @@ export default function InfluencerDetailPage() {
   const products = [
     {
       id: "photos",
-      name: "화보 사진",
-      description: "고품질 프로페셔널 화보 사진 20장",
+      name: t('influencer.photoSet'),
+      description: t('influencer.photoSetDesc'),
       thumbnail: influencer.galleryImages[0] || "/placeholder.svg",
       icon: <Camera className="w-6 h-6" />,
-      badge: "20장",
+      badge: t('productBadges.photos'),
       color: "from-blue-500 to-cyan-500",
     },
     {
       id: "bcuts",
-      name: "B컷 화보",
-      description: "촬영 과정에서 나온 자연스러운 B컷 화보",
+      name: t('influencer.bcuts'),
+      description: t('influencer.bcutsDesc'),
       thumbnail: influencer.galleryImages[1] || "/placeholder.svg",
       icon: <Image className="w-6 h-6" />,
-      badge: "B컷",
+      badge: t('productBadges.bcuts'),
       color: "from-indigo-500 to-purple-500",
     },
     {
       id: "video",
-      name: "화보 영상",
-      description: "프리미엄 화보 촬영 과정과 비하인드 스토리",
+      name: t('influencer.video'),
+      description: t('influencer.videoDesc'),
       thumbnail: influencer.videoThumbnail || "/placeholder.svg",
       icon: <Play className="w-6 h-6" />,
-      badge: "HD 영상",
+      badge: t('productBadges.video'),
       color: "from-green-500 to-emerald-500",
     },
     {
       id: "vr",
-      name: "VR 영상",
-      description: "몰입감 있는 VR 기술로 제작된 독점 영상",
+      name: t('influencer.vrVideo'),
+      description: t('influencer.vrVideoDesc'),
       thumbnail: influencer.vrPreview || "/placeholder.svg",
       icon: <Eye className="w-6 h-6" />,
-      badge: "VR 체험",
+      badge: t('productBadges.vr'),
       color: "from-purple-500 to-pink-500",
     },
     {
       id: "vrFull",
-      name: "VR 영상(풀버전)",
-      description: "완전한 VR 경험을 제공하는 풀버전 영상",
+      name: t('influencer.vrFullVideo'),
+      description: t('influencer.vrFullVideoDesc'),
       thumbnail: influencer.vrPreview || "/placeholder.svg",
       icon: <Eye className="w-6 h-6" />,
-      badge: "풀버전",
+      badge: t('productBadges.vrFull'),
       color: "from-pink-500 to-rose-500",
     },
     {
       id: "ai",
-      name: "AI 화보",
-      description: "AI 기술로 생성된 창의적이고 독특한 합성 화보",
+      name: t('influencer.aiPhotos'),
+      description: t('influencer.aiPhotosDesc'),
       thumbnail: influencer.aiSamples[0] || "/placeholder.svg",
       icon: <Sparkles className="w-6 h-6" />,
-      badge: "3장",
+      badge: t('productBadges.ai'),
       color: "from-orange-500 to-red-500",
     },
   ]
+
+  // 현재 언어에 맞는 인플루언서 정보 가져오기
+  const getInfluencerDescription = () => {
+    return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
+  }
+
+  const getInfluencerBio = () => {
+    return locale === 'en' && influencer.bioEn ? influencer.bioEn : influencer.bio
+  }
+
+  const getInfluencerCategory = () => {
+    return influencer.categoryKey ? t(`categories.${influencer.categoryKey}`) : influencer.category
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -177,11 +193,12 @@ export default function InfluencerDetailPage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Button variant="ghost" onClick={() => router.push("/")} className="text-white hover:text-purple-400">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            돌아가기
+            {t('common.back')}
           </Button>
           <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            VROOK
+            {t('common.vrook')}
           </h1>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -198,14 +215,16 @@ export default function InfluencerDetailPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
             </div>
             <div>
-              <Badge className="bg-purple-600/20 text-purple-300 border-purple-400 mb-4">{influencer.category}</Badge>
+              <Badge className="bg-purple-600/20 text-purple-300 border-purple-400 mb-4">
+                {getInfluencerCategory()}
+              </Badge>
               <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
-              <p className="text-xl text-purple-200 mb-6">{influencer.description}</p>
-              <p className="text-slate-300 mb-6 leading-relaxed">{influencer.bio}</p>
+              <p className="text-xl text-purple-200 mb-6">{getInfluencerDescription()}</p>
+              <p className="text-slate-300 mb-6 leading-relaxed">{getInfluencerBio()}</p>
               <div className="flex items-center space-x-6">
                 <div className="flex items-center text-slate-300">
                   <Users className="w-5 h-5 mr-2 text-purple-400" />
-                  <span className="font-semibold">{influencer.followers} 팔로워</span>
+                  <span className="font-semibold">{influencer.followers} {t('common.followers')}</span>
                 </div>
               </div>
             </div>
@@ -216,9 +235,9 @@ export default function InfluencerDetailPage() {
       {/* Product Selection */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">상품 선택</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.productSelection')}</h2>
           <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-            {influencer.name}의 다양한 콘텐츠를 개별적으로 선택하여 구매할 수 있습니다
+            {influencer.name}{t('influencer.productSelectionDesc')}
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -277,12 +296,12 @@ export default function InfluencerDetailPage() {
                         {isPurchased ? (
                           <>
                             <Eye className="w-4 h-4 mr-2" />
-                            상품 보러가기
+                            {t('common.viewProduct')}
                           </>
                         ) : (
                           <>
                             <ShoppingCart className="w-4 h-4 mr-2" />
-                            XROMEDA에서 구매하기
+                            {t('influencer.purchaseFromXromeda')}
                           </>
                         )}
                         <ExternalLink className="w-3 h-3 ml-2" />
@@ -299,10 +318,9 @@ export default function InfluencerDetailPage() {
       {/* Package Guide */}
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">패키지 안내</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
           <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-            다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. 개별 구매보다 패키지로 구매하시면 더 많은 혜택을 받을 수
-            있습니다.
+            {t('influencer.packageGuideDesc')}
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -315,11 +333,13 @@ export default function InfluencerDetailPage() {
               >
                 {pkg.highlight && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">추천</Badge>
+                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                      {t('packages.recommended')}
+                    </Badge>
                   </div>
                 )}
                 <CardHeader>
-                  <CardTitle className="text-white">{pkg.name}</CardTitle>
+                  <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
                   <div className="text-2xl font-bold text-purple-400">{pkg.price.toLocaleString()}원</div>
                 </CardHeader>
                 <CardContent>
@@ -337,19 +357,19 @@ export default function InfluencerDetailPage() {
           </div>
 
           <div className="mt-8 p-6 bg-slate-800/30 rounded-lg border border-slate-600">
-            <h3 className="text-white font-semibold mb-3 text-center">💡 패키지 혜택</h3>
+            <h3 className="text-white font-semibold mb-3 text-center">{t('influencer.packageBenefits')}</h3>
             <div className="grid md:grid-cols-3 gap-4 text-sm text-slate-300">
               <div className="text-center">
-                <div className="text-purple-400 font-semibold">할인 혜택</div>
-                <div>개별 구매 대비 최대 30% 할인</div>
+                <div className="text-purple-400 font-semibold">{t('influencer.discountBenefit')}</div>
+                <div>{t('influencer.discountDesc')}</div>
               </div>
               <div className="text-center">
-                <div className="text-purple-400 font-semibold">추가 혜택</div>
-                <div>VR HMD 증정 및 배송비 무료</div>
+                <div className="text-purple-400 font-semibold">{t('influencer.additionalBenefit')}</div>
+                <div>{t('influencer.additionalDesc')}</div>
               </div>
               <div className="text-center">
-                <div className="text-purple-400 font-semibold">특별 혜택</div>
-                <div>팬미팅 참여 기회 제공</div>
+                <div className="text-purple-400 font-semibold">{t('influencer.specialBenefit')}</div>
+                <div>{t('influencer.specialDesc')}</div>
               </div>
             </div>
           </div>
@@ -361,7 +381,7 @@ export default function InfluencerDetailPage() {
         <div className="container mx-auto">
           <div className="text-center">
             <div className="mt-6 p-6 bg-slate-800/50 rounded-lg border border-slate-700">
-              <h3 className="text-white font-semibold mb-6 text-center text-lg">구매 프로세스</h3>
+              <h3 className="text-white font-semibold mb-6 text-center text-lg">{t('influencer.purchaseProcess')}</h3>
               <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
                 {/* Step 1 */}
                 <div className="text-center relative">
@@ -373,8 +393,8 @@ export default function InfluencerDetailPage() {
                       1
                     </div>
                   </div>
-                  <h4 className="text-white font-medium mb-2">상품 선택</h4>
-                  <p className="text-sm text-slate-400">원하는 상품을 선택하고 구매 버튼을 클릭합니다</p>
+                  <h4 className="text-white font-medium mb-2">{t('influencer.step1')}</h4>
+                  <p className="text-sm text-slate-400">{t('influencer.step1Desc')}</p>
 
                   {/* Arrow to next step */}
                   <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400">
@@ -392,8 +412,8 @@ export default function InfluencerDetailPage() {
                       2
                     </div>
                   </div>
-                  <h4 className="text-white font-medium mb-2">XROMEDA 이동</h4>
-                  <p className="text-sm text-slate-400">XROMEDA 플랫폼으로 자동 이동됩니다</p>
+                  <h4 className="text-white font-medium mb-2">{t('influencer.step2')}</h4>
+                  <p className="text-sm text-slate-400">{t('influencer.step2Desc')}</p>
 
                   {/* Arrow to next step */}
                   <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-green-400">
@@ -411,8 +431,8 @@ export default function InfluencerDetailPage() {
                       3
                     </div>
                   </div>
-                  <h4 className="text-white font-medium mb-2">결제 완료</h4>
-                  <p className="text-sm text-slate-400">결제 정보를 입력하고 구매를 완료합니다</p>
+                  <h4 className="text-white font-medium mb-2">{t('influencer.step3')}</h4>
+                  <p className="text-sm text-slate-400">{t('influencer.step3Desc')}</p>
                 </div>
               </div>
             </div>
