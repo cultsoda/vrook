@@ -2,15 +2,51 @@ import type { Influencer, Package, IndividualProduct } from "@/types/influencer"
 
 export const getInfluencerPackages = (influencerId: string): Package[] => {
   const basePrices = {
-    gyeoudi: { basic: 45000, special: 65000, fanmeeting: 110000 },
-    momorina: { basic: 42000, special: 62000, fanmeeting: 105000 },
-    yanghyewon: { basic: 39000, special: 59000, fanmeeting: 99000 },
-    trollya: { basic: 48000, special: 68000, fanmeeting: 115000 },
-    ssoblly: { basic: 36000, special: 56000, fanmeeting: 95000 },
-    kkyunyangnyang: { basic: 41000, special: 61000, fanmeeting: 102000 },
-    dodaram: { basic: 44000, special: 64000, fanmeeting: 108000 },
-    ina: { basic: 46000, special: 66000, fanmeeting: 112000 },
-    jeongdabyeol: { basic: 38000, special: 58000, fanmeeting: 97000 },
+    gyeoudi: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    momorina: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    yanghyewon: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    trollya: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    ssoblly: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    kkyunyangnyang: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    dodaram: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    ina: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    jeongdabyeol: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
   }
 
   const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
@@ -20,29 +56,23 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       id: "basic",
       name: "브이룩 패키지",
       price: prices.basic,
-      features: ["photos20", "vrVideo1"],
+      features: ["photos20", "photoVideo1", "vrVideo1"],
+      newFeatures: [], // 첫 번째 패키지는 새로운 기능 없음
     },
     {
       id: "special",
       name: "브이룩 스페셜 패키지",
       price: prices.special,
-      features: ["photos20", "photoVideo1", "vrVideo1", "vrHmdGift", "freeShipping"],
+      features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
+      newFeatures: ["vrVideoFull1", "vrHmdGift"], // 기본 패키지 대비 추가된 기능들
       highlight: true,
     },
     {
-      id: "fanmeeting",
-      name: "브이룩 팬미팅 패키지",
-      price: prices.fanmeeting,
-      features: [
-        "photos20",
-        "photoVideo1",
-        "vrVideo1",
-        "vrHmdGift",
-        "aiPhotos3",
-        "photocardGift",
-        "freeShipping",
-        "fanmeetingBenefit",
-      ],
+      id: "all",
+      name: "브이룩 ALL 패키지",
+      price: prices.all,
+      features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3", "photocardGift"],
+      newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"], // 스페셜 패키지 대비 추가된 기능들
     },
   ]
 }
@@ -51,30 +81,24 @@ export const packages: Package[] = [
   {
     id: "basic",
     name: "브이룩 패키지",
-    price: 39000,
-    features: ["photos20", "vrVideo1"],
+    price: { krw: 39000, usd: 29 },
+    features: ["photos20", "photoVideo1", "vrVideo1"],
+    newFeatures: [],
   },
   {
     id: "special",
     name: "브이룩 스페셜 패키지",
-    price: 59000,
-    features: ["photos20", "photoVideo1", "vrVideo1", "vrHmdGift", "freeShipping"],
+    price: { krw: 59000, usd: 49 },
+    features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
+    newFeatures: ["vrVideoFull1", "vrHmdGift"],
     highlight: true,
   },
   {
-    id: "fanmeeting",
-    name: "브이룩 팬미팅 패키지",
-    price: 99000,
-    features: [
-      "photos20",
-      "photoVideo1",
-      "vrVideo1",
-      "vrHmdGift",
-      "aiPhotos3",
-      "photocardGift",
-      "freeShipping",
-      "fanmeetingBenefit",
-    ],
+    id: "all",
+    name: "브이룩 ALL 패키지",
+    price: { krw: 79000, usd: 69 },
+    features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3", "photocardGift"],
+    newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
   },
 ]
 

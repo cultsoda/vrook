@@ -338,17 +338,24 @@ export default function InfluencerDetailPage() {
                 <CardHeader>
                   <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
                   <div className="text-2xl font-bold text-purple-400">
-                    {pkg.price.toLocaleString()}{t('packages.price')}
+                    ₩{pkg.price.krw.toLocaleString()} / ${pkg.price.usd}
                   </div>
+                  <div className="text-sm text-slate-400">{t('packages.price')}</div>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {pkg.features.map((featureKey, index) => (
-                      <li key={index} className="flex items-center text-slate-300 text-sm">
-                        <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3" />
-                        {t(`packages.features.${featureKey}`)}
-                      </li>
-                    ))}
+                    {pkg.features.map((featureKey, index) => {
+                      const isNewFeature = pkg.newFeatures?.includes(featureKey)
+                      return (
+                        <li key={index} className="flex items-center text-slate-300 text-sm">
+                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
+                          <span className={isNewFeature ? "font-bold text-purple-300" : ""}>
+                            {isNewFeature && <span className="text-purple-400 mr-1">✨</span>}
+                            {t(`packages.features.${featureKey}`)}
+                          </span>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </CardContent>
               </Card>

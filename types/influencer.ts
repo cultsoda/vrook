@@ -18,9 +18,16 @@ export interface Influencer {
 export interface Package {
   id: string
   name: string
-  price: number
-  originalPrice?: number
-  features: string[] // 이제 번역 키를 저장
+  price: {
+    krw: number
+    usd: number
+  }
+  originalPrice?: {
+    krw: number
+    usd: number
+  }
+  features: string[] // 번역 키를 저장
+  newFeatures?: string[] // 이전 패키지 대비 새로 추가된 기능들
   highlight?: boolean
 }
 
