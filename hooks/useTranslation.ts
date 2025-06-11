@@ -59,10 +59,10 @@ export function TranslationProvider({ children }: { children: ReactNode }): JSX.
     }
   }
 
-  return (
-    <TranslationContext.Provider value={{ t, locale, changeLanguage }}>
-      {children}
-    </TranslationContext.Provider>
+  return React.createElement(
+    TranslationContext.Provider,
+    { value: { t, locale, changeLanguage } },
+    children
   )
 }
 

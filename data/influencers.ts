@@ -144,6 +144,36 @@ export const influencers: Influencer[] = [
     ],
   },
   {
+    id: "jeongdabyeol",
+    name: "정다별",
+    description: "교육 & 라이프스타일 크리에이터",
+    descriptionEn: "Education & Lifestyle Creator",
+    profileImage: "/placeholder.svg?height=400&width=400",
+    coverImage: "/placeholder.svg?height=600&width=800",
+    bio: "교육적이고 유익한 콘텐츠를 통해 지식과 정보를 전달하며, VR 교육 콘텐츠로 새로운 학습 경험을 제공합니다.",
+    bioEn: "Delivers knowledge and information through educational and beneficial content, providing new learning experiences with VR educational content.",
+    category: "Education & Lifestyle",
+    categoryKey: "educationLifestyle",
+    galleryImages: [
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+    ],
+    videoThumbnail: "/placeholder.svg?height=200&width=300",
+    vrPreview: "/placeholder.svg?height=200&width=300",
+    aiSamples: [
+      "/placeholder.svg?height=250&width=250",
+      "/placeholder.svg?height=250&width=250",
+      "/placeholder.svg?height=250&width=250",
+    ],
+  },
+]
+      "/placeholder.svg?height=250&width=250",
+      "/placeholder.svg?height=250&width=250",
+    ],
+  },
+  {
     id: "momorina",
     name: "모모리나",
     description: "뷰티 & 메이크업 아티스트",
@@ -152,7 +182,6 @@ export const influencers: Influencer[] = [
     coverImage: "/images/momorina.png?height=600&width=800",
     bio: "뷰티와 메이크업의 새로운 트렌드를 제시하며, VR 기술로 더욱 실감나는 뷰티 콘텐츠를 만들어갑니다.",
     bioEn: "Presents new trends in beauty and makeup, creating more realistic beauty content with VR technology.",
-    followers: "89K",
     category: "Beauty & Makeup",
     categoryKey: "beautyMakeup",
     galleryImages: [
@@ -178,7 +207,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "건강한 라이프스타일과 피트니스를 통해 긍정적인 에너지를 전달합니다. VR로 함께 운동하는 새로운 경험을 제공합니다.",
     bioEn: "Delivers positive energy through healthy lifestyle and fitness. Provides new experience of exercising together through VR.",
-    followers: "156K",
     category: "Fitness & Wellness",
     categoryKey: "fitnessWellness",
     galleryImages: [
@@ -204,7 +232,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "음악과 댄스를 통해 즐거움을 전달하는 크리에이터입니다. VR 콘서트와 댄스 레슨으로 새로운 엔터테인먼트를 선보입니다.",
     bioEn: "A creator who delivers joy through music and dance. Presents new entertainment with VR concerts and dance lessons.",
-    followers: "203K",
     category: "Music & Dance",
     categoryKey: "musicDance",
     galleryImages: [
@@ -230,7 +257,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "맛있는 요리와 음식 문화를 소개하며, VR을 통해 요리 과정을 생생하게 체험할 수 있는 콘텐츠를 제작합니다.",
     bioEn: "Introduces delicious cooking and food culture, creating content that allows vivid experience of cooking process through VR.",
-    followers: "78K",
     category: "Food & Cooking",
     categoryKey: "foodCooking",
     galleryImages: [
@@ -256,7 +282,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "전 세계 아름다운 여행지를 소개하며, VR을 통해 집에서도 생생한 여행 경험을 할 수 있도록 합니다.",
     bioEn: "Introduces beautiful travel destinations around the world, enabling vivid travel experiences at home through VR.",
-    followers: "134K",
     category: "Travel & Adventure",
     categoryKey: "travelAdventure",
     galleryImages: [
@@ -282,7 +307,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "창의적인 아트와 디자인을 통해 영감을 전달하며, VR 아트 갤러리에서 작품을 직접 체험할 수 있는 기회를 제공합니다.",
     bioEn: "Delivers inspiration through creative art and design, providing opportunities to experience works directly in VR art galleries.",
-    followers: "92K",
     category: "Art & Design",
     categoryKey: "artDesign",
     galleryImages: [
@@ -308,7 +332,6 @@ export const influencers: Influencer[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     bio: "게임과 엔터테인먼트 콘텐츠를 통해 재미와 즐거움을 전달하며, VR 게임 체험으로 새로운 재미를 선사합니다.",
     bioEn: "Delivers fun and enjoyment through game and entertainment content, providing new fun with VR game experiences.",
-    followers: "167K",
     category: "Gaming & Entertainment",
     categoryKey: "gamingEntertainment",
     galleryImages: [
@@ -321,34 +344,4 @@ export const influencers: Influencer[] = [
     vrPreview: "/placeholder.svg?height=200&width=300",
     aiSamples: [
       "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-    ],
-  },
-  {
-    id: "jeongdabyeol",
-    name: "정다별",
-    description: "교육 & 라이프스타일 크리에이터",
-    descriptionEn: "Education & Lifestyle Creator",
-    profileImage: "/placeholder.svg?height=400&width=400",
-    coverImage: "/placeholder.svg?height=600&width=800",
-    bio: "교육적이고 유익한 콘텐츠를 통해 지식과 정보를 전달하며, VR 교육 콘텐츠로 새로운 학습 경험을 제공합니다.",
-    bioEn: "Delivers knowledge and information through educational and beneficial content, providing new learning experiences with VR educational content.",
-    followers: "112K",
-    category: "Education & Lifestyle",
-    categoryKey: "educationLifestyle",
-    galleryImages: [
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-    ],
-    videoThumbnail: "/placeholder.svg?height=200&width=300",
-    vrPreview: "/placeholder.svg?height=200&width=300",
-    aiSamples: [
-      "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-    ],
-  },
-]
+      "/placeholder.svg
