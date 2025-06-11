@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -23,7 +23,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#7c3aed',
 }
 
 export default function RootLayout({
@@ -35,7 +40,6 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#7c3aed" />
       </head>
       <body>{children}</body>
     </html>
