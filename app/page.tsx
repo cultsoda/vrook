@@ -13,6 +13,15 @@ export default function HomePage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const { t, locale } = useTranslation()
 
+  // 현재 언어에 맞는 인플루언서 정보 가져오기
+  const getInfluencerDescription = (influencer: any) => {
+    return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
+  }
+
+  const getInfluencerCategory = (influencer: any) => {
+    return influencer.categoryKey ? t(`categories.${influencer.categoryKey}`) : influencer.category
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
@@ -105,7 +114,7 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-xl font-bold text-white mb-1">{influencer.name}</h3>
-                        <p className="text-sm text-slate-300">{influencer.description}</p>
+                        <p className="text-sm text-slate-300">{getInfluencerDescription(influencer)}</p>
                       </div>
                       <Badge className="absolute top-4 right-4 bg-purple-600/80 text-white">
                         {influencer.followers}
@@ -113,7 +122,7 @@ export default function HomePage() {
                     </div>
                     <div className="p-4">
                       <Badge variant="outline" className="border-purple-400 text-purple-300">
-                        {influencer.category}
+                        {getInfluencerCategory(influencer)}
                       </Badge>
                     </div>
                   </CardContent>

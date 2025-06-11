@@ -340,14 +340,16 @@ export default function InfluencerDetailPage() {
                 )}
                 <CardHeader>
                   <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
-                  <div className="text-2xl font-bold text-purple-400">{pkg.price.toLocaleString()}원</div>
+                  <div className="text-2xl font-bold text-purple-400">
+                    {pkg.price.toLocaleString()}{t('packages.price')}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {pkg.features.map((feature, index) => (
+                    {pkg.features.map((featureKey, index) => (
                       <li key={index} className="flex items-center text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3" />
-                        {feature}
+                        {t(`packages.features.${featureKey}`)}
                       </li>
                     ))}
                   </ul>

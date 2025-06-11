@@ -21,7 +21,7 @@ export interface Package {
   name: string
   price: number
   originalPrice?: number
-  features: string[]
+  features: string[] // 이제 번역 키를 저장
   highlight?: boolean
 }
 

@@ -58,12 +58,6 @@
     "notFound": "Influencer not found",
     "backToHome": "Back to Home"
   },
-  "packages": {
-    "basic": "VROOK Package",
-    "special": "VROOK Special Package",
-    "fanmeeting": "VROOK Fan Meeting Package",
-    "recommended": "Recommended"
-  },
   "categories": {
     "fashionLifestyle": "Fashion & Lifestyle",
     "beautyMakeup": "Beauty & Makeup",
@@ -82,5 +76,22 @@
     "vr": "VR Experience",
     "vrFull": "Full Ver.",
     "ai": "3 pics"
+  },
+  "packages": {
+    "basic": "VROOK Package",
+    "special": "VROOK Special Package",
+    "fanmeeting": "VROOK Fan Meeting Package",
+    "recommended": "Recommended",
+    "price": "",
+    "features": {
+      "photos20": "20 Photo Collection",
+      "vrVideo1": "1 VR Video",
+      "photoVideo1": "1 Photo Video",
+      "vrHmdGift": "VR HMD Special Gift",
+      "freeShipping": "Free Shipping",
+      "aiPhotos3": "3 AI Composite Photos",
+      "photocardGift": "Physical Photo Card Gift",
+      "fanmeetingBenefit": "Offline Fan Meeting Special Benefits (First 30 people)"
+    }
   }
 }
