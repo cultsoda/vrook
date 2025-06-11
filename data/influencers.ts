@@ -1,5 +1,52 @@
 import type { Influencer, Package, IndividualProduct } from "@/types/influencer"
 
+export const getInfluencerPackages = (influencerId: string): Package[] => {
+  const basePrices = {
+    gyeoudi: { basic: 45000, special: 65000, fanmeeting: 110000 },
+    momorina: { basic: 42000, special: 62000, fanmeeting: 105000 },
+    yanghyewon: { basic: 39000, special: 59000, fanmeeting: 99000 },
+    trollya: { basic: 48000, special: 68000, fanmeeting: 115000 },
+    ssoblly: { basic: 36000, special: 56000, fanmeeting: 95000 },
+    kkyunyangnyang: { basic: 41000, special: 61000, fanmeeting: 102000 },
+    dodaram: { basic: 44000, special: 64000, fanmeeting: 108000 },
+    ina: { basic: 46000, special: 66000, fanmeeting: 112000 },
+    jeongdabyeol: { basic: 38000, special: 58000, fanmeeting: 97000 },
+  }
+
+  const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
+
+  return [
+    {
+      id: "basic",
+      name: "브이룩 패키지",
+      price: prices.basic,
+      features: ["photos20", "vrVideo1"],
+    },
+    {
+      id: "special",
+      name: "브이룩 스페셜 패키지",
+      price: prices.special,
+      features: ["photos20", "photoVideo1", "vrVideo1", "vrHmdGift", "freeShipping"],
+      highlight: true,
+    },
+    {
+      id: "fanmeeting",
+      name: "브이룩 팬미팅 패키지",
+      price: prices.fanmeeting,
+      features: [
+        "photos20",
+        "photoVideo1",
+        "vrVideo1",
+        "vrHmdGift",
+        "aiPhotos3",
+        "photocardGift",
+        "freeShipping",
+        "fanmeetingBenefit",
+      ],
+    },
+  ]
+}
+
 export const packages: Package[] = [
   {
     id: "basic",
@@ -80,7 +127,6 @@ export const influencers: Influencer[] = [
     coverImage: "/images/gyeoudi.png?height=600&width=800",
     bio: "패션과 라이프스타일을 통해 일상의 아름다움을 전달하는 크리에이터입니다. VR을 통해 더욱 생생한 경험을 선사합니다.",
     bioEn: "A creator who conveys the beauty of daily life through fashion and lifestyle. Delivers more vivid experiences through VR.",
-    followers: "125K",
     category: "Fashion & Lifestyle",
     categoryKey: "fashionLifestyle",
     galleryImages: [

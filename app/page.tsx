@@ -23,7 +23,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-black">
       {/* Header */}
       <header className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20" />
@@ -66,13 +66,6 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
-                <Camera className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">{t('home.digitalPhotos')}</h3>
-                <p className="text-slate-300">{t('home.digitalPhotosDesc')}</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
                 <Headphones className="w-12 h-12 text-pink-400 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">{t('home.vrVideos')}</h3>
                 <p className="text-slate-300">{t('home.vrVideosDesc')}</p>
@@ -80,9 +73,16 @@ export default function HomePage() {
             </Card>
             <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
+                <Camera className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">{t('home.digitalPhotos')}</h3>
+                <p className="text-slate-300">{t('home.digitalPhotosDesc')}</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
                 <Sparkles className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">{t('home.aiPhotos')}</h3>
-                <p className="text-slate-300">{t('home.aiPhotosDesc')}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{t('home.specialVideos')}</h3>
+                <p className="text-slate-300">{t('home.specialVideosDesc')}</p>
               </CardContent>
             </Card>
           </div>
@@ -116,9 +116,6 @@ export default function HomePage() {
                         <h3 className="text-xl font-bold text-white mb-1">{influencer.name}</h3>
                         <p className="text-sm text-slate-300">{getInfluencerDescription(influencer)}</p>
                       </div>
-                      <Badge className="absolute top-4 right-4 bg-purple-600/80 text-white">
-                        {influencer.followers}
-                      </Badge>
                     </div>
                     <div className="p-4">
                       <Badge variant="outline" className="border-purple-400 text-purple-300">

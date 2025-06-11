@@ -7,7 +7,6 @@ export interface Influencer {
   coverImage: string
   bio: string
   bioEn?: string // 영문 소개 추가
-  followers: string
   category: string
   categoryKey?: string // 번역 키 추가
   galleryImages: string[]

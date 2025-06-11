@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { influencers, packages } from "@/data/influencers"
+import { influencers, getInfluencerPackages } from "@/data/influencers"
 import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
@@ -22,7 +22,7 @@ export default function InfluencerDetailPage() {
 
   if (!influencer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-white mb-4">{t('influencer.notFound')}</h1>
           <Button onClick={() => router.push("/")} variant="outline">
@@ -32,6 +32,9 @@ export default function InfluencerDetailPage() {
       </div>
     )
   }
+
+  // 해당 인플루언서의 패키지 가격 가져오기
+  const packages = getInfluencerPackages(influencer.id)
 
   // 인플루언서별 상품 링크 매핑
   const influencerProductLinks = {
@@ -187,7 +190,7 @@ export default function InfluencerDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-black">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-sm border-b border-slate-700">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -221,12 +224,6 @@ export default function InfluencerDetailPage() {
               <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
               <p className="text-xl text-purple-200 mb-6">{getInfluencerDescription()}</p>
               <p className="text-slate-300 mb-6 leading-relaxed">{getInfluencerBio()}</p>
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center text-slate-300">
-                  <Users className="w-5 h-5 mr-2 text-purple-400" />
-                  <span className="font-semibold">{influencer.followers} {t('common.followers')}</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
