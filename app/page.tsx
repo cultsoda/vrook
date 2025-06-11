@@ -35,9 +35,12 @@ export default function HomePage() {
           
           <div className="text-center">
             <div className="mb-8">
-              <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+              <button 
+                onClick={() => window.location.reload()}
+                className="text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
+              >
                 {t('common.vrook')}
-              </h1>
+              </button>
               <p className="text-xl text-purple-200 mb-2">{t('home.subtitle')}</p>
               <p className="text-lg text-slate-300">{t('home.description')}</p>
             </div>
@@ -140,9 +143,12 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-slate-900 py-8 px-4 border-t border-slate-700">
         <div className="container mx-auto text-center">
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+          <button 
+            onClick={() => window.location.reload()}
+            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
+          >
             {t('common.vrook')}
-          </h3>
+          </button>
           <p className="text-slate-400">{t('home.footerDesc')}</p>
         </div>
       </footer>

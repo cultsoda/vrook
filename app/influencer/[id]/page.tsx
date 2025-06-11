@@ -198,9 +198,12 @@ export default function InfluencerDetailPage() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('common.back')}
           </Button>
-          <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <button 
+            onClick={() => router.push("/")}
+            className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 cursor-pointer"
+          >
             {t('common.vrook')}
-          </h1>
+          </button>
           <LanguageSwitcher />
         </div>
       </header>
