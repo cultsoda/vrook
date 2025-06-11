@@ -11,7 +11,7 @@ import { useTranslation } from "@/hooks/useTranslation"
 
 export default function HomePage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
