@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { influencers, packages } from "@/data/influencers"
+import { influencers } from "@/data/influencers"
 import { Eye, Sparkles, Users, Camera, Headphones } from "lucide-react"
 
 export default function HomePage() {
@@ -66,41 +66,6 @@ export default function HomePage() {
                 <p className="text-slate-300">AI 기술로 생성된 창의적이고 독특한 합성 화보</p>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* 패키지 상품 소개 */}
-      <section className="py-16 px-4 bg-slate-900/50">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-white mb-12">패키지 상품</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {packages.map((pkg) => (
-              <Card
-                key={pkg.id}
-                className={`relative bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 hover:scale-105 ${
-                  pkg.highlight ? "ring-2 ring-purple-400" : ""
-                }`}
-              >
-                {pkg.highlight && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">인기 상품</Badge>
-                  </div>
-                )}
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                  <div className="text-3xl font-bold text-purple-400 mb-6">{pkg.price.toLocaleString()}원</div>
-                  <ul className="space-y-3 mb-6">
-                    {pkg.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-slate-300">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mr-3" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
