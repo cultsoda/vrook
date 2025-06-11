@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import ko from '../locales/ko.json'
 import en from '../locales/en.json'
 
@@ -57,10 +57,10 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  return (
-    <TranslationContext.Provider value={{ t, locale, changeLanguage }}>
-      {children}
-    </TranslationContext.Provider>
+  return React.createElement(
+    TranslationContext.Provider,
+    { value: { t, locale, changeLanguage } },
+    children
   )
 }
 
