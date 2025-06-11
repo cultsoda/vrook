@@ -75,9 +75,11 @@ export const influencers: Influencer[] = [
     id: "gyeoudi",
     name: "겨우디",
     description: "패션 & 라이프스타일 인플루언서",
+    descriptionEn: "Fashion & Lifestyle Influencer", // 영문 설명 추가
     profileImage: "/images/gyeoudi.png?height=400&width=400",
     coverImage: "/images/gyeoudi.png?height=600&width=800",
     bio: "패션과 라이프스타일을 통해 일상의 아름다움을 전달하는 크리에이터입니다. VR을 통해 더욱 생생한 경험을 선사합니다.",
+    bioEn: "A creator who conveys the beauty of daily life through fashion and lifestyle. Delivers more vivid experiences through VR.", // 영문 소개 추가
     followers: "125K",
     category: "Fashion & Lifestyle",
     galleryImages: [
