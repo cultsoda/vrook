@@ -124,7 +124,7 @@ export default function InfluencerDetailPage() {
       id: "photos",
       name: t('influencer.photoSet'),
       description: t('influencer.photoSetDesc'),
-      thumbnail: influencer.galleryImages[0] || "/placeholder.svg",
+      thumbnail: influencer.galleryImages[0],
       icon: <Camera className="w-6 h-6" />,
       badge: t('productBadges.photos'),
       color: "from-blue-500 to-cyan-500",
@@ -133,7 +133,7 @@ export default function InfluencerDetailPage() {
       id: "bcuts",
       name: t('influencer.bcuts'),
       description: t('influencer.bcutsDesc'),
-      thumbnail: influencer.galleryImages[1] || "/placeholder.svg",
+      thumbnail: influencer.galleryImages[1],
       icon: <Image className="w-6 h-6" />,
       badge: t('productBadges.bcuts'),
       color: "from-indigo-500 to-purple-500",
@@ -142,7 +142,7 @@ export default function InfluencerDetailPage() {
       id: "video",
       name: t('influencer.video'),
       description: t('influencer.videoDesc'),
-      thumbnail: influencer.videoThumbnail || "/placeholder.svg",
+      thumbnail: influencer.videoThumbnail,
       icon: <Play className="w-6 h-6" />,
       badge: t('productBadges.video'),
       color: "from-green-500 to-emerald-500",
@@ -151,7 +151,7 @@ export default function InfluencerDetailPage() {
       id: "vr",
       name: t('influencer.vrVideo'),
       description: t('influencer.vrVideoDesc'),
-      thumbnail: influencer.vrPreview || "/placeholder.svg",
+      thumbnail: influencer.vrPreview,
       icon: <Eye className="w-6 h-6" />,
       badge: t('productBadges.vr'),
       color: "from-purple-500 to-pink-500",
@@ -160,7 +160,7 @@ export default function InfluencerDetailPage() {
       id: "vrFull",
       name: t('influencer.vrFullVideo'),
       description: t('influencer.vrFullVideoDesc'),
-      thumbnail: influencer.vrPreview || "/placeholder.svg",
+      thumbnail: influencer.vrPreview,
       icon: <Eye className="w-6 h-6" />,
       badge: t('productBadges.vrFull'),
       color: "from-pink-500 to-rose-500",
@@ -169,7 +169,7 @@ export default function InfluencerDetailPage() {
       id: "ai",
       name: t('influencer.aiPhotos'),
       description: t('influencer.aiPhotosDesc'),
-      thumbnail: influencer.aiSamples[0] || "/placeholder.svg",
+      thumbnail: influencer.aiSamples[0],
       icon: <Sparkles className="w-6 h-6" />,
       badge: t('productBadges.ai'),
       color: "from-orange-500 to-red-500",
@@ -214,9 +214,14 @@ export default function InfluencerDetailPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img
-                src={influencer.coverImage || "/placeholder.svg"}
+                src={influencer.coverImage}
                 alt={influencer.name}
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+                onError={(e) => {
+                  // 이미지 로드 실패시 플레이스홀더 사용
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/placeholder.svg?height=600&width=800";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
             </div>
@@ -253,9 +258,14 @@ export default function InfluencerDetailPage() {
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img
-                        src={product.thumbnail || "/placeholder.svg"}
+                        src={product.thumbnail}
                         alt={product.name}
                         className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          // 이미지 로드 실패시 플레이스홀더 사용
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/placeholder.svg?height=300&width=400";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
@@ -459,8 +469,8 @@ export default function InfluencerDetailPage() {
               </a>
               <p className="text-slate-500 text-sm mt-2">
                 {locale === 'en' 
-                  ? 'Next-generation Fandom platform' 
-                  : '차세대 팬덤 플랫폼'
+                  ? 'Next-generation XR content platform' 
+                  : '차세대 XR 콘텐츠 플랫폼'
                 }
               </p>
             </div>

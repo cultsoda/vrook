@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { influencers } from "@/data/influencers"
-import { Eye, Sparkles, Users, Camera, Headphones } from "lucide-react"
+import { Eye, Sparkles, Users, Camera, Headphones, ExternalLink } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
 
@@ -117,9 +117,14 @@ export default function HomePage() {
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img
-                        src={influencer.profileImage || "/placeholder.svg"}
+                        src={influencer.profileImage}
                         alt={influencer.name}
                         className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          // 이미지 로드 실패시 플레이스홀더 사용
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/placeholder.svg?height=400&width=400";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
@@ -149,20 +154,29 @@ export default function HomePage() {
           >
             {t('common.vrook')}
           </button>
-          <p className="text-slate-400">{t('home.footerDesc')}</p>
-        </div>
-        <div className="border-t border-slate-700 pt-6">
-          <p className="text-slate-500 text-sm mb-2">
-            {locale === 'en' ? 'Powered by' : '제공'}
-          </p>
-          <a href="https://xromeda.com" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300">
-          XROMEDA
-          <ExternalLink className="w-4 h-4 ml-2" />
-          </a>
-          <p className="text-slate-500 text-sm mt-2">
-            {locale === 'en' ? 'Next-generation XR content platform' : '차세대 XR 콘텐츠 플랫폼'}
-          </p>
+          <p className="text-slate-400 mb-6">{t('home.footerDesc')}</p>
+          
+          {/* XROMEDA Company Info */}
+          <div className="border-t border-slate-700 pt-6">
+            <p className="text-slate-500 text-sm mb-2">
+              {locale === 'en' ? 'Powered by' : '제공'}
+            </p>
+            <a 
+              href="https://xromeda.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+            >
+              XROMEDA
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </a>
+            <p className="text-slate-500 text-sm mt-2">
+              {locale === 'en' 
+                ? 'Next-generation XR content platform' 
+                : '차세대 XR 콘텐츠 플랫폼'
+              }
+            </p>
+          </div>
         </div>
       </footer>
     </div>
