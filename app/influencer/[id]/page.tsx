@@ -364,23 +364,6 @@ export default function InfluencerDetailPage() {
               </Card>
             ))}
           </div>
-
-          <div className="mt-8 p-6 bg-slate-800/30 rounded-lg border border-slate-600">
-            <h3 className="text-white font-semibold mb-3 text-center">{t('influencer.packageBenefits')}</h3>
-            <div className="grid md:grid-cols-3 gap-4 text-sm text-slate-300">
-              <div className="text-center">
-                <div className="text-purple-400 font-semibold">{t('influencer.discountBenefit')}</div>
-                <div>{t('influencer.discountDesc')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-purple-400 font-semibold">{t('influencer.additionalBenefit')}</div>
-                <div>{t('influencer.additionalDesc')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-purple-400 font-semibold">{t('influencer.specialBenefit')}</div>
-                <div>{t('influencer.specialDesc')}</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -448,6 +431,44 @@ export default function InfluencerDetailPage() {
           </div>
         </div>
       </section>
+    </div>
+
+    {/* Footer */}
+    <footer className="bg-slate-900 py-12 px-4 border-t border-slate-700">
+      <div className="container mx-auto">
+        <div className="text-center mb-8">
+          <button 
+            onClick={() => router.push("/")}
+            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
+          >
+            {t('common.vrook')}
+          </button>
+          <p className="text-slate-400 mb-6">{t('home.footerDesc')}</p>
+          
+          {/* XROMEDA Company Info */}
+          <div className="border-t border-slate-700 pt-6">
+            <p className="text-slate-500 text-sm mb-2">
+              {locale === 'en' ? 'Powered by' : '제공'}
+            </p>
+            <a 
+              href="https://xromeda.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+            >
+              XROMEDA
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </a>
+            <p className="text-slate-500 text-sm mt-2">
+              {locale === 'en' 
+                ? 'Next-generation XR content platform' 
+                : '차세대 XR 콘텐츠 플랫폼'
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
   )
 }
