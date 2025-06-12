@@ -17,17 +17,12 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
     },
-    trollya: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
-    },
-    ssoblly: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
-    },
     kkyunyangnyang: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    },
+    jeongdabyeol: { 
       basic: { krw: 39000, usd: 29 }, 
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
@@ -38,11 +33,16 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       all: { krw: 79000, usd: 69 } 
     },
     cuina: { 
+      basic: { krw: 59000, usd: 49 }, 
+      special: { krw: 79000, usd: 69 }, 
+      all: { krw: 99000, usd: 89 } 
+    },
+    trollya: { 
       basic: { krw: 39000, usd: 29 }, 
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
-    }
-    jeongdabyeol: { 
+    },
+    ssoblly: { 
       basic: { krw: 39000, usd: 29 }, 
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
