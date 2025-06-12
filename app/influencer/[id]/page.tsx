@@ -213,7 +213,7 @@ export default function InfluencerDetailPage() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="w-full aspect-square bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="w-80 h-80 mx-auto bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
                 <img
                   src={influencer.coverImage}
                   alt={influencer.name}
@@ -258,7 +258,7 @@ export default function InfluencerDetailPage() {
                   onClick={() => handleProductClick(product.id)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg aspect-square">
+                    <div className="relative overflow-hidden rounded-t-lg h-48">
                       <img
                         src={product.thumbnail}
                         alt={product.name}
@@ -266,7 +266,7 @@ export default function InfluencerDetailPage() {
                         onError={(e) => {
                           // 이미지 로드 실패시 플레이스홀더 사용
                           const target = e.target as HTMLImageElement;
-                          target.src = "/placeholder.svg?height=400&width=400";
+                          target.src = "/placeholder.svg?height=300&width=400";
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
