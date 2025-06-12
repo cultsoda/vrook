@@ -213,11 +213,11 @@ export default function InfluencerDetailPage() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative flex justify-center">
-              <div className="w-80 h-96 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="w-96 h-72 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
                 <img
                   src={influencer.coverImage}
                   alt={influencer.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                   onError={(e) => {
                     // 이미지 로드 실패시 플레이스홀더 사용
                     const target = e.target as HTMLImageElement;
