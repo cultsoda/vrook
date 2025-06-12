@@ -87,14 +87,6 @@ export default function InfluencerDetailPage() {
       vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
       ai: "https://stg.xromeda.com/play/2d/default-ai"
     },
-    dodaram: {
-      photos: "https://stg.xromeda.com/play/2d/default-photo",
-      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
-      video: "https://stg.xromeda.com/play/media/default-video",
-      vr: "https://stg.xromeda.com/play/media/default-vr",
-      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
-      ai: "https://stg.xromeda.com/play/2d/default-ai"
-    },
     ina: {
       photos: "https://stg.xromeda.com/play/2d/default-photo",
       bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
@@ -103,6 +95,14 @@ export default function InfluencerDetailPage() {
       vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
       ai: "https://stg.xromeda.com/play/2d/default-ai"
     },
+    cuina: {
+      photos: "https://stg.xromeda.com/play/2d/default-photo",
+      bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+      video: "https://stg.xromeda.com/play/media/default-video",
+      vr: "https://stg.xromeda.com/play/media/default-vr",
+      vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+      ai: "https://stg.xromeda.com/play/2d/default-ai"
+    }
     jeongdabyeol: {
       photos: "https://stg.xromeda.com/play/2d/default-photo",
       bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",

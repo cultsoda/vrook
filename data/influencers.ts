@@ -32,16 +32,16 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
     },
-    dodaram: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
-    },
     ina: { 
       basic: { krw: 39000, usd: 29 }, 
       special: { krw: 59000, usd: 49 }, 
       all: { krw: 79000, usd: 69 } 
     },
+    cuina: { 
+      basic: { krw: 39000, usd: 29 }, 
+      special: { krw: 59000, usd: 49 }, 
+      all: { krw: 79000, usd: 69 } 
+    }
     jeongdabyeol: { 
       basic: { krw: 39000, usd: 29 }, 
       special: { krw: 59000, usd: 49 }, 
@@ -293,31 +293,6 @@ export const influencers: Influencer[] = [
     ],
   },
   {
-    id: "dodaram",
-    name: "도다람",
-    description: "아트 & 디자인 크리에이터",
-    descriptionEn: "Art & Design Creator",
-    profileImage: "/placeholder.svg?height=400&width=400",
-    coverImage: "/placeholder.svg?height=600&width=800",
-    bio: "창의적인 아트와 디자인을 통해 영감을 전달하며, VR 아트 갤러리에서 작품을 직접 체험할 수 있는 기회를 제공합니다.",
-    bioEn: "Delivers inspiration through creative art and design, providing opportunities to experience works directly in VR art galleries.",
-    category: "Art & Design",
-    categoryKey: "artDesign",
-    galleryImages: [
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=300&width=300",
-    ],
-    videoThumbnail: "/placeholder.svg?height=200&width=300",
-    vrPreview: "/placeholder.svg?height=200&width=300",
-    aiSamples: [
-      "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-      "/placeholder.svg?height=250&width=250",
-    ],
-  },
-  {
     id: "ina",
     name: "이나",
     description: "게임 & 엔터테인먼트 크리에이터",
@@ -342,6 +317,31 @@ export const influencers: Influencer[] = [
       "/placeholder.svg?height=250&width=250",
     ],
   },
+  {
+    id: "cuina",
+    name: "큐이나",
+    description: "패션 & 라이프스타일 인플루언서",
+    descriptionEn: "Fashion & Lifestyle Influencer",
+    profileImage: "/images/cuina.png?height=400&width=400",
+    coverImage: "/images/cuina.png?height=600&width=800",
+    bio: "패션과 라이프스타일을 통해 일상의 아름다움을 전달하는 크리에이터입니다. VR을 통해 더욱 생생한 경험을 선사합니다.",
+    bioEn: "A creator who conveys the beauty of daily life through fashion and lifestyle. Delivers more vivid experiences through VR.",
+    category: "Fashion & Lifestyle",
+    categoryKey: "fashionLifestyle",
+    galleryImages: [
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+      "/placeholder.svg?height=300&width=300",
+    ],
+    videoThumbnail: "/placeholder.svg?height=200&width=300",
+    vrPreview: "/placeholder.svg?height=200&width=300",
+    aiSamples: [
+      "/placeholder.svg?height=250&width=250",
+      "/placeholder.svg?height=250&width=250",
+      "/placeholder.svg?height=250&width=250",
+    ],
+}
   {
     id: "jeongdabyeol",
     name: "정다별",
