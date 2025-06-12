@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { TranslationProvider } from '@/hooks/useTranslation'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 
 export const metadata: Metadata = {
   title: 'VROOK - VR 셀럽 화보 플랫폼',
@@ -43,9 +44,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <TranslationProvider>
-          {children}
-        </TranslationProvider>
+        <ErrorBoundary>
+          <TranslationProvider>
+            {children}
+          </TranslationProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )
