@@ -32,7 +32,7 @@ const translations = {
   },
   "influencer": {
     "productSelection": { "ko": "상품 선택", "en": "Product Selection" },
-    "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 개별적으로 선택하여 구매할 수 있습니다", "en": "'s various content can be purchased individually" },
+    "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 미리 확인하고 원하는 패키지를 선택하여 구매할 수 있습니다", "en": "'s various content can be previewed and purchased as a package." },
     "photoSet": { "ko": "화보 사진", "en": "Photo Set" },
     "photoSetDesc": { "ko": "고품질 프로페셔널 화보 사진 20장", "en": "20 high-quality professional photo collection" },
     "bcuts": { "ko": "B컷 화보", "en": "B-Cut Photos" },
@@ -47,7 +47,7 @@ const translations = {
     "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique synthetic photos generated with AI technology" },
     "purchaseFromXromeda": { "ko": "XROMEDA에서 구매하기", "en": "Purchase from XROMEDA" },
     "packageGuide": { "ko": "패키지 안내", "en": "Package Guide" },
-    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. 개별 구매보다 패키지로 구매하시면 더 많은 혜택을 받을 수 있습니다.", "en": "Meet richer content with various packages. You can get more benefits by purchasing packages than individual purchases." },
+    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. 원하는 콘텐츠가 포함된 패키지를 선택하여 구매하실 수 있습니다.", "en": "Meet richer content with various packages. Choose and purchase a package that includes the content you want." },
     "packageBenefits": { "ko": "💡 패키지 혜택", "en": "💡 Package Benefits" },
     "discountBenefit": { "ko": "할인 혜택", "en": "Discount Benefits" },
     "discountDesc": { "ko": "개별 구매 대비 최대 30% 할인", "en": "Up to 30% discount compared to individual purchases" },
