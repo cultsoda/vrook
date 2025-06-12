@@ -227,6 +227,47 @@ export default function InfluencerDetailPage() {
               <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
               <p className="text-xl text-purple-200 mb-6">{getInfluencerDescription()}</p>
               <p className="text-slate-300 mb-6 leading-relaxed">{getInfluencerBio()}</p>
+              
+              {/* SNS 링크 섹션 */}
+              {influencer.socialLinks && influencer.socialLinks.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-white mb-3">SNS & 플랫폼</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {influencer.socialLinks.map((link, index) => {
+                      // 플랫폼별 아이콘과 색상 매핑
+                      const getPlatformInfo = (url: string) => {
+                        if (url.includes('instagram.com')) return { name: 'Instagram', color: 'bg-pink-600 hover:bg-pink-700', icon: '📷' }
+                        if (url.includes('youtube.com') || url.includes('youtu.be')) return { name: 'YouTube', color: 'bg-red-600 hover:bg-red-700', icon: '🎥' }
+                        if (url.includes('tiktok.com')) return { name: 'TikTok', color: 'bg-black hover:bg-gray-800', icon: '🎵' }
+                        if (url.includes('twitch.tv')) return { name: 'Twitch', color: 'bg-purple-600 hover:bg-purple-700', icon: '🎮' }
+                        if (url.includes('twitter.com') || url.includes('x.com')) return { name: 'Twitter/X', color: 'bg-blue-600 hover:bg-blue-700', icon: '🐦' }
+                        if (url.includes('patreon.com')) return { name: 'Patreon', color: 'bg-orange-600 hover:bg-orange-700', icon: '💎' }
+                        if (url.includes('chzzk.naver.com')) return { name: 'CHZZK', color: 'bg-green-600 hover:bg-green-700', icon: '🎯' }
+                        if (url.includes('sooplive.co.kr')) return { name: 'Soop Live', color: 'bg-indigo-600 hover:bg-indigo-700', icon: '📺' }
+                        if (url.includes('cafe.naver.com')) return { name: 'Naver Cafe', color: 'bg-green-700 hover:bg-green-800', icon: '☕' }
+                        if (url.includes('threads.com')) return { name: 'Threads', color: 'bg-gray-600 hover:bg-gray-700', icon: '🧵' }
+                        return { name: 'Link', color: 'bg-slate-600 hover:bg-slate-700', icon: '🔗' }
+                      }
+                      
+                      const platformInfo = getPlatformInfo(link)
+                      
+                      return (
+                        <a
+                          key={index}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-white font-medium transition-colors duration-200 ${platformInfo.color}`}
+                        >
+                          <span>{platformInfo.icon}</span>
+                          <span>{platformInfo.name}</span>
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
