@@ -102,7 +102,7 @@ export default function InfluencerDetailPage() {
       vr: "https://stg.xromeda.com/play/media/default-vr",
       vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
       ai: "https://stg.xromeda.com/play/2d/default-ai"
-    }
+    },
     jeongdabyeol: {
       photos: "https://stg.xromeda.com/play/2d/default-photo",
       bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
@@ -364,7 +364,6 @@ export default function InfluencerDetailPage() {
               </Card>
             ))}
           </div>
-          </div>
         </div>
       </section>
 
@@ -431,44 +430,43 @@ export default function InfluencerDetailPage() {
           </div>
         </div>
       </section>
-    </div>
 
-    {/* Footer */}
-    <footer className="bg-slate-900 py-12 px-4 border-t border-slate-700">
-      <div className="container mx-auto">
-        <div className="text-center mb-8">
-          <button 
-            onClick={() => router.push("/")}
-            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
-          >
-            {t('common.vrook')}
-          </button>
-          <p className="text-slate-400 mb-6">{t('home.footerDesc')}</p>
-          
-          {/* XROMEDA Company Info */}
-          <div className="border-t border-slate-700 pt-6">
-            <p className="text-slate-500 text-sm mb-2">
-              {locale === 'en' ? 'Powered by' : '제공'}
-            </p>
-            <a 
-              href="https://xromeda.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+      {/* Footer */}
+      <footer className="bg-slate-900 py-12 px-4 border-t border-slate-700">
+        <div className="container mx-auto">
+          <div className="text-center mb-8">
+            <button 
+              onClick={() => router.push("/")}
+              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
             >
-              XROMEDA
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </a>
-            <p className="text-slate-500 text-sm mt-2">
-              {locale === 'en' 
-                ? 'Next-generation XR content platform' 
-                : '차세대 XR 콘텐츠 플랫폼'
-              }
-            </p>
+              {t('common.vrook')}
+            </button>
+            <p className="text-slate-400 mb-6">{t('home.footerDesc')}</p>
+            
+            {/* XROMEDA Company Info */}
+            <div className="border-t border-slate-700 pt-6">
+              <p className="text-slate-500 text-sm mb-2">
+                {locale === 'en' ? 'Powered by' : '제공'}
+              </p>
+              <a 
+                href="https://xromeda.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+              >
+                XROMEDA
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </a>
+              <p className="text-slate-500 text-sm mt-2">
+                {locale === 'en' 
+                  ? 'Next-generation Fandom platform' 
+                  : '차세대 팬덤 플랫폼'
+                }
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   )
 }

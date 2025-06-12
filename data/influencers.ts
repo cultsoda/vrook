@@ -341,7 +341,7 @@ export const influencers: Influencer[] = [
       "/placeholder.svg?height=250&width=250",
       "/placeholder.svg?height=250&width=250",
     ],
-}
+  },
   {
     id: "jeongdabyeol",
     name: "정다별",
