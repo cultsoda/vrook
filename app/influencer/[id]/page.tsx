@@ -212,12 +212,12 @@ export default function InfluencerDetailPage() {
       <section className="relative py-16 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="w-full max-w-md mx-auto bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
+            <div className="relative flex justify-center">
+              <div className="w-80 h-96 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
                 <img
                   src={influencer.coverImage}
                   alt={influencer.name}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover object-top"
                   onError={(e) => {
                     // 이미지 로드 실패시 플레이스홀더 사용
                     const target = e.target as HTMLImageElement;
@@ -225,7 +225,6 @@ export default function InfluencerDetailPage() {
                   }}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none" />
             </div>
             <div>
               <Badge className="bg-purple-600/20 text-purple-300 border-purple-400 mb-4">
