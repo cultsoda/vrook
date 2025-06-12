@@ -24,7 +24,7 @@ const translations = {
     "vrVideosDesc": { "ko": "몰입감 있는 VR 기술로 제작된 독점 영상 콘텐츠", "en": "Exclusive video content created with immersive VR technology" },
     "digitalPhotos": { "ko": "디지털 사진", "en": "Digital Photos" },
     "digitalPhotosDesc": { "ko": "고품질 2D 사진으로 구성된 프리미엄 화보 콘텐츠", "en": "Premium photo content composed of high-quality 2D photos" },
-    "specialVideos": { "ko": "스페셜 영상", "en": "Special Videos" },
+    "specialVideos": { "ko": "메이킹 영상", "en": "Making Videos" },
     "specialVideosDesc": { "ko": "독점 촬영된 프리미엄 화보 영상 콘텐츠", "en": "Premium photo video content with exclusive filming" },
     "influencers": { "ko": "인플루언서", "en": "Influencers" },
     "influencersDesc": { "ko": "9명의 다양한 분야 인플루언서들의 독점 VR 콘텐츠를 만나보세요", "en": "Meet exclusive VR content from 9 influencers in various fields" },
