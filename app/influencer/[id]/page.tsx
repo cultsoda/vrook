@@ -446,35 +446,26 @@ export default function InfluencerDetailPage() {
       {/* Footer */}
       <footer className="bg-slate-900 py-12 px-4 border-t border-slate-700">
         <div className="container mx-auto">
-          <div className="text-center mb-8">
-            <button 
-              onClick={() => router.push("/")}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
-            >
-              {t('common.vrook')}
-            </button>
-            <p className="text-slate-400 mb-6">{t('home.footerDesc')}</p>
-            
-            {/* XROMEDA Company Info */}
-            <div className="border-t border-slate-700 pt-6">
-              <p className="text-slate-500 text-sm mb-2">
-                {locale === 'en' ? 'Powered by' : '제공'}
-              </p>
-              <a 
-                href="https://xromeda.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
-              >
-                XROMEDA
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </a>
-              <p className="text-slate-500 text-sm mt-2">
-                {locale === 'en' 
-                  ? 'Next-generation XR content platform' 
-                  : '차세대 XR 콘텐츠 플랫폼'
-                }
-              </p>
+          <div className="text-center">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => router.push("/")}
+                  className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 cursor-pointer border-none bg-transparent"
+                >
+                  VROOK
+                </button>
+                <span className="text-slate-500">by</span>
+                <a 
+                  href="https://xromeda.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+                >
+                  XROMEDA
+                </a>
+              </div>
+              <p className="text-slate-400">{t('home.footerDesc')}</p>
             </div>
           </div>
         </div>
