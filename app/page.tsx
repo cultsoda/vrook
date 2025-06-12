@@ -122,14 +122,13 @@ export default function HomePage() {
                           target.src = "/placeholder.svg?height=400&width=400";
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-xl font-bold text-white mb-1">{influencer.name}</h3>
-                        <p className="text-sm text-slate-300">{getInfluencerDescription(influencer)}</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">{influencer.name}</h3>
                       </div>
                     </div>
-                    <div className="p-4">
-                      {/* 해시태그가 이제 description에 포함되어 있으므로 별도 표시 불필요 */}
+                    <div className="p-4 bg-slate-900">
+                      <p className="text-lg text-purple-300 font-semibold">{getInfluencerDescription(influencer)}</p>
                     </div>
                   </CardContent>
                 </Card>
