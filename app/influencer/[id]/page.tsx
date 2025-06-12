@@ -231,22 +231,65 @@ export default function InfluencerDetailPage() {
               {/* SNS 링크 섹션 */}
               {influencer.socialLinks && influencer.socialLinks.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">SNS & 플랫폼</h3>
                   <div className="flex flex-wrap gap-3">
                     {influencer.socialLinks.map((link, index) => {
-                      // 플랫폼별 아이콘과 색상 매핑
+                      // 플랫폼별 아이콘과 이름 매핑
                       const getPlatformInfo = (url: string) => {
-                        if (url.includes('instagram.com')) return { name: 'Instagram', color: 'bg-pink-600 hover:bg-pink-700', icon: '📷' }
-                        if (url.includes('youtube.com') || url.includes('youtu.be')) return { name: 'YouTube', color: 'bg-red-600 hover:bg-red-700', icon: '🎥' }
-                        if (url.includes('tiktok.com')) return { name: 'TikTok', color: 'bg-black hover:bg-gray-800', icon: '🎵' }
-                        if (url.includes('twitch.tv')) return { name: 'Twitch', color: 'bg-purple-600 hover:bg-purple-700', icon: '🎮' }
-                        if (url.includes('twitter.com') || url.includes('x.com')) return { name: 'Twitter/X', color: 'bg-blue-600 hover:bg-blue-700', icon: '🐦' }
-                        if (url.includes('patreon.com')) return { name: 'Patreon', color: 'bg-orange-600 hover:bg-orange-700', icon: '💎' }
-                        if (url.includes('chzzk.naver.com')) return { name: 'CHZZK', color: 'bg-green-600 hover:bg-green-700', icon: '🎯' }
-                        if (url.includes('sooplive.co.kr')) return { name: 'Soop Live', color: 'bg-indigo-600 hover:bg-indigo-700', icon: '📺' }
-                        if (url.includes('cafe.naver.com')) return { name: 'Naver Cafe', color: 'bg-green-700 hover:bg-green-800', icon: '☕' }
-                        if (url.includes('threads.com')) return { name: 'Threads', color: 'bg-gray-600 hover:bg-gray-700', icon: '🧵' }
-                        return { name: 'Link', color: 'bg-slate-600 hover:bg-slate-700', icon: '🔗' }
+                        if (url.includes('instagram.com')) return { name: 'Instagram', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                          </svg>
+                        )}
+                        if (url.includes('youtube.com') || url.includes('youtu.be')) return { name: 'YouTube', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                          </svg>
+                        )}
+                        if (url.includes('tiktok.com')) return { name: 'TikTok', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                          </svg>
+                        )}
+                        if (url.includes('twitch.tv')) return { name: 'Twitch', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                          </svg>
+                        )}
+                        if (url.includes('twitter.com') || url.includes('x.com')) return { name: 'X (Twitter)', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                          </svg>
+                        )}
+                        if (url.includes('patreon.com')) return { name: 'Patreon', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/>
+                          </svg>
+                        )}
+                        if (url.includes('chzzk.naver.com')) return { name: 'CHZZK', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                          </svg>
+                        )}
+                        if (url.includes('sooplive.co.kr')) return { name: 'Soop Live', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"/>
+                          </svg>
+                        )}
+                        if (url.includes('cafe.naver.com')) return { name: 'Naver Cafe', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/>
+                          </svg>
+                        )}
+                        if (url.includes('threads.com')) return { name: 'Threads', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.744-1.757-.569-.653-1.42-.998-2.532-1.024-1.542.027-2.634.787-3.248 2.259l-1.854-.551c.762-1.93 2.403-3.044 4.888-3.316.8-.086 1.592-.065 2.347.062 1.515.254 2.731.867 3.613 1.821 1.28 1.38 1.53 3.355 1.261 5.536a5.372 5.372 0 0 1 .176 2.426c-.176 1.715-.947 3.176-2.296 4.343-1.542 1.331-3.593 2.004-6.091 2.002h-.014"/>
+                          </svg>
+                        )}
+                        return { name: 'Link', icon: (
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                          </svg>
+                        )}
                       }
                       
                       const platformInfo = getPlatformInfo(link)
@@ -257,11 +300,10 @@ export default function InfluencerDetailPage() {
                           href={link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-white font-medium transition-colors duration-200 ${platformInfo.color}`}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/60 hover:bg-slate-700/60 text-white font-medium transition-colors duration-200 backdrop-blur-sm border border-slate-600/30"
                         >
-                          <span>{platformInfo.icon}</span>
+                          {platformInfo.icon}
                           <span>{platformInfo.name}</span>
-                          <ExternalLink className="w-4 h-4" />
                         </a>
                       )
                     })}
