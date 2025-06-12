@@ -57,14 +57,14 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       name: "브이룩 패키지",
       price: prices.basic,
       features: ["photos20", "photoVideo1", "vrVideo1"],
-      newFeatures: [], // 첫 번째 패키지는 새로운 기능 없음
+      newFeatures: [],
     },
     {
       id: "special",
       name: "브이룩 스페셜 패키지",
       price: prices.special,
       features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
-      newFeatures: ["vrVideoFull1", "vrHmdGift"], // 기본 패키지 대비 추가된 기능들
+      newFeatures: ["vrVideoFull1", "vrHmdGift"],
       highlight: true,
     },
     {
@@ -72,7 +72,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       name: "브이룩 ALL 패키지",
       price: prices.all,
       features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3", "photocardGift"],
-      newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"], // 스페셜 패키지 대비 추가된 기능들
+      newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
     },
   ]
 }
@@ -155,14 +155,19 @@ export const influencers: Influencer[] = [
   {
     id: "gyeoudi",
     name: "겨우디",
-    description: "패션 & 라이프스타일 인플루언서",
-    descriptionEn: "Fashion & Lifestyle Influencer",
+    description: "#화보장인_겨우디",
+    descriptionEn: "#Photo_Master_Gyeoudi",
     profileImage: getInfluencerImagePath("gyeoudi"),
     coverImage: getInfluencerImagePath("gyeoudi"),
-    bio: "패션과 라이프스타일을 통해 일상의 아름다움을 전달하는 크리에이터입니다. VR을 통해 더욱 생생한 경험을 선사합니다.",
-    bioEn: "A creator who conveys the beauty of daily life through fashion and lifestyle. Delivers more vivid experiences through VR.",
+    bio: "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.",
+    bioEn: "A model with a unique atmosphere who turns even daily life into pictorials. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK.",
     category: "Fashion & Lifestyle",
     categoryKey: "fashionLifestyle",
+    socialLinks: {
+      instagram: "https://www.instagram.com/winter_28270?igsh=OXUyejk3MG05Zmx3&utm_source=qr",
+      patreon: "https://www.patreon.com/c/winterD/membership?showCustomPledge=true",
+      youtube: "https://www.youtube.com/@winterD"
+    },
     galleryImages: [
       getProductThumbnail("gyeoudi", "photos"),
       getProductThumbnail("gyeoudi", "bcuts"), 
@@ -180,14 +185,19 @@ export const influencers: Influencer[] = [
   {
     id: "momorina",
     name: "모모리나",
-    description: "뷰티 & 메이크업 아티스트",
-    descriptionEn: "Beauty & Makeup Artist",
+    description: "#만능크리에이터_모모리나",
+    descriptionEn: "#All_Round_Creator_Momorina",
     profileImage: getInfluencerImagePath("momorina"),
     coverImage: getInfluencerImagePath("momorina"),
-    bio: "뷰티와 메이크업의 새로운 트렌드를 제시하며, VR 기술로 더욱 실감나는 뷰티 콘텐츠를 만들어갑니다.",
-    bioEn: "Presents new trends in beauty and makeup, creating more realistic beauty content with VR technology.",
+    bio: "일러스트는 기본, 룩북과 피규어 리뷰까지 섭렵한 만능 크리에이터, 모모리나. 그녀가 사랑하는 모든 것들을 VROOK에서 가장 가까이 만나보세요.",
+    bioEn: "Momorina, an all-round creator who masters everything from illustration to lookbooks and figure reviews. Meet all the things she loves closest at VROOK.",
     category: "Beauty & Makeup",
     categoryKey: "beautyMakeup",
+    socialLinks: {
+      youtube: "https://www.youtube.com/@momo_rina",
+      twitter: "https://x.com/_momo_rina_",
+      patreon: "https://www.patreon.com/momorina"
+    },
     galleryImages: [
       getProductThumbnail("momorina", "photos"),
       getProductThumbnail("momorina", "bcuts"),
@@ -205,14 +215,18 @@ export const influencers: Influencer[] = [
   {
     id: "ssoblly",
     name: "쏘블리",
-    description: "푸드 & 쿠킹 인플루언서",
-    descriptionEn: "Food & Cooking Influencer",
+    description: "#러블리끝판왕_쏘블리",
+    descriptionEn: "#Lovely_Ultimate_Ssoblly",
     profileImage: getInfluencerImagePath("ssoblly"),
     coverImage: getInfluencerImagePath("ssoblly"),
-    bio: "맛있는 요리와 음식 문화를 소개하며, VR을 통해 요리 과정을 생생하게 체험할 수 있는 콘텐츠를 제작합니다.",
-    bioEn: "Introduces delicious cooking and food culture, creating content that allows vivid experience of cooking process through VR.",
-    category: "Food & Cooking",
-    categoryKey: "foodCooking",
+    bio: "이름처럼 사랑스러운, 당신의 '최애'가 될 모델. 청순함과 섹시함을 넘나드는 그녀의 다채로운 매력에 푹 빠져보세요.",
+    bioEn: "A model as lovely as her name, who will become your 'favorite'. Fall deeply into her colorful charm that transcends innocence and sexiness.",
+    category: "Fashion & Lifestyle",
+    categoryKey: "fashionLifestyle",
+    socialLinks: {
+      instagram: "https://www.instagram.com/leeesovelys2/",
+      youtube: "https://www.youtube.com/channel/UCO2GVjlhscG3hxfOZYUYLxg"
+    },
     galleryImages: [
       getProductThumbnail("ssoblly", "photos"),
       getProductThumbnail("ssoblly", "bcuts"),
@@ -230,14 +244,18 @@ export const influencers: Influencer[] = [
   {
     id: "yanghyewon",
     name: "양혜원",
-    description: "피트니스 & 웰니스 코치",
-    descriptionEn: "Fitness & Wellness Coach",
+    description: "#하이패션모델_양혜원",
+    descriptionEn: "#High_Fashion_Model_YangHyeWon",
     profileImage: getInfluencerImagePath("yanghyewon"),
     coverImage: getInfluencerImagePath("yanghyewon"),
-    bio: "건강한 라이프스타일과 피트니스를 통해 긍정적인 에너지를 전달합니다. VR로 함께 운동하는 새로운 경험을 제공합니다.",
-    bioEn: "Delivers positive energy through healthy lifestyle and fitness. Provides new experience of exercising together through VR.",
-    category: "Fitness & Wellness",
-    categoryKey: "fitnessWellness",
+    bio: "시선을 압도하는 카리스마, 경계 없는 스펙트럼의 모델. 강렬한 눈빛과 독보적인 아우라, 그녀가 선보이는 새로운 아트를 VROOK에서 확인하세요.",
+    bioEn: "A model with overwhelming charisma and boundless spectrum. Check out the new art she presents with her intense gaze and unique aura at VROOK.",
+    category: "Fashion & Lifestyle",
+    categoryKey: "fashionLifestyle",
+    socialLinks: {
+      instagram: "https://www.instagram.com/h.xon_y/",
+      threads: "https://www.threads.com/@h.xon_y?xmt=AQF0A8GMNAFZls4J8v0hNwYl65FgX_h-nDSS_5yA8Zu6QMg"
+    },
     galleryImages: [
       getProductThumbnail("yanghyewon", "photos"),
       getProductThumbnail("yanghyewon", "bcuts"),
@@ -255,14 +273,17 @@ export const influencers: Influencer[] = [
   {
     id: "kkyunyangnyang",
     name: "뀨냥냥",
-    description: "여행 & 어드벤처 크리에이터",
-    descriptionEn: "Travel & Adventure Creator",
+    description: "#엉뚱발랄_뀨냥냥",
+    descriptionEn: "#Quirky_Lively_KkyuNyangNyang",
     profileImage: getInfluencerImagePath("kkyunyangnyang"),
     coverImage: getInfluencerImagePath("kkyunyangnyang"),
-    bio: "전 세계 아름다운 여행지를 소개하며, VR을 통해 집에서도 생생한 여행 경험을 할 수 있도록 합니다.",
-    bioEn: "Introduces beautiful travel destinations around the world, enabling vivid travel experiences at home through VR.",
-    category: "Travel & Adventure",
-    categoryKey: "travelAdventure",
+    bio: "예측불허! 톡톡 튀는 매력의 스트리머. 언제나 유쾌한 그녀와의 소통, VROOK에서는 더욱 생생하고 특별한 모습으로 함께합니다.",
+    bioEn: "Unpredictable! A streamer with sparkling charm. Always cheerful communication with her, join us at VROOK in a more vivid and special way.",
+    category: "Gaming & Entertainment",
+    categoryKey: "gamingEntertainment",
+    socialLinks: {
+      chzzk: "https://chzzk.naver.com/3eca060fbf7c633b5785f96b25ea275b"
+    },
     galleryImages: [
       getProductThumbnail("kkyunyangnyang", "photos"),
       getProductThumbnail("kkyunyangnyang", "bcuts"),
@@ -279,15 +300,21 @@ export const influencers: Influencer[] = [
   },
   {
     id: "jeongdabyeol",
-    name: "정다별",
-    description: "교육 & 라이프스타일 크리에이터",
-    descriptionEn: "Education & Lifestyle Creator",
+    name: "정다별이",
+    description: "#힙스터의아이콘_정다별이",
+    descriptionEn: "#Hipster_Icon_JeongDaByeol",
     profileImage: getInfluencerImagePath("jeongdabyeol"),
     coverImage: getInfluencerImagePath("jeongdabyeol"),
-    bio: "교육적이고 유익한 콘텐츠를 통해 지식과 정보를 전달하며, VR 교육 콘텐츠로 새로운 학습 경험을 제공합니다.",
-    bioEn: "Delivers knowledge and information through educational and beneficial content, providing new learning experiences with VR educational content.",
-    category: "Education & Lifestyle",
-    categoryKey: "educationLifestyle",
+    bio: "트렌드를 이끄는 댄서, 눈을 뗄 수 없는 퍼포머. 파워풀한 에너지와 스웨그 넘치는 그녀의 진짜 매력을 VROOK에서 느껴보세요.",
+    bioEn: "A trend-leading dancer, an irresistible performer. Feel her real charm with powerful energy and swag at VROOK.",
+    category: "Music & Dance",
+    categoryKey: "musicDance",
+    socialLinks: {
+      instagram: "https://www.instagram.com/jdabyeol2",
+      likey: "https://likey.me/jdabyeol2?utm_source=likey&utm_medium=4798192687841280",
+      tiktok: "https://www.tiktok.com/@.dabyeol2",
+      youtube: "https://www.youtube.com/@dainxodo"
+    },
     galleryImages: [
       getProductThumbnail("jeongdabyeol", "photos"),
       getProductThumbnail("jeongdabyeol", "bcuts"),
@@ -305,14 +332,19 @@ export const influencers: Influencer[] = [
   {
     id: "ina",
     name: "이나",
-    description: "게임 & 엔터테인먼트 크리에이터",
-    descriptionEn: "Gaming & Entertainment Creator",
+    description: "#매혹적인눈빛_이나",
+    descriptionEn: "#Mesmerizing_Gaze_Ina",
     profileImage: getInfluencerImagePath("ina"),
     coverImage: getInfluencerImagePath("ina"),
-    bio: "게임과 엔터테인먼트 콘텐츠를 통해 재미와 즐거움을 전달하며, VR 게임 체험으로 새로운 재미를 선사합니다.",
-    bioEn: "Delivers fun and enjoyment through game and entertainment content, providing new fun with VR game experiences.",
-    category: "Gaming & Entertainment",
-    categoryKey: "gamingEntertainment",
+    bio: "깊은 눈빛으로 모든 콘셉트를 소화하는 프로 모델. 한 번 보면 잊을 수 없는 그녀의 매혹적인 순간들을 VROOK에서 독점 공개합니다.",
+    bioEn: "A professional model who digests all concepts with deep eyes. Exclusively reveal her mesmerizing moments that you can't forget once you see them at VROOK.",
+    category: "Fashion & Lifestyle",
+    categoryKey: "fashionLifestyle",
+    socialLinks: {
+      instagram: "https://www.instagram.com/inah_sekiz05/",
+      ctee: "https://ctee.kr/place/sweetbox/store",
+      djawa: "https://djawaphoto.com/portfolio-cat/inah/"
+    },
     galleryImages: [
       getProductThumbnail("ina", "photos"),
       getProductThumbnail("ina", "bcuts"),
@@ -330,14 +362,19 @@ export const influencers: Influencer[] = [
   {
     id: "cuina",
     name: "큐이나",
-    description: "패션 & 라이프스타일 인플루언서",
-    descriptionEn: "Fashion & Lifestyle Influencer",
+    description: "#치명적인매력_큐이나",
+    descriptionEn: "#Fatal_Charm_Cuina",
     profileImage: getInfluencerImagePath("cuina"),
     coverImage: getInfluencerImagePath("cuina"),
-    bio: "패션과 라이프스타일을 통해 일상의 아름다움을 전달하는 크리에이터입니다. VR을 통해 더욱 생생한 경험을 선사합니다.",
-    bioEn: "A creator who conveys the beauty of daily life through fashion and lifestyle. Delivers more vivid experiences through VR.",
+    bio: "모든 시선을 단숨에 사로잡는 고혹적인 매력의 모델, 큐이나. 그녀가 만들어내는 치명적인 아름다움을 VROOK에서 직접 확인하세요.",
+    bioEn: "Cuina, a model with bewitching charm that captivates all eyes at once. Check out the fatal beauty she creates directly at VROOK.",
     category: "Fashion & Lifestyle",
     categoryKey: "fashionLifestyle",
+    socialLinks: {
+      instagram: "https://www.instagram.com/lovxena",
+      youtube: "https://www.youtube.com/@xloveex",
+      sooplive: "https://ch.sooplive.co.kr/rixzee"
+    },
     galleryImages: [
       getProductThumbnail("cuina", "photos"),
       getProductThumbnail("cuina", "bcuts"),
@@ -355,14 +392,18 @@ export const influencers: Influencer[] = [
   {
     id: "trollya",
     name: "트롤야",
-    description: "음악 & 댄스 크리에이터",
-    descriptionEn: "Music & Dance Creator",
+    description: "#반전매력_트롤야",
+    descriptionEn: "#Unexpected_Charm_Trollya",
     profileImage: getInfluencerImagePath("trollya"),
     coverImage: getInfluencerImagePath("trollya"),
-    bio: "음악과 댄스를 통해 즐거움을 전달하는 크리에이터입니다. VR 콘서트와 댄스 레슨으로 새로운 엔터테인먼트를 선보입니다.",
-    bioEn: "A creator who delivers joy through music and dance. Presents new entertainment with VR concerts and dance lessons.",
-    category: "Music & Dance",
-    categoryKey: "musicDance",
+    bio: "털털함 속에 숨겨진 사랑스러움, 게임 스트리머. 옆집 언니 같은 친근함, VROOK에서는 그녀의 새로운 모습을 발견할 수 있습니다.",
+    bioEn: "A game streamer with loveliness hidden in her carefree personality. With the friendliness of a next-door sister, you can discover her new side at VROOK.",
+    category: "Gaming & Entertainment",
+    categoryKey: "gamingEntertainment",
+    socialLinks: {
+      youtube: "https://www.youtube.com/channel/UC2KFBTZ9d-mOa0zCytAZRMw",
+      chzzk: "https://chzzk.naver.com/826f57d3283418e1fa39dfb23dc1dea8"
+    },
     galleryImages: [
       getProductThumbnail("trollya", "photos"),
       getProductThumbnail("trollya", "bcuts"),

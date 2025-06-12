@@ -6,9 +6,45 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { influencers, getInfluencerPackages } from "@/data/influencers"
-import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image } from "lucide-react"
+import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image, Instagram, Youtube, Heart, Twitter, MessageCircle, TrendingUp, Globe, Video } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
+
+// SNS 아이콘 매핑
+const getSocialIcon = (platform: string) => {
+  const iconMap: { [key: string]: any } = {
+    instagram: Instagram,
+    youtube: Youtube,
+    patreon: Heart,
+    twitter: Twitter,
+    chzzk: Video,
+    likey: Heart,
+    tiktok: TrendingUp,
+    threads: MessageCircle,
+    ctee: Globe,
+    djawa: Camera,
+    sooplive: Video
+  }
+  return iconMap[platform] || Globe
+}
+
+// SNS 플랫폼 한글명 매핑
+const getSocialPlatformName = (platform: string) => {
+  const nameMap: { [key: string]: string } = {
+    instagram: "Instagram",
+    youtube: "YouTube",
+    patreon: "Patreon",
+    twitter: "Twitter/X",
+    chzzk: "치지직",
+    likey: "라이키",
+    tiktok: "TikTok",
+    threads: "Threads",
+    ctee: "C-tee",
+    djawa: "Djawa",
+    sooplive: "숲라이브"
+  }
+  return nameMap[platform] || platform
+}
 
 export default function InfluencerDetailPage() {
   const params = useParams()
@@ -177,7 +213,7 @@ export default function InfluencerDetailPage() {
   ]
 
   // 현재 언어에 맞는 인플루언서 정보 가져오기
-  const getInfluencerDescription = () => {
+  const getInfluencerHashtag = () => {
     return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
   }
 
@@ -230,9 +266,34 @@ export default function InfluencerDetailPage() {
               <Badge className="bg-purple-600/20 text-purple-300 border-purple-400 mb-4">
                 {getInfluencerCategory()}
               </Badge>
-              <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
-              <p className="text-xl text-purple-200 mb-6">{getInfluencerDescription()}</p>
-              <p className="text-slate-300 mb-6 leading-relaxed">{getInfluencerBio()}</p>
+              <h1 className="text-5xl font-bold text-white mb-2">{influencer.name}</h1>
+              {/* 해시태그 표시 */}
+              <h2 className="text-2xl text-purple-300 mb-4 font-medium">{getInfluencerHashtag()}</h2>
+              {/* 상세 소개 */}
+              <p className="text-slate-300 mb-6 leading-relaxed text-lg">{getInfluencerBio()}</p>
+              
+              {/* SNS 링크 */}
+              {influencer.socialLinks && Object.keys(influencer.socialLinks).length > 0 && (
+                <div className="flex flex-wrap gap-3">
+                  {Object.entries(influencer.socialLinks).map(([platform, url]) => {
+                    if (!url) return null
+                    const IconComponent = getSocialIcon(platform)
+                    return (
+                      <a
+                        key={platform}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-600 rounded-lg text-slate-300 hover:text-white hover:border-purple-400 transition-all duration-200 hover:scale-105"
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        <span className="text-sm">{getSocialPlatformName(platform)}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -330,15 +391,16 @@ export default function InfluencerDetailPage() {
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
-          <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-            {t('influencer.packageGuideDesc')}
-          </p>
+          <div 
+            className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: t('influencer.packageGuideDesc') }}
+          />
 
           <div className="grid md:grid-cols-3 gap-6">
             {packages.map((pkg) => (
               <Card
                 key={pkg.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm ${
+                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm relative ${
                   pkg.highlight ? "ring-2 ring-purple-400" : ""
                 }`}
               >

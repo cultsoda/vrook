@@ -14,8 +14,12 @@ export default function HomePage() {
   const { t, locale } = useTranslation()
 
   // 현재 언어에 맞는 인플루언서 정보 가져오기
-  const getInfluencerDescription = (influencer: any) => {
+  const getInfluencerHashtag = (influencer: any) => {
     return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
+  }
+
+  const getInfluencerBio = (influencer: any) => {
+    return locale === 'en' && influencer.bioEn ? influencer.bioEn : influencer.bio
   }
 
   const getInfluencerCategory = (influencer: any) => {
@@ -129,7 +133,10 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-xl font-bold text-white mb-1">{influencer.name}</h3>
-                        <p className="text-sm text-slate-300">{getInfluencerDescription(influencer)}</p>
+                        {/* 해시태그 표시 */}
+                        <p className="text-sm text-purple-300 mb-1 font-medium">{getInfluencerHashtag(influencer)}</p>
+                        {/* 짧은 소개 표시 (첫 번째 문장만) */}
+                        <p className="text-xs text-slate-300 line-clamp-2">{getInfluencerBio(influencer).split('.')[0]}.</p>
                       </div>
                     </div>
                     <div className="p-4">

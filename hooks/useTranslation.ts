@@ -9,7 +9,8 @@ const translations = {
     "back": { "ko": "돌아가기", "en": "Back" },
     "purchase": { "ko": "구매하기", "en": "Purchase" },
     "viewProduct": { "ko": "상품 보러가기", "en": "View Product" },
-    "followers": { "ko": "팔로워", "en": "Followers" }
+    "followers": { "ko": "팔로워", "en": "Followers" },
+    "socialLinks": { "ko": "소셜 미디어", "en": "Social Media" }
   },
   "home": {
     "title": { "ko": "VROOK - VR 셀럽 화보 플랫폼", "en": "VROOK - VR Celebrity Photo Platform" },
@@ -47,7 +48,7 @@ const translations = {
     "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique synthetic photos generated with AI technology" },
     "purchaseFromXromeda": { "ko": "XROMEDA에서 구매하기", "en": "Purchase from XROMEDA" },
     "packageGuide": { "ko": "패키지 안내", "en": "Package Guide" },
-    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. 원하는 콘텐츠가 포함된 패키지를 선택하여 구매하실 수 있습니다.", "en": "Meet richer content with various packages. Choose and purchase a package that includes the content you want." },
+    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. <br> 원하는 콘텐츠가 포함된 패키지를 선택하여 구매하실 수 있습니다.", "en": "Meet richer content with various packages.  <br> Choose and purchase a package that includes the content you want." },
     "packageBenefits": { "ko": "💡 패키지 혜택", "en": "💡 Package Benefits" },
     "discountBenefit": { "ko": "할인 혜택", "en": "Discount Benefits" },
     "discountDesc": { "ko": "개별 구매 대비 최대 30% 할인", "en": "Up to 30% discount compared to individual purchases" },
@@ -101,6 +102,19 @@ const translations = {
       "aiPhotos3": { "ko": "AI 스페셜 화보 3장", "en": "3 AI Special Photos" },
       "photocardGift": { "ko": "실물 포토카드 증정 (국내 배송만 가능)", "en": "Physical Photo Card Gift (Korea shipping only)" }
     }
+  },
+  "socialPlatforms": {
+    "instagram": { "ko": "인스타그램", "en": "Instagram" },
+    "youtube": { "ko": "유튜브", "en": "YouTube" },
+    "patreon": { "ko": "패트레온", "en": "Patreon" },
+    "twitter": { "ko": "트위터/X", "en": "Twitter/X" },
+    "chzzk": { "ko": "치지직", "en": "Chzzk" },
+    "likey": { "ko": "라이키", "en": "Likey" },
+    "tiktok": { "ko": "틱톡", "en": "TikTok" },
+    "threads": { "ko": "쓰레드", "en": "Threads" },
+    "ctee": { "ko": "씨티", "en": "C-tee" },
+    "djawa": { "ko": "자와", "en": "Djawa" },
+    "sooplive": { "ko": "숲라이브", "en": "SoopLive" }
   }
 }
 
