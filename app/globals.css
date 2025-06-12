@@ -92,3 +92,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* 커스텀 미디어 쿼리 */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1080px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1080px;
+  }
+}
