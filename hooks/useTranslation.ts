@@ -13,10 +13,11 @@ const translations = {
   },
   "home": {
     "title": { "ko": "VROOK - VR 셀럽 화보 플랫폼", "en": "VROOK - VR Celebrity Photo Platform" },
-    "subtitle": { "ko": "VR 셀럽 화보 - 혁신적 콘텐츠가 초가된 상품입니다", "en": "VR Celebrity Photos - Revolutionary content platform" },
+    "subtitle": { "ko": "VR 셀럽 화보 - 혁신적 콘텐츠가 추가된 상품입니다", "en": "VR Celebrity Photos - Revolutionary content platform" },
     "description": { "ko": "VR 영상과 AI 화보를 통해 팬들에게 새로운 몰입 경험을 전달합니다", "en": "Delivering new immersive experiences to fans through VR videos and AI photos" },
     "vrExperience": { "ko": "VR 체험", "en": "VR Experience" },
     "aiPhotos": { "ko": "AI 화보", "en": "AI Photos" },
+    "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique composite pictorial created with AI technology" },
     "celebContent": { "ko": "셀럽 콘텐츠", "en": "Celebrity Content" },
     "serviceComponents": { "ko": "VROOK 서비스 구성", "en": "VROOK Service Components" },
     "vrVideos": { "ko": "VR 영상", "en": "VR Videos" },
