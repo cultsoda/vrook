@@ -213,16 +213,18 @@ export default function InfluencerDetailPage() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img
-                src={influencer.coverImage}
-                alt={influencer.name}
-                className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-                onError={(e) => {
-                  // 이미지 로드 실패시 플레이스홀더 사용
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/placeholder.svg?height=600&width=800";
-                }}
-              />
+              <div className="w-full aspect-square bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
+                <img
+                  src={influencer.coverImage}
+                  alt={influencer.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // 이미지 로드 실패시 플레이스홀더 사용
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/placeholder.svg?height=600&width=600";
+                  }}
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
             </div>
             <div>
@@ -256,15 +258,15 @@ export default function InfluencerDetailPage() {
                   onClick={() => handleProductClick(product.id)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div className="relative overflow-hidden rounded-t-lg aspect-square">
                       <img
                         src={product.thumbnail}
                         alt={product.name}
-                        className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         onError={(e) => {
                           // 이미지 로드 실패시 플레이스홀더 사용
                           const target = e.target as HTMLImageElement;
-                          target.src = "/placeholder.svg?height=300&width=400";
+                          target.src = "/placeholder.svg?height=400&width=400";
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

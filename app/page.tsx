@@ -115,11 +115,11 @@ export default function HomePage() {
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div className="relative overflow-hidden rounded-t-lg aspect-square">
                       <img
                         src={influencer.profileImage}
                         alt={influencer.name}
-                        className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         onError={(e) => {
                           // 이미지 로드 실패시 플레이스홀더 사용
                           const target = e.target as HTMLImageElement;
