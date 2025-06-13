@@ -268,6 +268,7 @@ export const influencers: Influencer[] = [
     profileImage: getInfluencerImagePath("kkyunyangnyang"),
     coverImage: getInfluencerImagePath("kkyunyangnyang"),
     socialLinks: [
+      "https://www.instagram.com/qnne0202/",
       "https://chzzk.naver.com/3eca060fbf7c633b5785f96b25ea275b"
     ],
     galleryImages: [
