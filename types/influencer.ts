@@ -37,3 +37,33 @@ export interface IndividualProduct {
   category: "photo" | "vr" | "video" | "ai"
   quantity?: number
 }
+
+// 오픈그래프 메타데이터를 위한 타입 추가
+export interface SEOMetadata {
+  title: string
+  description: string
+  keywords: string
+  ogImage: string
+  twitterImage: string
+  canonicalUrl: string
+}
+
+// 소셜 미디어 플랫폼 타입
+export type SocialPlatform = 
+  | 'instagram' 
+  | 'youtube' 
+  | 'tiktok' 
+  | 'twitch' 
+  | 'twitter' 
+  | 'patreon' 
+  | 'chzzk' 
+  | 'sooplive' 
+  | 'threads' 
+  | 'naver_cafe' 
+  | 'generic'
+
+export interface SocialPlatformInfo {
+  name: string
+  icon: React.ReactNode
+  platform: SocialPlatform
+}
