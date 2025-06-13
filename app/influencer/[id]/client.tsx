@@ -1,4 +1,4 @@
-// app/influencer/[id]/client.tsx (수정된 부분)
+// app/influencer/[id]/client.tsx (다국어 지원 완료)
 "use client"
 
 import { useState } from "react"
@@ -10,6 +10,7 @@ import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, Camera, Image } fr
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
 import { usePurchaseControl } from "@/hooks/usePurchaseControl"
+import { toast } from "sonner"
 import type { Influencer, Package } from "@/types/influencer"
 
 interface InfluencerDetailClientProps {
@@ -62,7 +63,8 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
 
   const handleProductClick = (productType: string) => {
     if (!canPurchase) {
-      showPurchaseUnavailableAlert()
+      // 번역된 토스트 메시지
+      toast.info(t('influencer.contentNotReady'))
       return
     }
 
@@ -156,12 +158,12 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         </div>
       </header>
 
-      {/* 구매 불가 상태 알림 배너 (선택사항) */}
+      {/* 구매 불가 상태 알림 배너 - 번역된 문구 */}
       {!canPurchase && (
         <div className="bg-yellow-600/20 border-b border-yellow-600/30 px-4 py-3">
           <div className="container mx-auto text-center">
             <p className="text-yellow-200 text-sm">
-              🚧 현재 구매가 일시 중단되었습니다. 곧 만나뵐 수 있도록 준비 중이에요!
+              {t('influencer.unavailableBanner')}
             </p>
           </div>
         </div>
@@ -360,7 +362,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             ))}
           </div>
 
-          {/* CTA 버튼을 패키지 카드들 아래에 하나만 배치 */}
+          {/* CTA 버튼 - 번역된 텍스트 */}
           <div className="text-center">
             <Button
               onClick={() => handlePackagePurchase()}
@@ -372,7 +374,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
               disabled={!canPurchase}
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              {canPurchase ? t('influencer.purchaseFromXromeda') : '구매 준비 중'}
+              {canPurchase ? t('influencer.purchaseFromXromeda') : t('influencer.salePreparation')}
             </Button>
           </div>
         </div>
@@ -390,13 +392,12 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {products.map((product, index) => (
               <Card
                 key={product.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
-                  canPurchase ? "hover:scale-105 cursor-pointer" : "opacity-70 cursor-not-allowed"
-                }`}
+                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group cursor-pointer hover:scale-105`}
                 onClick={() => handleProductClick(product.id)}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg" style={{ aspectRatio: '16 / 9' }}>
+                    {/* 썸네일 이미지 - 항상 표시 */}
                     <img
                       src={product.thumbnail}
                       alt={`${influencer.name} ${product.name}`}
@@ -419,26 +420,23 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                       {product.badge}
                     </Badge>
 
-                    {/* Play/View Icon Overlay */}
-                    {canPurchase && (
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                        {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
+                    {/* 호버 오버레이 - 구매 가능/불가 상관없이 표시 */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
+                      {canPurchase ? (
+                        // 구매 가능한 경우 - 기존과 동일
+                        product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
                           <Play className="w-12 h-12 text-white" />
                         ) : (
                           <Eye className="w-12 h-12 text-white" />
-                        )}
-                      </div>
-                    )}
-
-                    {/* 구매 불가 오버레이 */}
-                    {!canPurchase && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-t-lg">
+                        )
+                      ) : (
+                        // 구매 불가능한 경우 - 번역된 텍스트
                         <div className="text-white text-center">
-                          <div className="text-2xl mb-2">🔒</div>
-                          <div className="text-sm">준비 중</div>
+                          <div className="text-lg font-semibold mb-1">{t('influencer.comingSoon')}</div>
+                          <div className="text-sm opacity-80">{t('influencer.clickPreview')}</div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
 
                   <div className="p-4">

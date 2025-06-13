@@ -61,7 +61,12 @@
     "step3": { "ko": "결제 완료", "en": "Payment Complete" },
     "step3Desc": { "ko": "로그인 후 결제 정보를 입력하고 구매를 완료합니다", "en": "Log in,enter payment information and complete the purchase" },
     "notFound": { "ko": "인플루언서를 찾을 수 없습니다", "en": "Influencer not found" },
-    "backToHome": { "ko": "홈으로 돌아가기", "en": "Back to Home" }
+    "backToHome": { "ko": "홈으로 돌아가기", "en": "Back to Home" },
+    "unavailableBanner": { "ko": "🚧 아직 오픈 전이에요! 조금만 기다려주시면 곧 만나뵐게요", "en": "🚧 Not open yet! Please wait a little longer and we'll meet you soon" },
+    "salePreparation": { "ko": "판매 준비 중", "en": "Sale Preparation" },
+    "comingSoon": { "ko": "곧 공개 예정", "en": "Coming Soon" },
+    "clickPreview": { "ko": "클릭해서 미리보기", "en": "Click to preview" },
+    "contentNotReady": { "ko": "아직 준비 중인 콘텐츠예요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
   },
   "influencers": {
     "gyeoudi": {

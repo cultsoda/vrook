@@ -10,8 +10,9 @@ export function usePurchaseControl() {
   }
 
   const showPurchaseUnavailableAlert = () => {
-    // 더 예쁜 토스트나 모달로 변경 가능
-    alert('아직 구매 가능한 시간이 아니에요. 조금만 기다려 주세요! 😊')
+    // 번역이 필요한 경우를 위해 하드코딩된 메시지 유지
+    // 하지만 토스트는 client.tsx에서 번역된 메시지 사용
+    alert('아직 준비 중인 콘텐츠예요! 곧 만나보실 수 있어요 😊')
   }
 
   return {
