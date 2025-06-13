@@ -1,16 +1,7 @@
 import { influencers, getInfluencerPackages } from "@/data/influencers"
 import { generateInfluencerMetadata, generateStructuredData } from "@/lib/seo"
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
-
-const InfluencerDetailClient = dynamic(() => import('./client'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-2 border-purple-200 border-t-purple-600" />
-    </div>
-  )
-})
+import InfluencerDetailClient from './client'
 
 // 동적 메타데이터 생성 함수 (서버 컴포넌트)
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
