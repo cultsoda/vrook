@@ -16,7 +16,7 @@ export function generateInfluencerMetadata(influencer: Influencer): Metadata {
   const title = `${influencer.name} - VROOK VR 셀럽 화보`
   const description = `${influencer.name}의 독점 VR 화보와 AI 사진을 만나보세요. 프리미엄 콘텐츠로 새로운 몰입 경험을 제공합니다.`
   const url = `${SITE_CONFIG.url}/influencer/${influencer.id}`
-  const ogImageUrl = `/og-${influencer.id}.jpg`
+  const ogImageUrl = `${SITE_CONFIG.url}/og-${influencer.id}.jpg`
 
   return {
     title,
@@ -35,12 +35,12 @@ export function generateInfluencerMetadata(influencer: Influencer): Metadata {
       url,
       siteName: SITE_CONFIG.name,
       images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${influencer.name} - VROOK VR 셀럽 화보`,
-          type: 'image/jpeg',
+          {
+            url: `${SITE_CONFIG.url}${ogImageUrl}`,
+            width: 1200,
+            height: 630,
+            alt: `${influencer.name} - VROOK VR 셀럽 화보`,
+            type: 'image/jpeg',
         },
         {
           url: influencer.profileImage,
@@ -57,7 +57,7 @@ export function generateInfluencerMetadata(influencer: Influencer): Metadata {
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImageUrl],
+      images: [`${SITE_CONFIG.url}${ogImageUrl}`],
     },
     
     // 추가 메타 태그들
