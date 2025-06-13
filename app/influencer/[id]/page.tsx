@@ -176,15 +176,6 @@ export default function InfluencerDetailPage() {
     },
   ]
 
-  // 현재 언어에 맞는 인플루언서 정보 가져오기
-  const getInfluencerDescription = () => {
-    return t(influencer.descriptionKey)
-  }
-
-  const getInfluencerBio = () => {
-    return t(influencer.bioKey)
-  }
-
   return (
     <div className="min-h-screen bg-black">
       {/* Header */}
@@ -225,8 +216,8 @@ export default function InfluencerDetailPage() {
             <div>
               {/* 카테고리 뱃지 제거 */}
               <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
-              <p className="text-xl text-purple-200 mb-6">{getInfluencerDescription()}</p>
-              <p className="text-slate-300 mb-6 leading-relaxed">{getInfluencerBio()}</p>
+              <p className="text-xl text-purple-200 mb-6">{t(influencer.descriptionKey)}</p>
+              <p className="text-slate-300 mb-6 leading-relaxed">{t(influencer.bioKey)}</p>
               
               {/* SNS 링크 섹션 */}
               {influencer.socialLinks && influencer.socialLinks.length > 0 && (

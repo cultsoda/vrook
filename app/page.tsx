@@ -128,7 +128,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="p-4 bg-slate-900">
-                      <p className="text-lg text-purple-300 font-semibold">{getInfluencerDescription(influencer)}</p>
+                      <p className="text-lg text-purple-300 font-semibold">{t(influencer.descriptionKey)}</p>
                     </div>
                   </CardContent>
                 </Card>
