@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { influencers, getInfluencerPackages } from "@/data/influencers"
-import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, ShoppingCart, Camera, Image } from "lucide-react"
+import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, Camera, Image } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
 
@@ -119,6 +119,13 @@ export default function InfluencerDetailPage() {
     window.open(link, "_blank")
   }
 
+  // 패키지 구매 링크 처리
+  const handlePackagePurchase = () => {
+    const currentInfluencerLinks = influencerProductLinks[influencer.id as keyof typeof influencerProductLinks]
+    const link = currentInfluencerLinks?.photos || "https://stg.xromeda.com/play/2d/default"
+    window.open(link, "_blank")
+  }
+
   const products = [
     {
       id: "photos",
@@ -195,7 +202,7 @@ export default function InfluencerDetailPage() {
         </div>
       </header>
 
-      {/* Hero Section - 카테고리 뱃지 제거 */}
+      {/* Hero Section */}
       <section className="relative py-16 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -206,7 +213,6 @@ export default function InfluencerDetailPage() {
                   alt={influencer.name}
                   className="w-full h-auto object-cover object-center"
                   onError={(e) => {
-                    // 이미지 로드 실패시 플레이스홀더 사용
                     const target = e.target as HTMLImageElement;
                     target.src = "/placeholder.svg?height=600&width=600";
                   }}
@@ -214,7 +220,6 @@ export default function InfluencerDetailPage() {
               </div>
             </div>
             <div>
-              {/* 카테고리 뱃지 제거 */}
               <h1 className="text-5xl font-bold text-white mb-4">{influencer.name}</h1>
               <p className="text-xl text-purple-200 mb-6">{t(influencer.descriptionKey)}</p>
               <p className="text-slate-300 mb-6 leading-relaxed">{t(influencer.bioKey)}</p>
@@ -224,7 +229,6 @@ export default function InfluencerDetailPage() {
                 <div className="mb-6">
                   <div className="flex flex-wrap gap-3">
                     {influencer.socialLinks.map((link, index) => {
-                      // 플랫폼별 아이콘과 이름 매핑
                       const getPlatformInfo = (url: string) => {
                         if (url.includes('instagram.com')) return { name: 'Instagram', icon: (
                           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -306,7 +310,62 @@ export default function InfluencerDetailPage() {
         </div>
       </section>
 
-      {/* Product Selection */}
+      {/* Package Guide - 위로 이동 */}
+      <section className="py-16 px-4 bg-slate-900/50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
+          <div 
+            className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: t('influencer.packageGuideDesc') }}
+          />
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {packages.map((pkg) => (
+              <Card
+                key={pkg.id}
+                className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative"
+              >
+                <CardHeader>
+                  <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
+                  <div className="text-2xl font-bold text-purple-400">
+                    ₩{pkg.price.krw.toLocaleString()} / ${pkg.price.usd}
+                  </div>
+                  <div className="text-sm text-slate-400">{t('packages.price')}</div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {pkg.features.map((featureKey, index) => {
+                      const isNewFeature = pkg.newFeatures?.includes(featureKey)
+                      return (
+                        <li key={index} className="flex items-center text-slate-300 text-sm">
+                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
+                          <span className={isNewFeature ? "font-bold text-purple-300" : ""}>
+                            {isNewFeature && <span className="text-purple-400 mr-1">✨</span>}
+                            {t(`packages.features.${featureKey}`)}
+                          </span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA 버튼 추가 */}
+          <div className="text-center">
+            <Button
+              onClick={handlePackagePurchase}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-bold"
+            >
+              <ExternalLink className="w-5 h-5 mr-2" />
+              {t('influencer.purchaseFromXromeda')}
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Selection - 아래로 이동 */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.productSelection')}</h2>
@@ -331,7 +390,6 @@ export default function InfluencerDetailPage() {
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         onError={(e) => {
-                          // 이미지 로드 실패시 플레이스홀더 사용
                           const target = e.target as HTMLImageElement;
                           target.src = "/placeholder.svg?height=300&width=400";
                         }}
@@ -360,6 +418,8 @@ export default function InfluencerDetailPage() {
                       <h3 className="text-lg font-bold text-white mb-2">{product.name}</h3>
                       <p className="text-sm text-slate-300 mb-4 line-clamp-2">{product.description}</p>
 
+                      {/* XROMEDA 구매 버튼 제거 - 주석 처리 */}
+                      {/*
                       <Button
                         onClick={(e) => {
                           e.stopPropagation()
@@ -385,64 +445,12 @@ export default function InfluencerDetailPage() {
                         )}
                         <ExternalLink className="w-3 h-3 ml-2" />
                       </Button>
+                      */}
                     </div>
                   </CardContent>
                 </Card>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Package Guide */}
-      <section className="py-16 px-4 bg-slate-900/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
-          <div 
-            className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
-            dangerouslySetInnerHTML={{ __html: t('influencer.packageGuideDesc') }}
-          />
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
-              <Card
-                key={pkg.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm relative ${
-                  pkg.highlight ? "ring-2 ring-purple-400" : ""
-                }`}
-              >
-                {pkg.highlight && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-                      {t('packages.recommended')}
-                    </Badge>
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
-                  <div className="text-2xl font-bold text-purple-400">
-                    ₩{pkg.price.krw.toLocaleString()} / ${pkg.price.usd}
-                  </div>
-                  <div className="text-sm text-slate-400">{t('packages.price')}</div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {pkg.features.map((featureKey, index) => {
-                      const isNewFeature = pkg.newFeatures?.includes(featureKey)
-                      return (
-                        <li key={index} className="flex items-center text-slate-300 text-sm">
-                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
-                          <span className={isNewFeature ? "font-bold text-purple-300" : ""}>
-                            {isNewFeature && <span className="text-purple-400 mr-1">✨</span>}
-                            {t(`packages.features.${featureKey}`)}
-                          </span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -458,7 +466,7 @@ export default function InfluencerDetailPage() {
                 <div className="text-center relative">
                   <div className="relative mb-4">
                     <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <ShoppingCart className="w-8 h-8 text-white" />
+                      <Camera className="w-8 h-8 text-white" />
                     </div>
                     <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
                       1
