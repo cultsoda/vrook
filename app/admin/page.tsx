@@ -133,8 +133,8 @@ export default function AdminPage() {
     }))
   }
 
-  const generateSettingsCode = () => {
-    const settingsCode = `// data/purchaseSettings.ts
+ const generateSettingsCode = () => {
+  const settingsCode = `// data/purchaseSettings.ts
 export interface PurchaseSettings {
   [influencerId: string]: boolean
 }
@@ -149,19 +149,19 @@ ${Object.entries(purchaseSettings)
 // 설정 업데이트 히스토리 (참고용)
 export const updateHistory = [
   {
-    date: '2024-06-13',
-    updatedBy: 'admin',
-    changes: '초기 설정 - 모든 인플루언서 구매 가능',
+    date: "2024-06-13",
+    updatedBy: "admin",
+    changes: "초기 설정 - 모든 인플루언서 구매 가능",
   },
   {
-    date: '${new Date().toISOString().split('T')[0]}',
-    updatedBy: 'admin',
-    changes: '${updateNote || '설정 업데이트'}',
+    date: "${new Date().toISOString().split('T')[0]}",
+    updatedBy: "admin",
+    changes: "${updateNote || '설정 업데이트'}",
   },
   // 새로운 업데이트는 여기에 추가하세요
 ]`
-    return settingsCode
-  }
+  return settingsCode
+}
 
   const handleAutoDeploy = async () => {
     if (!updateNote.trim()) {
