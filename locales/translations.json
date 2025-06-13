@@ -59,7 +59,7 @@
     "step2": { "ko": "XROMEDA 이동", "en": "Move to XROMEDA" },
     "step2Desc": { "ko": "XROMEDA 플랫폼으로 자동 이동됩니다", "en": "Automatically move to XROMEDA platform" },
     "step3": { "ko": "결제 완료", "en": "Payment Complete" },
-    "step3Desc": { "ko": "결제 정보를 입력하고 구매를 완료합니다", "en": "Enter payment information and complete the purchase" },
+    "step3Desc": { "ko": "로그인 후 결제 정보를 입력하고 구매를 완료합니다", "en": "Log in,enter payment information and complete the purchase" },
     "notFound": { "ko": "인플루언서를 찾을 수 없습니다", "en": "Influencer not found" },
     "backToHome": { "ko": "홈으로 돌아가기", "en": "Back to Home" }
   },

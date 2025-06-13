@@ -247,16 +247,24 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                       const platformInfo = getPlatformInfo(link)
                       
                       return (
-                        <a
-                          key={index}
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`flex items-center justify-center w-12 h-12 rounded-full bg-slate-800/60 hover:bg-slate-700/60 transition-all duration-200 backdrop-blur-sm border border-slate-600/30 hover:scale-110 ${platformInfo.color}`}
-                          aria-label={`${influencer.name}의 ${platformInfo.name} 바로가기`}
-                        >
-                          {platformInfo.icon}
-                        </a>
+                        <div key={index} className="relative group">
+                          <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center justify-center w-12 h-12 rounded-full bg-slate-800/60 hover:bg-slate-700/60 transition-all duration-200 backdrop-blur-sm border border-slate-600/30 hover:scale-110 ${platformInfo.color}`}
+                            aria-label={`${influencer.name}의 ${platformInfo.name} 바로가기`}
+                          >
+                            {platformInfo.icon}
+                          </a>
+                          
+                          {/* 툴팁 */}
+                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                            {platformInfo.name}
+                            {/* 툴팁 화살표 */}
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-transparent border-t-black/90"></div>
+                          </div>
+                        </div>
                       )
                     })}
                   </div>
@@ -414,9 +422,6 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   <div className="relative mb-4">
                     <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-full flex items-center justify-center mx-auto mb-3`}>
                       <item.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-slate-700 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      {item.step}
                     </div>
                   </div>
                   <h4 className="text-white font-medium mb-2">{t(`influencer.${item.titleKey}`)}</h4>
