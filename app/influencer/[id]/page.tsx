@@ -39,20 +39,20 @@ export default function InfluencerDetailPage() {
   // 인플루언서별 상품 링크 매핑
   const influencerProductLinks = {
     gyeoudi: {
-      photos: "https://stg.xromeda.com/play/2d/mazvc9h9vrbwm419",
-      bcuts: "https://stg.xromeda.com/play/2d/gukqxxyva6vzjuzr",
-      video: "https://stg.xromeda.com/play/media/opxtqff6u9wqch1t",
-      vr: "https://stg.xromeda.com/play/media/tetf4z2pwdkcsnyi",
-      vrFull: "https://stg.xromeda.com/play/media/xo3pg10md1i96fot",
-      ai: "https://stg.xromeda.com/play/2d/btq0c4w2jaf0rmox"
+      photos: "https://stg.xromeda.com/play/2d/mazvc9h9vrbwm419?mode=login&from=ep",
+      bcuts: "https://stg.xromeda.com/play/2d/gukqxxyva6vzjuzr?mode=login&from=ep",
+      video: "https://stg.xromeda.com/play/media/opxtqff6u9wqch1t?mode=login&from=ep",
+      vr: "https://stg.xromeda.com/play/media/tetf4z2pwdkcsnyi?mode=login&from=ep",
+      vrFull: "https://stg.xromeda.com/play/media/xo3pg10md1i96fot?mode=login&from=ep",
+      ai: "https://stg.xromeda.com/play/2d/btq0c4w2jaf0rmox?mode=login&from=ep"
     },
     momorina: {
-      photos: "https://stg.xromeda.com/play/2d/vpu20s7qpaj1pu6j",
-      bcuts: "https://stg.xromeda.com/play/2d/cdysghp7925gxuht",
-      video: "https://stg.xromeda.com/play/media/1y6ghrtma0fis6a8",
-      vr: "https://stg.xromeda.com/play/media/4lqkzg3rmao1boy4",
-      vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5",
-      ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl"
+      photos: "https://stg.xromeda.com/play/2d/vpu20s7qpaj1pu6j?mode=login&from=ep",
+      bcuts: "https://stg.xromeda.com/play/2d/cdysghp7925gxuht?mode=login&from=ep",
+      video: "https://stg.xromeda.com/play/media/1y6ghrtma0fis6a8?mode=login&from=ep",
+      vr: "https://stg.xromeda.com/play/media/4lqkzg3rmao1boy4?mode=login&from=ep",
+      vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5?mode=login&from=ep",
+      ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl?mode=login&from=ep"
     },
     // 다른 인플루언서들의 기본 링크
     yanghyewon: {

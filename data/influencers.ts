@@ -161,9 +161,9 @@ export const influencers: Influencer[] = [
     coverImage: getInfluencerImagePath("gyeoudi"),
     socialLinks: [
       "https://www.instagram.com/winter_28270?igsh=OXUyejk3MG05Zmx3&utm_source=qr",
-      "https://www.patreon.com/c/winterD/membership?showCustomPledge=true",
+      // "https://www.patreon.com/c/winterD/membership?showCustomPledge=true",
       "https://www.youtube.com/@winterD",
-      "https://cafe.naver.com/winterd?tc=shared_link",
+      // "https://cafe.naver.com/winterd?tc=shared_link",
       "https://ch.sooplive.co.kr/rlrlvkvk123",
       "https://www.twitch.tv/kyul365",
       "https://www.tiktok.com/@winter_28270?_t=8pqojdxG0tb&_r=1"
@@ -192,7 +192,7 @@ export const influencers: Influencer[] = [
     socialLinks: [
       "https://www.youtube.com/@momo_rina",
       "https://x.com/_momo_rina_",
-      "https://www.patreon.com/momorina"
+      // "https://www.patreon.com/momorina"
     ],
     galleryImages: [
       getProductThumbnail("momorina", "photos"),
@@ -218,7 +218,7 @@ export const influencers: Influencer[] = [
     socialLinks: [
       "https://www.instagram.com/leeesovelys2/",
       "https://www.youtube.com/channel/UCO2GVjlhscG3hxfOZYUYLxg",
-      "https://www.patreon.com/leeesovely",
+     //  "https://www.patreon.com/leeesovely",
       "https://x.com/leeesovely"
     ],
     galleryImages: [
@@ -244,7 +244,7 @@ export const influencers: Influencer[] = [
     coverImage: getInfluencerImagePath("yanghyewon"),
     socialLinks: [
       "https://www.instagram.com/h.xon_y/",
-      "https://www.threads.com/@h.xon_y?xmt=AQF0A8GMNAFZls4J8v0hNwYl65FgX_h-nDSS_5yA8Zu6QMg"
+      // "https://www.threads.com/@h.xon_y?xmt=AQF0A8GMNAFZls4J8v0hNwYl65FgX_h-nDSS_5yA8Zu6QMg"
     ],
     galleryImages: [
       getProductThumbnail("yanghyewon", "photos"),
@@ -293,8 +293,9 @@ export const influencers: Influencer[] = [
     coverImage: getInfluencerImagePath("jeongdabyeol"),
     socialLinks: [
       "https://www.instagram.com/jdabyeol2",
-      "https://www.tiktok.com/@.dabyeol2",
-      "https://www.youtube.com/@dainxodo"
+      "https://www.youtube.com/@dainxodo",
+      "https://www.tiktok.com/@.dabyeol2"
+      
     ],
     galleryImages: [
       getProductThumbnail("jeongdabyeol", "photos"),
