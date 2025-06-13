@@ -225,18 +225,8 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {packages.map((pkg, index) => (
               <Card
                 key={pkg.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm relative transition-all duration-300 hover:scale-105 ${
-                  pkg.highlight ? 'ring-2 ring-purple-400' : ''
-                }`}
+                className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative transition-all duration-300 hover:scale-105"
               >
-                {pkg.highlight && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-purple-600 text-white px-3 py-1">
-                      {t('packages.recommended')}
-                    </Badge>
-                  </div>
-                )}
-                
                 <CardContent className="p-0">
                   {/* 패키지 이미지 */}
                   <div className="relative overflow-hidden rounded-t-lg">
@@ -262,7 +252,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   </CardHeader>
                   
                   <div className="px-6 pb-6">
-                    <ul className="space-y-2 mb-4">
+                    <ul className="space-y-2">
                       {pkg.features.map((featureKey, featureIndex) => {
                         const isNewFeature = pkg.newFeatures?.includes(featureKey)
                         return (
@@ -276,22 +266,21 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                         )
                       })}
                     </ul>
-                    
-                    <Button
-                      onClick={() => handlePackagePurchase(pkg.id)}
-                      className={`w-full ${
-                        pkg.highlight 
-                          ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700' 
-                          : 'bg-slate-700 hover:bg-slate-600'
-                      } text-white`}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      {t('influencer.purchaseFromXromeda')}
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* CTA 버튼을 패키지 카드들 아래에 하나만 배치 */}
+          <div className="text-center">
+            <Button
+              onClick={() => handlePackagePurchase()}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-bold"
+            >
+              <ExternalLink className="w-5 h-5 mr-2" />
+              {t('influencer.purchaseFromXromeda')}
+            </Button>
           </div>
         </div>
       </section>
