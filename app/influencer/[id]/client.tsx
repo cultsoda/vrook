@@ -430,10 +430,9 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                           <Eye className="w-12 h-12 text-white" />
                         )
                       ) : (
-                        // 구매 불가능한 경우 - 번역된 텍스트
+                        // 구매 불가능한 경우 - "곧 공개 예정"만 표시
                         <div className="text-white text-center">
-                          <div className="text-lg font-semibold mb-1">{t('influencer.comingSoon')}</div>
-                          <div className="text-sm opacity-80">{t('influencer.clickPreview')}</div>
+                          <div className="text-lg font-semibold">{t('influencer.comingSoon')}</div>
                         </div>
                       )}
                     </div>
