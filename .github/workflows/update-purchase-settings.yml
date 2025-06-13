@@ -5,6 +5,10 @@ on:
   repository_dispatch:
     types: [update-purchase-settings]
 
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   update-settings:
     runs-on: ubuntu-latest
@@ -13,20 +17,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
+          fetch-depth: 0
+          
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
           
       - name: Update purchase settings file
         run: |
-          cat > data/purchaseSettings.ts << 'EOF'
-          ${{ github.event.client_payload.settings_content }}
-          EOF
+          echo '${{ github.event.client_payload.settings_content }}' > data/purchaseSettings.ts
+          
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes detected"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
           
       - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add data/purchaseSettings.ts
-          git diff --staged --quiet || git commit -m "🔧 Update purchase settings: ${{ github.event.client_payload.update_note }}"
-          git push
+          git commit -m "🔧 Auto-update purchase settings: ${{ github.event.client_payload.update_note }}"
+          git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
