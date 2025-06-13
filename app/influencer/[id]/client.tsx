@@ -287,7 +287,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {packages.map((pkg, index) => (
               <Card
                 key={pkg.id}
-                className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative transition-all duration-300 hover:scale-105"
+                className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative"
               >
                 <CardContent className="p-0">
                   {/* 패키지 이미지 */}
