@@ -313,6 +313,22 @@ export default function InfluencerDetailPage() {
       {/* Package Guide - 위로 이동 */}
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto">
+          {/* 패키지 이미지 영역 추가 */}
+          <div className="mb-12 flex justify-center">
+            <div className="w-full max-w-4xl">
+              <img
+                src={`/images/products/${influencer.id}_package.webp`}
+                alt={`${influencer.name} 패키지`}
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
+                style={{ aspectRatio: '16/9' }}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/placeholder.svg?height=450&width=800";
+                }}
+              />
+            </div>
+          </div>
+
           <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
           <div 
             className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
@@ -368,9 +384,9 @@ export default function InfluencerDetailPage() {
       {/* Product Selection - 아래로 이동 */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.productSelection')}</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.productGuide')}</h2>
           <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-            {influencer.name}{t('influencer.productSelectionDesc')}
+            {influencer.name}{t('influencer.productGuideDesc')}
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -466,7 +482,7 @@ export default function InfluencerDetailPage() {
                 <div className="text-center relative">
                   <div className="relative mb-4">
                     <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Camera className="w-8 h-8 text-white" />
+                      <Eye className="w-8 h-8 text-white" />
                     </div>
                     <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
                       1
