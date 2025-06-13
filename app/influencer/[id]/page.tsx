@@ -313,22 +313,6 @@ export default function InfluencerDetailPage() {
       {/* Package Guide - 위로 이동 */}
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto">
-          {/* 패키지 이미지 영역 추가 */}
-          <div className="mb-12 flex justify-center">
-            <div className="w-full max-w-4xl">
-              <img
-                src={`/images/products/${influencer.id}_package.webp`}
-                alt={`${influencer.name} 패키지`}
-                className="w-full h-auto object-cover rounded-lg shadow-lg"
-                style={{ aspectRatio: '16/9' }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/placeholder.svg?height=450&width=800";
-                }}
-              />
-            </div>
-          </div>
-
           <h2 className="text-3xl font-bold text-white mb-8 text-center">{t('influencer.packageGuide')}</h2>
           <div 
             className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
@@ -341,28 +325,45 @@ export default function InfluencerDetailPage() {
                 key={pkg.id}
                 className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative"
               >
-                <CardHeader>
-                  <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
-                  <div className="text-2xl font-bold text-purple-400">
-                    ₩{pkg.price.krw.toLocaleString()} / ${pkg.price.usd}
+                <CardContent className="p-0">
+                  {/* 패키지 이미지 추가 */}
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img
+                      src={`/images/products/${influencer.id}_${pkg.id}.webp`}
+                      alt={`${influencer.name} ${t(`packages.${pkg.id}`)}`}
+                      className="w-full h-auto object-cover"
+                      style={{ aspectRatio: '16/9' }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/placeholder.svg?height=450&width=800";
+                      }}
+                    />
                   </div>
-                  <div className="text-sm text-slate-400">{t('packages.price')}</div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {pkg.features.map((featureKey, index) => {
-                      const isNewFeature = pkg.newFeatures?.includes(featureKey)
-                      return (
-                        <li key={index} className="flex items-center text-slate-300 text-sm">
-                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
-                          <span className={isNewFeature ? "font-bold text-purple-300" : ""}>
-                            {isNewFeature && <span className="text-purple-400 mr-1">✨</span>}
-                            {t(`packages.features.${featureKey}`)}
-                          </span>
-                        </li>
-                      )
-                    })}
-                  </ul>
+                  
+                  <CardHeader>
+                    <CardTitle className="text-white">{t(`packages.${pkg.id}`)}</CardTitle>
+                    <div className="text-2xl font-bold text-purple-400">
+                      ₩{pkg.price.krw.toLocaleString()} / ${pkg.price.usd}
+                    </div>
+                    <div className="text-sm text-slate-400">{t('packages.price')}</div>
+                  </CardHeader>
+                  
+                  <div className="px-6 pb-6">
+                    <ul className="space-y-2">
+                      {pkg.features.map((featureKey, index) => {
+                        const isNewFeature = pkg.newFeatures?.includes(featureKey)
+                        return (
+                          <li key={index} className="flex items-center text-slate-300 text-sm">
+                            <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
+                            <span className={isNewFeature ? "font-bold text-purple-300" : ""}>
+                              {isNewFeature && <span className="text-purple-400 mr-1">✨</span>}
+                              {t(`packages.features.${featureKey}`)}
+                            </span>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
                 </CardContent>
               </Card>
             ))}
