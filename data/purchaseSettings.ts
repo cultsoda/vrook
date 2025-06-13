@@ -5,8 +5,8 @@ export interface PurchaseSettings {
 
 // 전역 구매 설정 - 이 파일을 수정하면 전 세계 모든 사용자에게 적용됩니다
 export const purchaseSettings: PurchaseSettings = {
-  gyeoudi: true,        // 겨우디 구매 가능
-  momorina: true,       // 모모리나 구매 가능
+  gyeoudi: false,        // 겨우디 구매 불가
+  momorina: false,       // 모모리나 구매 불가
   ssoblly: true,        // 쏘블리 구매 가능
   yanghyewon: true,     // 양혜원 구매 가능
   kkyunyangnyang: true, // 뀨냥냥 구매 가능
@@ -26,7 +26,7 @@ export const updateHistory = [
   {
     date: "2025-06-13",
     updatedBy: "admin",
-    changes: "다시 ON",
+    changes: "두명 테스트",
   },
   // 새로운 업데이트는 여기에 추가하세요
 ]
