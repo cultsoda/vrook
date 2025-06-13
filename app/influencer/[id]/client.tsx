@@ -1,3 +1,4 @@
+// app/influencer/[id]/client.tsx (수정된 부분)
 "use client"
 
 import { useState } from "react"
@@ -8,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, Camera, Image } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
+import { usePurchaseControl } from "@/hooks/usePurchaseControl"
 import type { Influencer, Package } from "@/types/influencer"
 
 interface InfluencerDetailClientProps {
@@ -15,11 +17,14 @@ interface InfluencerDetailClientProps {
   packages: Package[]
 }
 
-// client.tsx 파일 끝에 이 부분을 수정
 export default function InfluencerDetailClient({ influencer, packages }: InfluencerDetailClientProps) {
   const router = useRouter()
   const { t } = useTranslation()
+  const { isPurchaseEnabled, showPurchaseUnavailableAlert } = usePurchaseControl()
   const [purchasedProducts, setPurchasedProducts] = useState<string[]>([])
+
+  // 구매 가능 여부 확인
+  const canPurchase = isPurchaseEnabled(influencer.id)
 
   // 인플루언서별 상품 링크 매핑
   const getProductLink = (influencerId: string, productType: string): string => {
@@ -56,11 +61,21 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
   }
 
   const handleProductClick = (productType: string) => {
+    if (!canPurchase) {
+      showPurchaseUnavailableAlert()
+      return
+    }
+
     const link = getProductLink(influencer.id, productType)
     window.open(link, "_blank", "noopener,noreferrer")
   }
 
   const handlePackagePurchase = (packageId?: string) => {
+    if (!canPurchase) {
+      showPurchaseUnavailableAlert()
+      return
+    }
+
     const link = getProductLink(influencer.id, 'photos')
     window.open(link, "_blank", "noopener,noreferrer")
   }
@@ -140,6 +155,17 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
           <LanguageSwitcher />
         </div>
       </header>
+
+      {/* 구매 불가 상태 알림 배너 (선택사항) */}
+      {!canPurchase && (
+        <div className="bg-yellow-600/20 border-b border-yellow-600/30 px-4 py-3">
+          <div className="container mx-auto text-center">
+            <p className="text-yellow-200 text-sm">
+              🚧 현재 구매가 일시 중단되었습니다. 곧 만나뵐 수 있도록 준비 중이에요!
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative py-16 px-4">
@@ -338,10 +364,15 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
           <div className="text-center">
             <Button
               onClick={() => handlePackagePurchase()}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-bold"
+              className={`px-8 py-3 text-lg font-bold ${
+                canPurchase 
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white" 
+                  : "bg-gray-600 text-gray-300 cursor-not-allowed"
+              }`}
+              disabled={!canPurchase}
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              {t('influencer.purchaseFromXromeda')}
+              {canPurchase ? t('influencer.purchaseFromXromeda') : '구매 준비 중'}
             </Button>
           </div>
         </div>
@@ -359,7 +390,9 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {products.map((product, index) => (
               <Card
                 key={product.id}
-                className="bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 hover:scale-105 cursor-pointer group"
+                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
+                  canPurchase ? "hover:scale-105 cursor-pointer" : "opacity-70 cursor-not-allowed"
+                }`}
                 onClick={() => handleProductClick(product.id)}
               >
                 <CardContent className="p-0">
@@ -387,13 +420,25 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                     </Badge>
 
                     {/* Play/View Icon Overlay */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                      {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
-                        <Play className="w-12 h-12 text-white" />
-                      ) : (
-                        <Eye className="w-12 h-12 text-white" />
-                      )}
-                    </div>
+                    {canPurchase && (
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
+                        {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
+                          <Play className="w-12 h-12 text-white" />
+                        ) : (
+                          <Eye className="w-12 h-12 text-white" />
+                        )}
+                      </div>
+                    )}
+
+                    {/* 구매 불가 오버레이 */}
+                    {!canPurchase && (
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-t-lg">
+                        <div className="text-white text-center">
+                          <div className="text-2xl mb-2">🔒</div>
+                          <div className="text-sm">준비 중</div>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-4">

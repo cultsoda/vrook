@@ -3,6 +3,8 @@ import './globals.css'
 import { TranslationProvider } from '@/hooks/useTranslation'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { generateHomeMetadata, SITE_CONFIG } from '@/lib/seo'
+import { Toaster } from 'sonner'
+
 
 export const metadata: Metadata = generateHomeMetadata()
 
@@ -133,11 +135,19 @@ export default function RootLayout({
         <ErrorBoundary>
           <TranslationProvider>
             <div id="root">
-              {children}
+             {children}
             </div>
+            {/* Sonner Toaster 추가 - 이 부분이 새로 추가됨 */}
+            <Toaster 
+              theme="dark"
+              position="top-center"
+              expand={true}
+              richColors
+              closeButton
+            />
           </TranslationProvider>
         </ErrorBoundary>
-        
+  
         {/* Skip to content for accessibility */}
         <a 
           href="#main-content" 

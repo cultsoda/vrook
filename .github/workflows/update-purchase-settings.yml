@@ -1,0 +1,32 @@
+# .github/workflows/update-purchase-settings.yml
+name: Update Purchase Settings
+
+on:
+  repository_dispatch:
+    types: [update-purchase-settings]
+
+jobs:
+  update-settings:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Update purchase settings file
+        run: |
+          cat > data/purchaseSettings.ts << 'EOF'
+          ${{ github.event.client_payload.settings_content }}
+          EOF
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/purchaseSettings.ts
+          git diff --staged --quiet || git commit -m "🔧 Update purchase settings: ${{ github.event.client_payload.update_note }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
