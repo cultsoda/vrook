@@ -155,14 +155,10 @@ export const influencers: Influencer[] = [
   {
     id: "gyeoudi",
     name: "겨우디",
-    description: "#화보장인 #넘사벽피지컬",
-    descriptionEn: "#Photo_Master #Unrivaled_Physical",
+    descriptionKey: "influencers.gyeoudi.description",
+    bioKey: "influencers.gyeoudi.bio",
     profileImage: getInfluencerImagePath("gyeoudi"),
     coverImage: getInfluencerImagePath("gyeoudi"),
-    bio: "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.",
-    bioEn: "A model with a unique atmosphere who turns even daily life into a pictorial. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK.",
-    category: "Fashion & Lifestyle",
-    categoryKey: "fashionLifestyle",
     socialLinks: [
       "https://www.instagram.com/winter_28270?igsh=OXUyejk3MG05Zmx3&utm_source=qr",
       "https://www.patreon.com/c/winterD/membership?showCustomPledge=true",
@@ -189,14 +185,10 @@ export const influencers: Influencer[] = [
   {
     id: "momorina",
     name: "모모리나",
-    description: "#코스튬여신 #우윳빛깔",
-    descriptionEn: "#Costume_Goddess #Milky_Skin",
+    descriptionKey: "influencers.momorina.description",
+    bioKey: "influencers.momorina.bio",
     profileImage: getInfluencerImagePath("momorina"),
     coverImage: getInfluencerImagePath("momorina"),
-    bio: "일러스트는 기본, 룩북과 피규어 리뷰까지 섭렵한 만능 크리에이터, 모모리나. 그녀가 사랑하는 모든 것들을 VROOK에서 가장 가까이 만나보세요.",
-    bioEn: "An all-around creator who has mastered everything from illustrations to lookbooks and figure reviews. Meet everything she loves closest at VROOK.",
-    category: "Beauty & Makeup",
-    categoryKey: "beautyMakeup",
     socialLinks: [
       "https://www.youtube.com/@momo_rina",
       "https://x.com/_momo_rina_",
@@ -219,14 +211,10 @@ export const influencers: Influencer[] = [
   {
     id: "ssoblly",
     name: "쏘블리",
-    description: "#러블리 #심쿵주의보", 
-    descriptionEn: "#Lovely #Heart_Flutter_Alert",
+    descriptionKey: "influencers.ssoblly.description",
+    bioKey: "influencers.ssoblly.bio",
     profileImage: getInfluencerImagePath("ssoblly"),
     coverImage: getInfluencerImagePath("ssoblly"),
-    bio: "이름처럼 사랑스러운, 당신의 '최애'가 될 모델. 청순함과 섹시함을 넘나드는 그녀의 다채로운 매력에 푹 빠져보세요.",
-    bioEn: "A model as lovely as her name, who will become your 'favorite'. Fall deeply into her diverse charms that cross between innocence and sexiness.",
-    category: "Fashion & Lifestyle",
-    categoryKey: "fashionLifestyle",
     socialLinks: [
       "https://www.instagram.com/leeesovelys2/",
       "https://www.youtube.com/channel/UCO2GVjlhscG3hxfOZYUYLxg",
@@ -250,14 +238,10 @@ export const influencers: Influencer[] = [
   {
     id: "yanghyewon",
     name: "양혜원",
-    description: "#하이패션 #고급미뿜뿜",
-    descriptionEn: "#High_Fashion #Luxury_Beauty",
+    descriptionKey: "influencers.yanghyewon.description",
+    bioKey: "influencers.yanghyewon.bio",
     profileImage: getInfluencerImagePath("yanghyewon"),
     coverImage: getInfluencerImagePath("yanghyewon"),
-    bio: "시선을 압도하는 카리스마, 경계 없는 스펙트럼의 모델. 강렬한 눈빛과 독보적인 아우라, 그녀가 선보이는 새로운 아트를 VROOK에서 확인하세요.",
-    bioEn: "A model with overwhelming charisma and boundless spectrum. Check out the new art she presents with intense eyes and unique aura at VROOK.",
-    category: "Fashion & Lifestyle",
-    categoryKey: "fashionLifestyle",
     socialLinks: [
       "https://www.instagram.com/h.xon_y/",
       "https://www.threads.com/@h.xon_y?xmt=AQF0A8GMNAFZls4J8v0hNwYl65FgX_h-nDSS_5yA8Zu6QMg"
@@ -279,14 +263,10 @@ export const influencers: Influencer[] = [
   {
     id: "kkyunyangnyang",
     name: "뀨냥냥",
-    description: "#사차원매력 #댕냥이",
-    descriptionEn: "#4D_Charm #Adorable_Cat",
+    descriptionKey: "influencers.kkyunyangnyang.description",
+    bioKey: "influencers.kkyunyangnyang.bio",
     profileImage: getInfluencerImagePath("kkyunyangnyang"),
     coverImage: getInfluencerImagePath("kkyunyangnyang"),
-    bio: "예측불허! 톡톡 튀는 매력의 스트리머. 언제나 유쾌한 그녀와의 소통, VROOK에서는 더욱 생생하고 특별한 모습으로 함께합니다.",
-    bioEn: "Unpredictable! A streamer with sparkling charm. Always cheerful communication with her, at VROOK we're together in a more vivid and special way.",
-    category: "Gaming & Entertainment",
-    categoryKey: "gamingEntertainment",
     socialLinks: [
       "https://chzzk.naver.com/3eca060fbf7c633b5785f96b25ea275b"
     ],
@@ -307,14 +287,10 @@ export const influencers: Influencer[] = [
   {
     id: "jeongdabyeol",
     name: "정다별이",
-    description: "#남심공략 #사랑스러움",
-    descriptionEn: "#Heart_Captivator #Lovely_Charm",
+    descriptionKey: "influencers.jeongdabyeol.description",
+    bioKey: "influencers.jeongdabyeol.bio",
     profileImage: getInfluencerImagePath("jeongdabyeol"),
     coverImage: getInfluencerImagePath("jeongdabyeol"),
-    bio: "코스프레부터 룩북까지, 어떤 콘셉트든 완벽히 소화하는 '천의 얼굴'. 그녀의 끝없는 변신을 VROOK에서 가장 먼저 만나보세요.",
-    bioEn: "From cosplay to lookbooks, the 'thousand faces' who perfectly digests any concept. Meet her endless transformations first at VROOK.",
-    category: "Art & Design",
-    categoryKey: "artDesign",
     socialLinks: [
       "https://www.instagram.com/jdabyeol2",
       "https://www.tiktok.com/@.dabyeol2",
@@ -337,14 +313,10 @@ export const influencers: Influencer[] = [
   {
     id: "ina",
     name: "이나",
-    description: "#프로모델 #순수미여신",
-    descriptionEn: "#Pro_Model #Pure_Beauty_Goddess",
+    descriptionKey: "influencers.ina.description",
+    bioKey: "influencers.ina.bio",
     profileImage: getInfluencerImagePath("ina"),
     coverImage: getInfluencerImagePath("ina"),
-    bio: "깊은 눈빛으로 모든 콘셉트를 소화하는 프로 모델. 한 번 보면 잊을 수 없는 그녀의 매혹적인 순간들을 VROOK에서 독점 공개합니다.",
-    bioEn: "A professional model who digests all concepts with deep eyes. Exclusively reveal her fascinating moments that you can't forget once you see them at VROOK.",
-    category: "Fashion & Lifestyle",
-    categoryKey: "fashionLifestyle",
     socialLinks: [
       "https://www.instagram.com/inah_sekiz05/"
     ],
@@ -365,14 +337,10 @@ export const influencers: Influencer[] = [
   {
     id: "cuina",
     name: "큐이나",
-    description: "#글래머러스 #지적매력",
-    descriptionEn: "#Glamorous #Intellectual_Charm",
+    descriptionKey: "influencers.cuina.description",
+    bioKey: "influencers.cuina.bio",
     profileImage: getInfluencerImagePath("cuina"),
     coverImage: getInfluencerImagePath("cuina"),
-    bio: "모든 시선을 단숨에 사로잡는 고혹적인 매력의 모델, 큐이나. 그녀가 만들어내는 치명적인 아름다움을 VROOK에서 직접 확인하세요.",
-    bioEn: "A model with seductive charm that captivates all eyes at once, Cuina. Check out the fatal beauty she creates directly at VROOK.",
-    category: "Fashion & Lifestyle",
-    categoryKey: "fashionLifestyle",
     socialLinks: [
       "https://www.instagram.com/lovxena",
       "https://www.youtube.com/@xloveex",
@@ -395,14 +363,10 @@ export const influencers: Influencer[] = [
   {
     id: "trollya",
     name: "트롤야",
-    description: "#반전매력 #겜방언니",
-    descriptionEn: "#Reverse_Charm #Gaming_Sister",
+    descriptionKey: "influencers.trollya.description",
+    bioKey: "influencers.trollya.bio",
     profileImage: getInfluencerImagePath("trollya"),
     coverImage: getInfluencerImagePath("trollya"),
-    bio: "털털함 속에 숨겨진 사랑스러움, 게임 스트리머. 옆집 언니 같은 친근함, VROOK에서는 그녀의 새로운 모습을 발견할 수 있습니다.",
-    bioEn: "Loveliness hidden in frankness, a game streamer. The friendliness of a next-door sister, at VROOK you can discover her new side.",
-    category: "Gaming & Entertainment",
-    categoryKey: "gamingEntertainment",
     socialLinks: [
       "https://www.youtube.com/channel/UC2KFBTZ9d-mOa0zCytAZRMw",
       "https://chzzk.naver.com/826f57d3283418e1fa39dfb23dc1dea8"

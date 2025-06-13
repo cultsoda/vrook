@@ -178,11 +178,11 @@ export default function InfluencerDetailPage() {
 
   // 현재 언어에 맞는 인플루언서 정보 가져오기
   const getInfluencerDescription = () => {
-    return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
+    return t(influencer.descriptionKey)
   }
 
   const getInfluencerBio = () => {
-    return locale === 'en' && influencer.bioEn ? influencer.bioEn : influencer.bio
+    return t(influencer.bioKey)
   }
 
   return (

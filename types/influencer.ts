@@ -1,15 +1,11 @@
 export interface Influencer {
   id: string
   name: string
-  description: string
-  descriptionEn?: string // 영문 설명 추가
+  descriptionKey: string // description -> descriptionKey로 변경
+  bioKey: string // bio -> bioKey로 변경
   profileImage: string
   coverImage: string
-  bio: string
-  bioEn?: string // 영문 소개 추가
-  category: string
-  categoryKey?: string // 번역 키 추가
-  socialLinks?: string[] // SNS 링크 배열 추가
+  socialLinks?: string[]
   galleryImages: string[]
   videoThumbnail: string
   vrPreview: string

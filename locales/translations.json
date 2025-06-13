@@ -4,30 +4,31 @@
     "back": { "ko": "돌아가기", "en": "Back" },
     "purchase": { "ko": "구매하기", "en": "Purchase" },
     "viewProduct": { "ko": "상품 보러가기", "en": "View Product" },
-    "followers": { "ko": "팔로워", "en": "Followers" }
+    "followers": { "ko": "팔로워", "en": "Followers" },
+    "socialLinks": { "ko": "소셜 미디어", "en": "Social Media" }
   },
   "home": {
     "title": { "ko": "VROOK - VR 셀럽 화보 플랫폼", "en": "VROOK - VR Celebrity Photo Platform" },
-    "subtitle": { "ko": "VR 셀럽 화보 - 셀럽의 순간을 더 가까이, 더 생생하게", "en": "VR Celebrity Photos - Feel celeb moments more vividly and closely." },
+    "subtitle": { "ko": "VR 셀럽 화보 - 혁신적 콘텐츠가 추가된 상품입니다", "en": "VR Celebrity Photos - Revolutionary content platform" },
     "description": { "ko": "VR 영상과 AI 화보를 통해 팬들에게 새로운 몰입 경험을 전달합니다", "en": "Delivering new immersive experiences to fans through VR videos and AI photos" },
     "vrExperience": { "ko": "VR 체험", "en": "VR Experience" },
     "aiPhotos": { "ko": "AI 화보", "en": "AI Photos" },
+    "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique composite pictorial created with AI technology" },
     "celebContent": { "ko": "셀럽 콘텐츠", "en": "Celebrity Content" },
     "serviceComponents": { "ko": "VROOK 서비스 구성", "en": "VROOK Service Components" },
     "vrVideos": { "ko": "VR 영상", "en": "VR Videos" },
     "vrVideosDesc": { "ko": "몰입감 있는 VR 기술로 제작된 독점 영상 콘텐츠", "en": "Exclusive video content created with immersive VR technology" },
     "digitalPhotos": { "ko": "디지털 사진", "en": "Digital Photos" },
     "digitalPhotosDesc": { "ko": "고품질 2D 사진으로 구성된 프리미엄 화보 콘텐츠", "en": "Premium photo content composed of high-quality 2D photos" },
-    "specialVideos": { "ko": "스페셜 영상", "en": "Special Videos" },
+    "specialVideos": { "ko": "메이킹 영상", "en": "Making Videos" },
     "specialVideosDesc": { "ko": "독점 촬영된 프리미엄 화보 영상 콘텐츠", "en": "Premium photo video content with exclusive filming" },
-    "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique synthetic photos generated with AI technology" },
     "influencers": { "ko": "인플루언서", "en": "Influencers" },
     "influencersDesc": { "ko": "9명의 다양한 분야 인플루언서들의 독점 VR 콘텐츠를 만나보세요", "en": "Meet exclusive VR content from 9 influencers in various fields" },
     "footerDesc": { "ko": "VR 셀럽 화보 플랫폼 - 새로운 디지털 경험의 시작", "en": "VR Celebrity Photo Platform - The beginning of a new digital experience" }
   },
   "influencer": {
     "productSelection": { "ko": "상품 선택", "en": "Product Selection" },
-    "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 개별적으로 선택하여 구매할 수 있습니다", "en": "'s various content can be purchased individually" },
+    "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 확인하고 원하는 패키지를 선택하여 구매할 수 있습니다", "en": "'s various content can be previewed and purchased as a package." },
     "photoSet": { "ko": "화보 사진", "en": "Photo Set" },
     "photoSetDesc": { "ko": "고품질 프로페셔널 화보 사진 20장", "en": "20 high-quality professional photo collection" },
     "bcuts": { "ko": "B컷 화보", "en": "B-Cut Photos" },
@@ -42,7 +43,7 @@
     "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique synthetic photos generated with AI technology" },
     "purchaseFromXromeda": { "ko": "XROMEDA에서 구매하기", "en": "Purchase from XROMEDA" },
     "packageGuide": { "ko": "패키지 안내", "en": "Package Guide" },
-    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. 개별 구매보다 패키지로 구매하시면 더 많은 혜택을 받을 수 있습니다.", "en": "Meet richer content with various packages. You can get more benefits by purchasing packages than individual purchases." },
+    "packageGuideDesc": { "ko": "다양한 패키지로 더욱 알찬 콘텐츠를 만나보세요. <br> 원하는 콘텐츠가 포함된 패키지를 선택하여 구매하실 수 있습니다.", "en": "Meet richer content with various packages.  <br> Choose and purchase a package that includes the content you want." },
     "packageBenefits": { "ko": "💡 패키지 혜택", "en": "💡 Package Benefits" },
     "discountBenefit": { "ko": "할인 혜택", "en": "Discount Benefits" },
     "discountDesc": { "ko": "개별 구매 대비 최대 30% 할인", "en": "Up to 30% discount compared to individual purchases" },
@@ -59,6 +60,44 @@
     "step3Desc": { "ko": "결제 정보를 입력하고 구매를 완료합니다", "en": "Enter payment information and complete the purchase" },
     "notFound": { "ko": "인플루언서를 찾을 수 없습니다", "en": "Influencer not found" },
     "backToHome": { "ko": "홈으로 돌아가기", "en": "Back to Home" }
+  },
+  "influencers": {
+    "gyeoudi": {
+      "description": { "ko": "#화보장인 #넘사벽피지컬", "en": "#Photo_Master #Unrivaled_Physical" },
+      "bio": { "ko": "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.", "en": "A model with a unique atmosphere who turns even daily life into a pictorial. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK." }
+    },
+    "momorina": {
+      "description": { "ko": "#코스튬여신 #우윳빛깔", "en": "#Costume_Goddess #Milky_Skin" },
+      "bio": { "ko": "일러스트는 기본, 룩북과 피규어 리뷰까지 섭렵한 만능 크리에이터, 모모리나. 그녀가 사랑하는 모든 것들을 VROOK에서 가장 가까이 만나보세요.", "en": "An all-around creator who has mastered everything from illustrations to lookbooks and figure reviews. Meet everything she loves closest at VROOK." }
+    },
+    "ssoblly": {
+      "description": { "ko": "#러블리 #심쿵주의보", "en": "#Lovely #Heart_Flutter_Alert" },
+      "bio": { "ko": "이름처럼 사랑스러운, 당신의 '최애'가 될 모델. 청순함과 섹시함을 넘나드는 그녀의 다채로운 매력에 푹 빠져보세요.", "en": "A model as lovely as her name, who will become your 'favorite'. Fall deeply into her diverse charms that cross between innocence and sexiness." }
+    },
+    "yanghyewon": {
+      "description": { "ko": "#하이패션 #고급미뿜뿜", "en": "#High_Fashion #Luxury_Beauty" },
+      "bio": { "ko": "시선을 압도하는 카리스마, 경계 없는 스펙트럼의 모델. 강렬한 눈빛과 독보적인 아우라, 그녀가 선보이는 새로운 아트를 VROOK에서 확인하세요.", "en": "A model with overwhelming charisma and boundless spectrum. Check out the new art she presents with intense eyes and unique aura at VROOK." }
+    },
+    "kkyunyangnyang": {
+      "description": { "ko": "#사차원매력 #댕냥이", "en": "#4D_Charm #Adorable_Cat" },
+      "bio": { "ko": "예측불허! 톡톡 튀는 매력의 스트리머. 언제나 유쾌한 그녀와의 소통, VROOK에서는 더욱 생생하고 특별한 모습으로 함께합니다.", "en": "Unpredictable! A streamer with sparkling charm. Always cheerful communication with her, at VROOK we're together in a more vivid and special way." }
+    },
+    "jeongdabyeol": {
+      "description": { "ko": "#남심공략 #사랑스러움", "en": "#Heart_Captivator #Lovely_Charm" },
+      "bio": { "ko": "코스프레부터 룩북까지, 어떤 콘셉트든 완벽히 소화하는 '천의 얼굴'. 그녀의 끝없는 변신을 VROOK에서 가장 먼저 만나보세요.", "en": "From cosplay to lookbooks, the 'thousand faces' who perfectly digests any concept. Meet her endless transformations first at VROOK." }
+    },
+    "ina": {
+      "description": { "ko": "#프로모델 #순수미여신", "en": "#Pro_Model #Pure_Beauty_Goddess" },
+      "bio": { "ko": "깊은 눈빛으로 모든 콘셉트를 소화하는 프로 모델. 한 번 보면 잊을 수 없는 그녀의 매혹적인 순간들을 VROOK에서 독점 공개합니다.", "en": "A professional model who digests all concepts with deep eyes. Exclusively reveal her fascinating moments that you can't forget once you see them at VROOK." }
+    },
+    "cuina": {
+      "description": { "ko": "#글래머러스 #지적매력", "en": "#Glamorous #Intellectual_Charm" },
+      "bio": { "ko": "모든 시선을 단숨에 사로잡는 고혹적인 매력의 모델, 큐이나. 그녀가 만들어내는 치명적인 아름다움을 VROOK에서 직접 확인하세요.", "en": "A model with seductive charm that captivates all eyes at once, Cuina. Check out the fatal beauty she creates directly at VROOK." }
+    },
+    "trollya": {
+      "description": { "ko": "#반전매력 #겜방언니", "en": "#Reverse_Charm #Gaming_Sister" },
+      "bio": { "ko": "털털함 속에 숨겨진 사랑스러움, 게임 스트리머. 옆집 언니 같은 친근함, VROOK에서는 그녀의 새로운 모습을 발견할 수 있습니다.", "en": "Loveliness hidden in frankness, a game streamer. The friendliness of a next-door sister, at VROOK you can discover her new side." }
+    }
   },
   "categories": {
     "fashionLifestyle": { "ko": "패션 & 라이프스타일", "en": "Fashion & Lifestyle" },
@@ -82,18 +121,32 @@
   "packages": {
     "basic": { "ko": "브이룩 패키지", "en": "VROOK Package" },
     "special": { "ko": "브이룩 스페셜 패키지", "en": "VROOK Special Package" },
-    "fanmeeting": { "ko": "브이룩 팬미팅 패키지", "en": "VROOK Fan Meeting Package" },
+    "all": { "ko": "브이룩 ALL 패키지", "en": "VROOK ALL Package" },
     "recommended": { "ko": "추천", "en": "Recommended" },
-    "price": { "ko": "원", "en": "" },
+    "price": { "ko": "(VAT 포함)", "en": "(incl. VAT)" },
+    "priceFormat": { "ko": "₩{krw} / ${usd}", "en": "₩{krw} / ${usd}" },
     "features": {
       "photos20": { "ko": "화보 사진 20장", "en": "20 Photo Collection" },
-      "vrVideo1": { "ko": "VR 영상 1개", "en": "1 VR Video" },
+      "bcuts20": { "ko": "B컷 화보 사진 20장", "en": "20 B-Cut Photo Collection" },
       "photoVideo1": { "ko": "화보 영상 1개", "en": "1 Photo Video" },
-      "vrHmdGift": { "ko": "VR HMD 특별 증정", "en": "VR HMD Special Gift" },
-      "freeShipping": { "ko": "배송비 무료", "en": "Free Shipping" },
-      "aiPhotos3": { "ko": "AI 합성 사진 3장", "en": "3 AI Composite Photos" },
-      "photocardGift": { "ko": "실물 포토카드 증정", "en": "Physical Photo Card Gift" },
-      "fanmeetingBenefit": { "ko": "오프라인 팬미팅 특별 혜택 (선착순 30명)", "en": "Offline Fan Meeting Special Benefits (First 30 people)" }
+      "vrVideo1": { "ko": "VR 영상 1개", "en": "1 VR Video" },
+      "vrVideoFull1": { "ko": "VR 영상(풀버전) 1개", "en": "1 VR Video (Full Version)" },
+      "vrHmdGift": { "ko": "몰입형 VR HMD 특별 증정 (국내 배송만 가능)", "en": "Immersive VR HMD Special Gift (Korea shipping only)" },
+      "aiPhotos3": { "ko": "AI 스페셜 화보 3장", "en": "3 AI Special Photos" },
+      "photocardGift": { "ko": "실물 포토카드 증정 (국내 배송만 가능)", "en": "Physical Photo Card Gift (Korea shipping only)" }
     }
+  },
+  "socialPlatforms": {
+    "instagram": { "ko": "인스타그램", "en": "Instagram" },
+    "youtube": { "ko": "유튜브", "en": "YouTube" },
+    "patreon": { "ko": "패트레온", "en": "Patreon" },
+    "twitter": { "ko": "트위터/X", "en": "Twitter/X" },
+    "chzzk": { "ko": "치지직", "en": "Chzzk" },
+    "likey": { "ko": "라이키", "en": "Likey" },
+    "tiktok": { "ko": "틱톡", "en": "TikTok" },
+    "threads": { "ko": "쓰레드", "en": "Threads" },
+    "ctee": { "ko": "씨티", "en": "C-tee" },
+    "djawa": { "ko": "자와", "en": "Djawa" },
+    "sooplive": { "ko": "숲라이브", "en": "SoopLive" }
   }
 }

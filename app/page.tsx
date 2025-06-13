@@ -15,7 +15,7 @@ export default function HomePage() {
 
   // 현재 언어에 맞는 인플루언서 정보 가져오기
   const getInfluencerDescription = (influencer: any) => {
-    return locale === 'en' && influencer.descriptionEn ? influencer.descriptionEn : influencer.description
+    return t(influencer.descriptionKey)
   }
 
   return (
