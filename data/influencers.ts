@@ -3,49 +3,49 @@ import type { Influencer, Package, IndividualProduct } from "@/types/influencer"
 export const getInfluencerPackages = (influencerId: string): Package[] => {
   const basePrices = {
     gyeoudi: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 } 
     },
     momorina: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 } 
     },
     yanghyewon: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 }  
     },
     kkyunyangnyang: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 } 
     },
     jeongdabyeol: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 } 
     },
     ina: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 }  
     },
     cuina: { 
-      basic: { krw: 59000, usd: 49 }, 
-      special: { krw: 79000, usd: 69 }, 
-      all: { krw: 99000, usd: 89 } 
+      basic: { krw: 59000, usd: 49.5 }, 
+      special: { krw: 79000, usd: 69.3 }, 
+      all: { krw: 99000, usd: 89.1 } 
     },
     trollya: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 } 
     },
     ssoblly: { 
-      basic: { krw: 39000, usd: 29 }, 
-      special: { krw: 59000, usd: 49 }, 
-      all: { krw: 79000, usd: 69 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 }  
     },
   }
 
