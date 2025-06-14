@@ -1,3 +1,5 @@
+/* app/globals.css에 추가할 모바일 최적화 스타일 */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,24 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* 모바일 터치 최적화 */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 모바일 스크롤 개선 */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* 모바일 텍스트 가독성 */
+  .mobile-text {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
 
@@ -89,9 +109,28 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground mobile-text;
   }
 }
+
+/* 모바일 최적화 미디어 쿼리 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* 모바일에서 카드 호버 효과 비활성화 */
+  .group:hover .group-hover\:scale-105 {
+    transform: none;
+  }
+  
+  /* 모바일 터치 반응 개선 */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 /* 커스텀 미디어 쿼리 */
 @media (min-width: 1536px) {
   .container {
@@ -102,5 +141,20 @@ body {
 @media (min-width: 1024px) {
   .container {
     max-width: 1080px;
+  }
+}
+
+/* 모바일 성능 최적화 */
+@media (max-width: 640px) {
+  /* 복잡한 애니메이션 비활성화 */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* 배경 고정 최적화 */
+  .bg-fixed {
+    background-attachment: scroll;
   }
 }
