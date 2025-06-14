@@ -102,14 +102,14 @@ export default function RootLayout({
         />
         
         {/* Google Analytics (실제 GA ID로 교체) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-84WGC59PNZ"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID', {
+              gtag('config', 'G-84WGC59PNZ', {
                 page_title: document.title,
                 page_location: window.location.href,
               });
