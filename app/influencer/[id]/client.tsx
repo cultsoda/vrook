@@ -590,6 +590,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
       </section>
 
       {/* Product Selection - 🚀 적응형 그리드 적용 및 수정 */}
+      {/* Product Selection - 🚀 적응형 그리드 적용 */}
       <section className={`py-8 md:py-16 px-4 ${activeTab !== 'products' ? 'hidden md:block' : ''}`}>
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 text-center">
@@ -599,7 +600,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 수정된 균형 잡힌 그리드 (v4 - 최종) */}
+          {/* 🎯 수정된 균형 잡힌 그리드 (v5 - 최종) */}
           <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => {
               const isFiveItems = products.length === 5;
@@ -660,7 +661,8 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
               // [태블릿] 5개 콘텐츠의 마지막 1개를 중앙 정렬하기 위한 로직
               if (isFiveItems && isFifthItem) {
                 return (
-                  <div key={product.id} className="sm:col-span-2 flex justify-center">
+                  // PC(lg)에서는 1칸만 차지하고, 태블릿(sm)에서는 2칸을 차지해 중앙 정렬의 기반을 만듭니다.
+                  <div key={product.id} className="lg:col-span-1 sm:col-span-2 sm:flex sm:justify-center">
                     <div className="w-full max-w-sm">
                       {productCard}
                     </div>
