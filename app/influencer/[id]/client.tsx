@@ -589,7 +589,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         </div>
       </section>
 
-      {/* Product Selection - 🚀 적응형 그리드 적용 */}
+      {/* Product Selection - 🚀 적응형 그리드 적용 및 수정 */}
       <section className={`py-8 md:py-16 px-4 ${activeTab !== 'products' ? 'hidden md:block' : ''}`}>
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 text-center">
@@ -599,76 +599,82 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 수정된 균형 잡힌 그리드 */}
+          {/* 🎯 수정된 균형 잡힌 그리드 (v4 - 최종) */}
           <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
-            {products.map((product, index) => (
-              <Card
-                key={product.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group cursor-pointer 
-                  ${canPurchase ? "hover:scale-105" : ""}
-                  ${
-                    // [PC] 콘텐츠가 5개일 때, 마지막 줄의 카드 2개를 중앙에 배치합니다.
-                    products.length === 5 && index === 3 ? "lg:col-start-2" : ""
-                  }
-                  ${
-                    // [태블릿] 콘텐츠가 5개일 때, 마지막 카드를 가로 전체에 배치하여 균형을 맞춥니다.
-                    products.length === 5 && index === 4 ? "sm:col-span-2" : ""
-                  }
-                `}
-                onClick={() => handleProductClick(product.id)}
-              >
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg" style={{ aspectRatio: '16 / 9' }}>
-                    <img
-                      src={product.thumbnail}
-                      alt={`${influencer.name} ${product.name}`}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading={index < 3 ? "eager" : "lazy"}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/placeholder.svg?height=300&width=400";
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            {products.map((product, index) => {
+              const isFiveItems = products.length === 5;
+              const isFifthItem = index === 4;
 
-                    {/* Category Icon */}
-                    <div className={`absolute top-2 md:top-3 left-2 md:left-3 bg-gradient-to-r ${product.color} p-1.5 md:p-2 rounded-full`}>
-                      {product.icon}
-                    </div>
-
-                    {/* Badge */}
-                    <Badge className="absolute top-2 md:top-3 right-2 md:right-3 bg-slate-900/80 text-white text-xs">
-                      {product.badge}
-                    </Badge>
-
-                    {/* Play/View Icon Overlay */}
-                    {canPurchase && (
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                        {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
-                          <Play className="w-10 h-10 md:w-12 md:h-12 text-white" />
-                        ) : (
-                          <Eye className="w-10 h-10 md:w-12 md:h-12 text-white" />
-                        )}
+              // 재사용을 위해 카드 컴포넌트를 변수로 정의합니다.
+              const productCard = (
+                <Card
+                  className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group cursor-pointer w-full h-full ${
+                    canPurchase ? "hover:scale-105" : ""
+                  }`}
+                  onClick={() => handleProductClick(product.id)}
+                >
+                  <CardContent className="p-0">
+                    <div className="relative overflow-hidden rounded-t-lg" style={{ aspectRatio: '16 / 9' }}>
+                      <img
+                        src={product.thumbnail}
+                        alt={`${influencer.name} ${product.name}`}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/placeholder.svg?height=300&width=400";
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className={`absolute top-2 md:top-3 left-2 md:left-3 bg-gradient-to-r ${product.color} p-1.5 md:p-2 rounded-full`}>
+                        {product.icon}
                       </div>
-                    )}
-
-                    {/* 곧 공개 예정 호버 효과 */}
-                    {!canPurchase && (
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                        <div className="text-white text-center bg-black/80 px-4 py-3 rounded-lg border border-yellow-400/50 backdrop-blur-sm">
-                          <div className="text-base md:text-lg font-semibold text-yellow-300">{t('influencer.comingSoon')}</div>
+                      <Badge className="absolute top-2 md:top-3 right-2 md:right-3 bg-slate-900/80 text-white text-xs">
+                        {product.badge}
+                      </Badge>
+                      {canPurchase && (
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
+                          {product.id === "video" || product.id === "vr" || product.id === "vrFull" ? (
+                            <Play className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                          ) : (
+                            <Eye className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                          )}
                         </div>
-                      </div>
-                    )}
-                  </div>
+                      )}
+                      {!canPurchase && (
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
+                          <div className="text-white text-center bg-black/80 px-4 py-3 rounded-lg border border-yellow-400/50 backdrop-blur-sm">
+                            <div className="text-base md:text-lg font-semibold text-yellow-300">{t('influencer.comingSoon')}</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-3 md:p-4">
+                      <h3 className="text-base md:text-lg font-bold text-white mb-2">{product.name}</h3>
+                      <p className="text-xs md:text-sm text-slate-300 line-clamp-2">{product.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
 
-                  <div className="p-3 md:p-4">
-                    <h3 className="text-base md:text-lg font-bold text-white mb-2">{product.name}</h3>
-                    <p className="text-xs md:text-sm text-slate-300 line-clamp-2">{product.description}</p>
+              // [태블릿] 5개 콘텐츠의 마지막 1개를 중앙 정렬하기 위한 로직
+              if (isFiveItems && isFifthItem) {
+                return (
+                  <div key={product.id} className="sm:col-span-2 flex justify-center">
+                    <div className="w-full max-w-sm">
+                      {productCard}
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                );
+              }
+              
+              // 일반적인 모든 카드 렌더링
+              return (
+                <div key={product.id}>
+                  {productCard}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
