@@ -36,7 +36,7 @@ export default function HomePage() {
               <p className="text-lg md:text-xl text-purple-200 mb-2 px-2">{t('home.subtitle')}</p>
               <p className="text-base md:text-lg text-slate-300 px-4">{t('home.description')}</p>
             </div>
-            {/* Badge들 - 모바일에서 세로 배치, 크기 고정 */}
+            {/* Badge들 - 호버 효과 완전 제거 */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
               <Badge className="bg-purple-600/20 text-purple-200 border border-purple-400 px-4 py-2 w-auto cursor-default pointer-events-none">
                 <Eye className="w-4 h-4 mr-2" />
@@ -95,7 +95,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 인플루언서 섹션 - 모바일 최적화 */}
+      {/* 인플루언서 섹션 - 모바일 최적화 및 검정 영역 제거 */}
       <section className="py-8 md:py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center text-white mb-3 md:mb-4">
@@ -114,22 +114,22 @@ export default function HomePage() {
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <CardContent className="p-0">
-                    {/* 이미지와 텍스트 오버레이 */}
-                    <div className="relative overflow-hidden rounded-lg aspect-[4/5] md:aspect-square">
+                    {/* 이미지만 표시 - 모든 텍스트는 이미지 위 오버레이로 */}
+                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-square">
                       <OptimizedImage
                         src={influencer.profileImage}
                         alt={influencer.name}
                         priority={true}
-                        className="transition-transform duration-300 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       
-                      {/* 그라데이션 오버레이 */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      {/* 강화된 그라데이션 오버레이 */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                       
-                      {/* 텍스트 오버레이 - 모바일/데스크톱 동일하게 이미지 위에 표시 */}
-                      <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
-                        <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
+                      {/* 텍스트 오버레이 - PC와 모바일 동일하게 이미지 위에만 표시 */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                           {influencer.name}
                         </h3>
                         <p className="text-sm md:text-base text-purple-300 font-semibold">
@@ -137,8 +137,6 @@ export default function HomePage() {
                         </p>
                       </div>
                     </div>
-                    
-                    {/* 검정 영역 완전 제거 - 모든 텍스트가 이미지 위에 표시됨 */}
                   </CardContent>
                 </Card>
               </Link>
