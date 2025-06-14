@@ -119,7 +119,7 @@ export default function HomePage() {
                       <OptimizedImage
                         src={influencer.profileImage}
                         alt={influencer.name}
-                        priority={index < 3} // 첫 3개는 우선 로딩
+                        priority={true} // 모든 인플루언서 이미지를 우선 로딩으로 변경
                         className="transition-transform duration-300 hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />

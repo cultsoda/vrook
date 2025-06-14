@@ -68,15 +68,14 @@ export function OptimizedImage({
       return
     }
 
-    if (priority) {
-      preloadImage(src)
-        .then(() => setIsLoading(false))
-        .catch(() => {
-          setImgSrc('/placeholder.svg?height=400&width=400')
-          setIsLoading(false)
-        })
-    }
-  }, [src, priority])
+    // 모든 이미지를 적극적으로 프리로드
+    preloadImage(src)
+      .then(() => setIsLoading(false))
+      .catch(() => {
+        setImgSrc('/placeholder.svg?height=400&width=400')
+        setIsLoading(false)
+      })
+  }, [src])
 
   const handleLoad = () => {
     imageCache.add(imgSrc)
@@ -109,10 +108,9 @@ export function OptimizedImage({
         className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'} w-full h-full object-cover`}
         onLoad={handleLoad}
         onError={handleError}
-        loading={priority ? "eager" : "lazy"}
+        loading="eager" // 모든 이미지를 즉시 로딩으로 변경
         decoding="async"
         sizes={sizes}
-        // 브라우저 캐싱 힌트 추가
         crossOrigin="anonymous"
       />
     </div>
