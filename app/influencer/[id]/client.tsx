@@ -166,7 +166,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         <div className="bg-yellow-600/20 border-b border-yellow-600/30 px-3 md:px-4 py-2 md:py-3">
           <div className="container mx-auto text-center">
             <p className="text-yellow-200 text-xs md:text-sm">
-              🚧 현재 구매가 일시 중단되었습니다. 곧 만나뵐 수 있도록 준비 중이에요!
+              {t('influencer.unavailableBanner')}
             </p>
           </div>
         </div>
@@ -410,7 +410,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
               disabled={!canPurchase}
             >
               <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-              {canPurchase ? t('influencer.purchaseFromXromeda') : '구매 준비 중'}
+              {canPurchase ? t('influencer.purchaseFromXromeda') : t('influencer.salePreparation')}
             </Button>
           </div>
         </div>
@@ -471,11 +471,12 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                       </div>
                     )}
 
-                    {/* 구매 불가 호버 및 클릭 효과 */}
+                    {/* 곧 공개 예정 호버 효과 - 클릭 가능한 느낌으로 */}
                     {!canPurchase && (
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
-                        <div className="text-white text-center bg-black/70 px-3 py-2 rounded-lg">
-                          <div className="text-sm font-medium">곧 공개 예정</div>
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center cursor-pointer">
+                        <div className="text-white text-center bg-black/80 px-4 py-3 rounded-lg border border-yellow-400/50 backdrop-blur-sm">
+                          <div className="text-base md:text-lg font-semibold text-yellow-300">{t('influencer.comingSoon')}</div>
+                          <div className="text-xs md:text-sm text-yellow-200 mt-1">{t('influencer.clickForNotification')}</div>
                         </div>
                       </div>
                     )}
