@@ -130,7 +130,7 @@ body {
   }
 }
 
-/* 이미지 로딩 최적화 */
+/* 이미지 로딩 최적화 / 콘텐츠 썸네일 노출 안되는 오류로 주석처리
 img {
   content-visibility: auto;
 }
@@ -143,6 +143,7 @@ img[loading="lazy"] {
 img[loading="lazy"].loaded {
   opacity: 1;
 }
+*/
 
 /* 레이아웃 시프트 방지 */
 .aspect-ratio-container {
