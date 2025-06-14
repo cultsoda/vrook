@@ -1,4 +1,4 @@
-// app/influencer/[id]/client.tsx (모바일 최적화 버전)
+// app/influencer/[id]/client.tsx (모모리나, 쏘블리 콘텐츠 구성 반영)
 "use client"
 
 import { useState } from "react"
@@ -26,6 +26,9 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
 
   const canPurchase = isPurchaseEnabled(influencer.id)
 
+  // 모모리나와 쏘블리는 VR 영상이 없음
+  const hasVrVideo = !['momorina', 'ssoblly'].includes(influencer.id)
+
   const getProductLink = (influencerId: string, productType: string): string => {
     const productLinks: Record<string, Record<string, string>> = {
       gyeoudi: {
@@ -40,9 +43,15 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         photos: "https://stg.xromeda.com/play/2d/vpu20s7qpaj1pu6j?mode=login&from=ep",
         bcuts: "https://stg.xromeda.com/play/2d/cdysghp7925gxuht?mode=login&from=ep",
         video: "https://stg.xromeda.com/play/media/1y6ghrtma0fis6a8?mode=login&from=ep",
-        vr: "https://stg.xromeda.com/play/media/4lqkzg3rmao1boy4?mode=login&from=ep",
         vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5?mode=login&from=ep",
         ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl?mode=login&from=ep"
+      },
+      ssoblly: {
+        photos: "https://stg.xromeda.com/play/2d/default-photo", // 임시 링크
+        bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
+        video: "https://stg.xromeda.com/play/media/default-video",
+        vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
+        ai: "https://stg.xromeda.com/play/2d/default-ai"
       },
       default: {
         photos: "https://stg.xromeda.com/play/2d/default-photo",
@@ -76,64 +85,110 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     window.open(link, "_blank", "noopener,noreferrer")
   }
 
-  // client.tsx에서 products 배열 부분을 이렇게 수정하세요
-
-const products = [
-  {
-    id: "photos",
-    name: t(`influencers.${influencer.id}.products.photoSet.name`),
-    description: t(`influencers.${influencer.id}.products.photoSet.description`),
-    thumbnail: influencer.galleryImages[0],
-    icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.photos'),
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    id: "bcuts",
-    name: t(`influencers.${influencer.id}.products.bcuts.name`),
-    description: t(`influencers.${influencer.id}.products.bcuts.description`),
-    thumbnail: influencer.galleryImages[1],
-    icon: <Image className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.bcuts'),
-    color: "from-indigo-500 to-purple-500",
-  },
-  {
-    id: "video",
-    name: t(`influencers.${influencer.id}.products.video.name`),
-    description: t(`influencers.${influencer.id}.products.video.description`),
-    thumbnail: influencer.videoThumbnail,
-    icon: <Play className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.video'),
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    id: "vr",
-    name: t(`influencers.${influencer.id}.products.vrVideo.name`),
-    description: t(`influencers.${influencer.id}.products.vrVideo.description`),
-    thumbnail: influencer.vrPreview,
-    icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.vr'),
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    id: "vrFull",
-    name: t(`influencers.${influencer.id}.products.vrFullVideo.name`),
-    description: t(`influencers.${influencer.id}.products.vrFullVideo.description`),
-    thumbnail: influencer.vrPreview,
-    icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.vrFull'),
-    color: "from-pink-500 to-rose-500",
-  },
-  {
-    id: "ai",
-    name: t(`influencers.${influencer.id}.products.aiPhotos.name`),
-    description: t(`influencers.${influencer.id}.products.aiPhotos.description`),
-    thumbnail: influencer.aiSamples[0],
-    icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
-    badge: t('productBadges.ai'),
-    color: "from-orange-500 to-red-500",
-  },
-]
+  // 콘텐츠 구성 - VR 영상 여부에 따라 다르게 구성
+  const products = hasVrVideo ? [
+    {
+      id: "photos",
+      name: t(`influencers.${influencer.id}.products.photoSet.name`),
+      description: t(`influencers.${influencer.id}.products.photoSet.description`),
+      thumbnail: influencer.galleryImages[0],
+      icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.photos'),
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      id: "bcuts",
+      name: t(`influencers.${influencer.id}.products.bcuts.name`),
+      description: t(`influencers.${influencer.id}.products.bcuts.description`),
+      thumbnail: influencer.galleryImages[1],
+      icon: <Image className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.bcuts'),
+      color: "from-indigo-500 to-purple-500",
+    },
+    {
+      id: "video",
+      name: t(`influencers.${influencer.id}.products.video.name`),
+      description: t(`influencers.${influencer.id}.products.video.description`),
+      thumbnail: influencer.videoThumbnail,
+      icon: <Play className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.video'),
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      id: "vr",
+      name: t(`influencers.${influencer.id}.products.vrVideo.name`),
+      description: t(`influencers.${influencer.id}.products.vrVideo.description`),
+      thumbnail: influencer.vrPreview,
+      icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.vr'),
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      id: "vrFull",
+      name: t(`influencers.${influencer.id}.products.vrFullVideo.name`),
+      description: t(`influencers.${influencer.id}.products.vrFullVideo.description`),
+      thumbnail: influencer.vrPreview,
+      icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.vrFull'),
+      color: "from-pink-500 to-rose-500",
+    },
+    {
+      id: "ai",
+      name: t(`influencers.${influencer.id}.products.aiPhotos.name`),
+      description: t(`influencers.${influencer.id}.products.aiPhotos.description`),
+      thumbnail: influencer.aiSamples[0],
+      icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.ai'),
+      color: "from-orange-500 to-red-500",
+    },
+  ] : [
+    // 모모리나, 쏘블리용 (VR 영상 제외)
+    {
+      id: "photos",
+      name: t(`influencers.${influencer.id}.products.photoSet.name`),
+      description: t(`influencers.${influencer.id}.products.photoSet.description`),
+      thumbnail: influencer.galleryImages[0],
+      icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.photos'),
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      id: "bcuts",
+      name: t(`influencers.${influencer.id}.products.bcuts.name`),
+      description: t(`influencers.${influencer.id}.products.bcuts.description`),
+      thumbnail: influencer.galleryImages[1],
+      icon: <Image className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.bcuts'),
+      color: "from-indigo-500 to-purple-500",
+    },
+    {
+      id: "video",
+      name: t(`influencers.${influencer.id}.products.video.name`),
+      description: t(`influencers.${influencer.id}.products.video.description`),
+      thumbnail: influencer.videoThumbnail,
+      icon: <Play className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.video'),
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      id: "vrFull",
+      name: t(`influencers.${influencer.id}.products.vrFullVideo.name`),
+      description: t(`influencers.${influencer.id}.products.vrFullVideo.description`),
+      thumbnail: influencer.vrPreview,
+      icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.vrFull'),
+      color: "from-pink-500 to-rose-500",
+    },
+    {
+      id: "ai",
+      name: t(`influencers.${influencer.id}.products.aiPhotos.name`),
+      description: t(`influencers.${influencer.id}.products.aiPhotos.description`),
+      thumbnail: influencer.aiSamples[0],
+      icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
+      badge: t('productBadges.ai'),
+      color: "from-orange-500 to-red-500",
+    },
+  ]
 
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
@@ -393,7 +448,11 @@ const products = [
                   <div className="px-4 md:px-6 pb-4 md:pb-6">
                     <ul className="space-y-2">
                       {pkg.features.map((featureKey, featureIndex) => {
-                        const isNewFeature = pkg.newFeatures?.includes(featureKey)
+                        // 모모리나, 쏘블리의 경우 스페셜/ALL 패키지에서 VR 풀버전 앞에 ✨ 표시 안함
+                        const isNewFeature = !hasVrVideo && featureKey === 'vrVideoFull1' 
+                          ? false // VR 영상이 없는 인플루언서는 VR 풀버전이 새 기능이 아님
+                          : pkg.newFeatures?.includes(featureKey)
+                        
                         return (
                           <li key={featureIndex} className="flex items-start text-slate-300 text-xs md:text-sm">
                             <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3 flex-shrink-0 mt-2" />
@@ -439,8 +498,12 @@ const products = [
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 상품 그리드 - 모바일 최적화 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* 상품 그리드 - 5개 또는 6개에 따른 레이아웃 조정 */}
+          <div className={`grid gap-4 md:gap-6 ${
+            hasVrVideo 
+              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' // 6개 상품 (2x3 그리드)
+              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' // 5개 상품 (1x5 또는 더 컴팩트하게)
+          }`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
