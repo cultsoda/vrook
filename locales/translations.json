@@ -345,7 +345,7 @@
   "productBadges": {
     "photos": { "ko": "20장", "en": "20 pics" },
     "bcuts": { "ko": "B컷", "en": "B-cut" },
-    "video": { "ko": "HD 영상", "en": "HD Video" },
+    "video": { "ko": "비하인드", "en": "BEHIND" },
     "vr": { "ko": "VR 영상", "en": "VR Videos" },
     "vrFull": { "ko": "풀버전", "en": "Full Ver." },
     "ai": { "ko": "3장", "en": "3 pics" }
