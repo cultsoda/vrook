@@ -432,7 +432,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
               <Card
                 key={product.id}
                 className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
-                  canPurchase ? "hover:scale-105 cursor-pointer" : "opacity-70 cursor-not-allowed"
+                  canPurchase ? "hover:scale-105 cursor-pointer" : "cursor-pointer"
                 }`}
                 onClick={() => handleProductClick(product.id)}
               >
