@@ -139,26 +139,37 @@ const products = [
     <div className="min-h-screen bg-black overflow-x-hidden">
       {/* Header - 모바일 최적화 */}
       <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
-        <div className="container mx-auto px-3 md:px-4 py-3 md:py-4 flex items-center justify-between">
-          <Button 
-            variant="ghost" 
-            onClick={() => router.push("/")} 
-            className="text-white hover:text-purple-400 p-2 md:px-4"
-            size="sm"
-          >
-            <ArrowLeft className="w-4 h-4 mr-1 md:mr-2" />
-            <span className="hidden sm:inline">{t('common.back')}</span>
-          </Button>
-          
-          <button 
-            onClick={() => router.push("/")}
-            className="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
-          >
-            {t('common.vrook')}
-          </button>
-          
-          <div className="scale-75 md:scale-100 origin-right">
-            <LanguageSwitcher />
+        <div className="container mx-auto px-3 md:px-4 py-3 md:py-4">
+          <div className="flex items-center justify-between">
+            {/* 왼쪽 - 뒤로가기 버튼 */}
+            <div className="flex-1 flex justify-start">
+              <Button 
+                variant="ghost" 
+                onClick={() => router.push("/")} 
+                className="text-white hover:text-purple-400 p-2 md:px-4"
+                size="sm"
+              >
+                <ArrowLeft className="w-4 h-4 mr-1 md:mr-2" />
+                <span className="hidden sm:inline">{t('common.back')}</span>
+              </Button>
+            </div>
+            
+            {/* 중앙 - VROOK 로고 (완전 중앙 정렬) */}
+            <div className="flex-1 flex justify-center">
+              <button 
+                onClick={() => router.push("/")}
+                className="text-lg md:text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
+              >
+                {t('common.vrook')}
+              </button>
+            </div>
+            
+            {/* 오른쪽 - 언어 스위처 */}
+            <div className="flex-1 flex justify-end">
+              <div className="scale-75 md:scale-100 origin-right">
+                <LanguageSwitcher />
+              </div>
+            </div>
           </div>
         </div>
       </header>

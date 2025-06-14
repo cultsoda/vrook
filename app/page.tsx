@@ -109,32 +109,36 @@ export default function HomePage() {
             {influencers.map((influencer, index) => (
               <Link key={influencer.id} href={`/influencer/${influencer.id}`}>
                 <Card
-                  className="bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-slate-800/70 cursor-pointer"
+                  className="bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-slate-800/70 cursor-pointer overflow-hidden"
                   onMouseEnter={() => setHoveredCard(influencer.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <CardContent className="p-0">
-                    {/* 이미지 비율 조정 - 모바일에서 더 적당한 비율 */}
-                    <div className="relative overflow-hidden rounded-t-lg aspect-[4/5] md:aspect-square">
+                    {/* 이미지와 텍스트 오버레이 */}
+                    <div className="relative overflow-hidden rounded-lg aspect-[4/5] md:aspect-square">
                       <OptimizedImage
                         src={influencer.profileImage}
                         alt={influencer.name}
-                        priority={true} // 모든 인플루언서 이미지를 우선 로딩으로 변경
+                        priority={true}
                         className="transition-transform duration-300 hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      
+                      {/* 그라데이션 오버레이 */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      
+                      {/* 텍스트 오버레이 - 모바일/데스크톱 동일하게 이미지 위에 표시 */}
                       <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
                           {influencer.name}
                         </h3>
+                        <p className="text-sm md:text-base text-purple-300 font-semibold">
+                          {t(influencer.descriptionKey)}
+                        </p>
                       </div>
                     </div>
-                    <div className="p-3 md:p-4 bg-slate-900">
-                      <p className="text-base md:text-lg text-purple-300 font-semibold">
-                        {t(influencer.descriptionKey)}
-                      </p>
-                    </div>
+                    
+                    {/* 검정 영역 완전 제거 - 모든 텍스트가 이미지 위에 표시됨 */}
                   </CardContent>
                 </Card>
               </Link>
