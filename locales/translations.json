@@ -69,7 +69,6 @@
     "unavailableBanner": { "ko": "🚧 아직 오픈 전이에요! 조금만 기다려주시면 곧 만나뵐게요", "en": "🚧 Not open yet! Please wait a little longer and we'll meet you soon" },
     "salePreparation": { "ko": "판매 준비 중", "en": "Sale Preparation" },
     "comingSoon": { "ko": "곧 공개 예정", "en": "Coming Soon" },
-    "clickForNotification": { "ko": "클릭해서 알림받기", "en": "Click for notification" },
     "contentNotReady": { "ko": "아직 준비 중인 콘텐츠에요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
   },
   "influencers": {

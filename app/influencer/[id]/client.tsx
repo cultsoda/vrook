@@ -471,12 +471,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                       </div>
                     )}
 
-                    {/* 곧 공개 예정 호버 효과 - 클릭 가능한 느낌으로 */}
+                    {/* 곧 공개 예정 호버 효과 */}
                     {!canPurchase && (
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center cursor-pointer">
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
                         <div className="text-white text-center bg-black/80 px-4 py-3 rounded-lg border border-yellow-400/50 backdrop-blur-sm">
                           <div className="text-base md:text-lg font-semibold text-yellow-300">{t('influencer.comingSoon')}</div>
-                          <div className="text-xs md:text-sm text-yellow-200 mt-1">{t('influencer.clickForNotification')}</div>
                         </div>
                       </div>
                     )}
