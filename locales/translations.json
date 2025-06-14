@@ -59,7 +59,7 @@
     "comingSoon": { "ko": "곧 공개 예정", "en": "Coming Soon" },
     "contentNotReady": { "ko": "아직 준비 중인 콘텐츠에요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
   },
-   "influencers": {
+  "influencers": {
     "gyeoudi": {
       "description": { "ko": "#화보장인 #넘사벽피지컬", "en": "#PhotoMaster #UnrivaledPhysical" },
       "bio": { "ko": "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.", "en": "A model with a unique atmosphere who turns even daily life into a pictorial. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK." },
@@ -366,7 +366,6 @@
       "vrHmdGift": { "ko": "몰입형 VR HMD 특별 증정(국내 배송만 가능)", "en": "Immersive VR HMD Special Gift(Korea shipping only)" },
       "aiPhotos3": { "ko": "AI 포토카드 3장(디지털, 실물-국내 배송만 가능)", "en": "3 AI Photo Cards(Digital, Physical-Korea shipping only)" },
       "photocardGift": { "ko": "실물 포토카드 증정 (국내 배송만 가능)", "en": "Physical Photo Card Gift (Korea shipping only)" }
- 
     }
   },
   "socialPlatforms": {

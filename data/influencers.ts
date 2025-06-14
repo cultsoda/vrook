@@ -51,6 +51,35 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
 
   const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
 
+  // 모모리나, 쏘블리는 VR 영상이 없어서 패키지 구성이 다름
+  if (influencerId === 'momorina' || influencerId === 'ssoblly') {
+    return [
+      {
+        id: "basic",
+        name: "브이룩 패키지",
+        price: prices.basic,
+        features: ["photos20", "photoVideo1", "vrVideoFull1"], // VR 풀버전으로 변경
+        newFeatures: [],
+      },
+      {
+        id: "special",
+        name: "브이룩 스페셜 패키지",
+        price: prices.special,
+        features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
+        newFeatures: ["vrHmdGift"], // vrVideoFull1 제거
+        highlight: true,
+      },
+      {
+        id: "all",
+        name: "브이룩 ALL 패키지",
+        price: prices.all,
+        features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
+        newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"], // vrVideoFull1 제거
+      },
+    ]
+  }
+
+  // 기본 패키지 구성 (VR 영상 있는 인플루언서들)
   return [
     {
       id: "basic",
@@ -71,7 +100,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       id: "all",
       name: "브이룩 ALL 패키지",
       price: prices.all,
-      features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3" ],
+      features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
       newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
     },
   ]
@@ -198,10 +227,10 @@ export const influencers: Influencer[] = [
       getProductThumbnail("momorina", "photos"),
       getProductThumbnail("momorina", "bcuts"),
       getProductThumbnail("momorina", "video"),
-      getProductThumbnail("momorina", "vr"),
+      getProductThumbnail("momorina", "vrFull"), // VR 영상 없으므로 vrFull만
     ],
     videoThumbnail: getProductThumbnail("momorina", "video"),
-    vrPreview: getProductThumbnail("momorina", "vr"),
+    vrPreview: getProductThumbnail("momorina", "vrFull"), // VR 영상 없으므로 vrFull
     aiSamples: [
       getProductThumbnail("momorina", "ai"),
       getProductThumbnail("momorina", "ai"),
@@ -225,10 +254,10 @@ export const influencers: Influencer[] = [
       getProductThumbnail("ssoblly", "photos"),
       getProductThumbnail("ssoblly", "bcuts"),
       getProductThumbnail("ssoblly", "video"),
-      getProductThumbnail("ssoblly", "vr"),
+      getProductThumbnail("ssoblly", "vrFull"), // VR 영상 없으므로 vrFull만
     ],
     videoThumbnail: getProductThumbnail("ssoblly", "video"),
-    vrPreview: getProductThumbnail("ssoblly", "vr"),
+    vrPreview: getProductThumbnail("ssoblly", "vrFull"), // VR 영상 없으므로 vrFull
     aiSamples: [
       getProductThumbnail("ssoblly", "ai"),
       getProductThumbnail("ssoblly", "ai"),
