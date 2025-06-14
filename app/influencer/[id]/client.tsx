@@ -599,27 +599,22 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 완벽한 중앙 정렬 그리드 */}
-          <div className={`${
-            products.length === 5 
-              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6' 
-              : `grid gap-4 md:gap-6 ${getGridClass()}`
-          }`}>
+          {/* 🎯 수정된 균형 잡힌 그리드 */}
+          <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
-                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
-                  canPurchase ? "hover:scale-105 cursor-pointer" : "cursor-pointer"
-                } ${
-                  // 5개 콘텐츠 특별 배치: 첫 3개는 1-3열, 마지막 2개는 2-3열 (중앙 정렬)
-                  products.length === 5 && index === 3 
-                    ? 'lg:col-start-2 lg:col-span-1' 
-                    : ''
-                } ${
-                  products.length === 5 && index === 4 
-                    ? 'sm:col-start-2 lg:col-start-3 lg:col-span-1' 
-                    : ''
-                }`}
+                className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group cursor-pointer 
+                  ${canPurchase ? "hover:scale-105" : ""}
+                  ${
+                    // [PC] 콘텐츠가 5개일 때, 마지막 줄의 카드 2개를 중앙에 배치합니다.
+                    products.length === 5 && index === 3 ? "lg:col-start-2" : ""
+                  }
+                  ${
+                    // [태블릿] 콘텐츠가 5개일 때, 마지막 카드를 가로 전체에 배치하여 균형을 맞춥니다.
+                    products.length === 5 && index === 4 ? "sm:col-span-2" : ""
+                  }
+                `}
                 onClick={() => handleProductClick(product.id)}
               >
                 <CardContent className="p-0">
