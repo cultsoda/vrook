@@ -600,21 +600,18 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
           </p>
 
           {/* 🎯 적응형 상품 그리드 - 마지막 줄 중앙 정렬 */}
-          <div className={`grid gap-4 md:gap-6 ${getGridClass()} ${
-            products.length === 5 ? 'justify-items-center' : ''
-          }`}>
+          <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
                 className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
                   canPurchase ? "hover:scale-105 cursor-pointer" : "cursor-pointer"
                 } ${
-                  // 5개 콘텐츠일 때 마지막 2개 아이템(index 3, 4)에 특별 스타일 적용
-                  products.length === 5 && index >= 3 
-                    ? 'lg:col-start-2 lg:col-span-1' + (index === 3 ? ' lg:col-start-2' : ' lg:col-start-3')
+                  // 5개 콘텐츠일 때만 마지막 2개 아이템 중앙 정렬
+                  products.length === 5 && index === 3 
+                    ? 'sm:col-span-1 lg:col-start-2' 
                     : ''
                 } ${
-                  // 태블릿에서 5번째 아이템(index 4) 중앙 정렬
                   products.length === 5 && index === 4 
                     ? 'sm:col-start-2 sm:col-span-1 lg:col-start-3' 
                     : ''
