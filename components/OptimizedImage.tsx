@@ -1,8 +1,7 @@
-// components/OptimizedImage.tsx - 새로 생성
+// components/OptimizedImage.tsx 업데이트
 "use client"
 
-import { useState } from 'react'
-import { LoadingSpinner } from '@/components/LoadingComponents'
+import { useState, useEffect, useRef } from 'react'
 
 interface OptimizedImageProps {
   src: string
@@ -12,7 +11,13 @@ interface OptimizedImageProps {
   height?: number
   priority?: boolean
   sizes?: string
+  onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void
+  onLoad?: () => void
 }
+
+// 이미지 로드 캐시 (메모리 캐싱)
+const imageCache = new Set<string>()
+const loadingImages = new Map<string, Promise<void>>()
 
 export function OptimizedImage({ 
   src, 
@@ -21,39 +26,83 @@ export function OptimizedImage({
   width,
   height,
   priority = false,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  onError,
+  onLoad
 }: OptimizedImageProps) {
-  const [isLoading, setIsLoading] = useState(true)
-  const [hasError, setHasError] = useState(false)
+  const [isLoading, setIsLoading] = useState(!imageCache.has(src))
+  const [imgSrc, setImgSrc] = useState(src)
+  const imgRef = useRef<HTMLImageElement>(null)
 
-  // WebP 지원 여부에 따른 이미지 src 생성
-  const getOptimizedSrc = (originalSrc: string) => {
-    // .webp로 끝나지 않는 경우 .webp 버전 시도
-    if (!originalSrc.includes('.webp') && !originalSrc.includes('placeholder')) {
-      return originalSrc.replace(/\.(jpg|jpeg|png)/, '.webp')
+  // 이미지 프리로드 함수
+  const preloadImage = (url: string): Promise<void> => {
+    if (imageCache.has(url)) {
+      return Promise.resolve()
     }
-    return originalSrc
+
+    if (loadingImages.has(url)) {
+      return loadingImages.get(url)!
+    }
+
+    const promise = new Promise<void>((resolve, reject) => {
+      const img = new Image()
+      img.onload = () => {
+        imageCache.add(url)
+        loadingImages.delete(url)
+        resolve()
+      }
+      img.onerror = () => {
+        loadingImages.delete(url)
+        reject()
+      }
+      img.src = url
+    })
+
+    loadingImages.set(url, promise)
+    return promise
   }
+
+  useEffect(() => {
+    if (imageCache.has(src)) {
+      setIsLoading(false)
+      return
+    }
+
+    if (priority) {
+      preloadImage(src)
+        .then(() => setIsLoading(false))
+        .catch(() => {
+          setImgSrc('/placeholder.svg?height=400&width=400')
+          setIsLoading(false)
+        })
+    }
+  }, [src, priority])
 
   const handleLoad = () => {
+    imageCache.add(imgSrc)
     setIsLoading(false)
+    onLoad?.()
   }
 
-  const handleError = () => {
-    setHasError(true)
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     setIsLoading(false)
+    if (!imgSrc.includes('placeholder.svg')) {
+      setImgSrc('/placeholder.svg?height=400&width=400')
+    }
+    onError?.(e)
   }
 
   return (
     <div className={`relative ${className}`}>
       {isLoading && (
-        <div className="absolute inset-0 bg-slate-800 animate-pulse rounded-lg flex items-center justify-center">
-          <LoadingSpinner size="sm" />
+        <div className="absolute inset-0 bg-slate-800 animate-pulse rounded-lg flex items-center justify-center z-10">
+          <div className="w-6 h-6 border-2 border-purple-200 border-t-purple-600 rounded-full animate-spin" />
         </div>
       )}
       
       <img
-        src={hasError ? "/placeholder.svg?height=400&width=400" : getOptimizedSrc(src)}
+        ref={imgRef}
+        src={imgSrc}
         alt={alt}
         width={width}
         height={height}
@@ -63,6 +112,8 @@ export function OptimizedImage({
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         sizes={sizes}
+        // 브라우저 캐싱 힌트 추가
+        crossOrigin="anonymous"
       />
     </div>
   )
