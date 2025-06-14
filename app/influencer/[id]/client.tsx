@@ -269,10 +269,10 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     },
   ]
 
-  // 🚀 적응형 그리드 클래스 - 모든 인플루언서 동일한 열 구조 유지
+    // 🚀 적응형 그리드 클래스 - 모든 인플루언서 동일한 열 구조 유지
   const getGridClass = () => {
-    // 모든 인플루언서: 모바일 1열, 태블릿 2열, PC 3열 통일
-    return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+    // 모바일 1열, 태블릿 2열, PC는 정밀 제어를 위해 12열 사용
+    return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-12"
   }
 
   // 🎯 5개 콘텐츠일 때 마지막 줄 중앙 정렬을 위한 스타일
@@ -589,7 +589,6 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         </div>
       </section>
 
-      {/* Product Selection - 🚀 적응형 그리드 적용 및 수정 */}
       {/* Product Selection - 🚀 적응형 그리드 적용 */}
       <section className={`py-8 md:py-16 px-4 ${activeTab !== 'products' ? 'hidden md:block' : ''}`}>
         <div className="container mx-auto">
@@ -600,10 +599,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 수정된 균형 잡힌 그리드 (v5 - 최종) */}
+          {/* 🎯 수정된 균형 잡힌 그리드 (v6 - 진짜 최종) */}
           <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => {
               const isFiveItems = products.length === 5;
+              const isFourthItem = index === 3;
               const isFifthItem = index === 4;
 
               // 재사용을 위해 카드 컴포넌트를 변수로 정의합니다.
@@ -658,22 +658,20 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                 </Card>
               );
 
-              // [태블릿] 5개 콘텐츠의 마지막 1개를 중앙 정렬하기 위한 로직
-              if (isFiveItems && isFifthItem) {
-                return (
-                  // PC(lg)에서는 1칸만 차지하고, 태블릿(sm)에서는 2칸을 차지해 중앙 정렬의 기반을 만듭니다.
-                  <div key={product.id} className="lg:col-span-1 sm:col-span-2 sm:flex sm:justify-center">
-                    <div className="w-full max-w-sm">
-                      {productCard}
-                    </div>
-                  </div>
-                );
-              }
-              
-              // 일반적인 모든 카드 렌더링
+              // 12칸 그리드 시스템에 맞춘 카드 배치 로직
               return (
-                <div key={product.id}>
-                  {productCard}
+                <div
+                  key={product.id}
+                  className={`
+                    lg:col-span-4 ${/* PC에서는 기본 4칸 차지 */''}
+                    ${isFiveItems && isFourthItem ? 'lg:col-start-3' : '' /* PC 5개일때 4번째 카드는 3번째 칸에서 시작 */}
+                    ${isFiveItems && isFifthItem ? 'sm:col-span-2 sm:flex sm:justify-center lg:col-span-4 lg:col-start-auto' : '' /* 태블릿 5번째 카드는 2칸 차지 & 중앙정렬 / PC에서는 다시 4칸 차지 */}
+                  `}
+                >
+                  {/* 태블릿에서 중앙정렬된 카드가 늘어나지 않도록 너비 제한 */}
+                  <div className={isFiveItems && isFifthItem ? "w-full max-w-sm" : ""}>
+                    {productCard}
+                  </div>
                 </div>
               );
             })}
