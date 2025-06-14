@@ -8,6 +8,7 @@ import { influencers } from "@/data/influencers"
 import { Eye, Sparkles, Users, Camera, Headphones, ExternalLink } from "lucide-react"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
+import { OptimizedImage } from "@/components/OptimizedImage"
 
 export default function HomePage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -105,7 +106,7 @@ export default function HomePage() {
           </p>
           {/* 모바일: 1열, 태블릿: 2열, 데스크톱: 3열 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {influencers.map((influencer) => (
+            {influencers.map((influencer, index) => (
               <Link key={influencer.id} href={`/influencer/${influencer.id}`}>
                 <Card
                   className="bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-slate-800/70 cursor-pointer"
@@ -115,15 +116,12 @@ export default function HomePage() {
                   <CardContent className="p-0">
                     {/* 이미지 비율 조정 - 모바일에서 더 적당한 비율 */}
                     <div className="relative overflow-hidden rounded-t-lg aspect-[4/5] md:aspect-square">
-                      <img
+                      <OptimizedImage
                         src={influencer.profileImage}
                         alt={influencer.name}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        loading="lazy"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = "/placeholder.svg?height=400&width=400";
-                        }}
+                        priority={index < 3} // 첫 3개는 우선 로딩
+                        className="transition-transform duration-300 hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                       <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
