@@ -10,6 +10,7 @@ import { ArrowLeft, Users, Play, Eye, Sparkles, ExternalLink, Camera, Image } fr
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
 import { usePurchaseControl } from "@/hooks/usePurchaseControl"
+import { toast } from 'sonner'
 import type { Influencer, Package } from "@/types/influencer"
 
 interface InfluencerDetailClientProps {
@@ -59,7 +60,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
 
   const handleProductClick = (productType: string) => {
     if (!canPurchase) {
-      showPurchaseUnavailableAlert()
+      toast.error(t('influencer.contentNotReady'))
       return
     }
     const link = getProductLink(influencer.id, productType)
@@ -218,7 +219,61 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                           ),
                           color: 'text-pink-400 hover:text-pink-300'
                         }
-                        // 다른 플랫폼들도 동일하게...
+                        if (url.includes('youtube.com') || url.includes('youtu.be')) return {
+                          name: 'YouTube',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                          ),
+                          color: 'text-red-400 hover:text-red-300'
+                        }
+                        if (url.includes('twitter.com') || url.includes('x.com')) return {
+                          name: 'Twitter/X',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                          ),
+                          color: 'text-blue-400 hover:text-blue-300'
+                        }
+                        if (url.includes('tiktok.com')) return {
+                          name: 'TikTok',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                          ),
+                          color: 'text-purple-400 hover:text-purple-300'
+                        }
+                        if (url.includes('twitch.tv')) return {
+                          name: 'Twitch',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                            </svg>
+                          ),
+                          color: 'text-purple-500 hover:text-purple-400'
+                        }
+                        if (url.includes('sooplive.co.kr') || url.includes('chzzk.naver.com')) return {
+                          name: 'Live Stream',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
+                          ),
+                          color: 'text-green-400 hover:text-green-300'
+                        }
+                        if (url.includes('patreon.com')) return {
+                          name: 'Patreon',
+                          icon: (
+                            <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/>
+                            </svg>
+                          ),
+                          color: 'text-orange-400 hover:text-orange-300'
+                        }
+                        // 기본 링크 아이콘
                         return { 
                           name: 'Link', 
                           icon: (
@@ -239,6 +294,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-800/60 hover:bg-slate-700/60 transition-all duration-200 backdrop-blur-sm border border-slate-600/30 hover:scale-110 ${platformInfo.color}`}
+                          title={platformInfo.name}
                         >
                           {platformInfo.icon}
                         </a>
@@ -264,7 +320,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              패키지
+              {t('influencer.tabs.packages')}
             </button>
             <button
               onClick={() => setActiveTab('products')}
@@ -274,7 +330,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              개별 상품
+              {t('influencer.tabs.contents')}
             </button>
           </div>
         </div>
@@ -415,12 +471,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                       </div>
                     )}
 
-                    {/* 구매 불가 오버레이 */}
+                    {/* 구매 불가 호버 및 클릭 효과 */}
                     {!canPurchase && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-t-lg">
-                        <div className="text-white text-center">
-                          <div className="text-xl md:text-2xl mb-1 md:mb-2">🔒</div>
-                          <div className="text-xs md:text-sm">준비 중</div>
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-lg flex items-center justify-center">
+                        <div className="text-white text-center bg-black/70 px-3 py-2 rounded-lg">
+                          <div className="text-sm font-medium">곧 공개 예정</div>
                         </div>
                       </div>
                     )}

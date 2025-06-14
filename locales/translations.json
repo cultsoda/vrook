@@ -27,6 +27,10 @@
     "footerDesc": { "ko": "VR 셀럽 화보 플랫폼 - 새로운 디지털 경험의 시작", "en": "VR Celebrity Photo Platform - The beginning of a new digital experience" }
   },
   "influencer": {
+    "tabs": {
+      "packages": { "ko": "패키지", "en": "Packages" },
+      "contents": { "ko": "콘텐츠", "en": "Contents" }
+    },
     "productSelection": { "ko": "상품 선택", "en": "Product Selection" },
     "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 확인하고 원하는 패키지를 선택하여 구매할 수 있습니다", "en": "'s various content can be previewed and purchased as a package." },
     "productGuide": { "ko": "콘텐츠 안내", "en": "Content Guide" },
@@ -66,7 +70,7 @@
     "salePreparation": { "ko": "판매 준비 중", "en": "Sale Preparation" },
     "comingSoon": { "ko": "곧 공개 예정", "en": "Coming Soon" },
     "clickPreview": { "ko": "클릭해서 미리보기", "en": "Click to preview" },
-    "contentNotReady": { "ko": "아직 준비 중인 콘텐츠예요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
+    "contentNotReady": { "ko": "아직 준비 중인 콘텐츠에요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
   },
   "influencers": {
     "gyeoudi": {

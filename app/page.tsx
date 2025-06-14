@@ -35,17 +35,17 @@ export default function HomePage() {
               <p className="text-lg md:text-xl text-purple-200 mb-2 px-2">{t('home.subtitle')}</p>
               <p className="text-base md:text-lg text-slate-300 px-4">{t('home.description')}</p>
             </div>
-            {/* Badge들 - 모바일에서 세로 배치 */}
+            {/* Badge들 - 모바일에서 세로 배치, 크기 고정 */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
-              <Badge variant="secondary" className="bg-purple-600/20 text-purple-200 border-purple-400 w-full sm:w-auto">
+              <Badge variant="secondary" className="bg-purple-600/20 text-purple-200 border-purple-400 px-4 py-2 w-auto">
                 <Eye className="w-4 h-4 mr-2" />
                 {t('home.vrExperience')}
               </Badge>
-              <Badge variant="secondary" className="bg-pink-600/20 text-pink-200 border-pink-400 w-full sm:w-auto">
+              <Badge variant="secondary" className="bg-pink-600/20 text-pink-200 border-pink-400 px-4 py-2 w-auto">
                 <Sparkles className="w-4 h-4 mr-2" />
                 {t('home.aiPhotos')}
               </Badge>
-              <Badge variant="secondary" className="bg-blue-600/20 text-blue-200 border-blue-400 w-full sm:w-auto">
+              <Badge variant="secondary" className="bg-blue-600/20 text-blue-200 border-blue-400 px-4 py-2 w-auto">
                 <Users className="w-4 h-4 mr-2" />
                 {t('home.celebContent')}
               </Badge>
