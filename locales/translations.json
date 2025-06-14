@@ -9,7 +9,7 @@
   },
   "home": {
     "title": { "ko": "VROOK - VR 셀럽 화보 플랫폼", "en": "VROOK - VR Celebrity Photo Platform" },
-    "subtitle": { "ko": "VR 셀럽 화보 - 혁신적 콘텐츠가 추가된 상품입니다", "en": "VR Celebrity Photos - Revolutionary content platform" },
+    "subtitle": { "ko": "VR 셀럽 화보 - 더 가까이, 더 생생하게", "en": "VR Celebrity Photos - Closer and More Vivid" },
     "description": { "ko": "VR 영상과 AI 화보를 통해 팬들에게 새로운 몰입 경험을 전달합니다", "en": "Delivering new immersive experiences to fans through VR videos and AI photos" },
     "vrExperience": { "ko": "VR 체험", "en": "VR Experience" },
     "aiPhotos": { "ko": "AI 화보", "en": "AI Photos" },
@@ -35,18 +35,6 @@
     "productSelectionDesc": { "ko": "의 다양한 콘텐츠를 확인하고 원하는 패키지를 선택하여 구매할 수 있습니다", "en": "'s various content can be previewed and purchased as a package." },
     "productGuide": { "ko": "콘텐츠 안내", "en": "Content Guide" },
     "productGuideDesc": { "ko": "패키지에 포함된 콘텐츠들을 확인해보세요. 어떤 특별한 경험이 기다리고 있는지 살펴보세요.", "en": "Check out the contents included in the package. Explore what special experiences await you." },
-    "photoSet": { "ko": "화보 사진", "en": "Photo Set" },
-    "photoSetDesc": { "ko": "고품질 프로페셔널 화보 사진 20장", "en": "20 high-quality professional photo collection" },
-    "bcuts": { "ko": "B컷 화보", "en": "B-Cut Photos" },
-    "bcutsDesc": { "ko": "촬영 과정에서 나온 자연스러운 B컷 화보", "en": "Natural B-cut photos from the shooting process" },
-    "video": { "ko": "화보 영상", "en": "Photo Video" },
-    "videoDesc": { "ko": "프리미엄 화보 촬영 과정과 비하인드 스토리", "en": "Premium photo shooting process and behind-the-scenes stories" },
-    "vrVideo": { "ko": "VR 영상", "en": "VR Video" },
-    "vrVideoDesc": { "ko": "몰입감 있는 VR 기술로 제작된 독점 영상", "en": "Exclusive video created with immersive VR technology" },
-    "vrFullVideo": { "ko": "VR 영상(풀버전)", "en": "VR Video (Full Version)" },
-    "vrFullVideoDesc": { "ko": "완전한 VR 경험을 제공하는 풀버전 영상", "en": "Full version video providing complete VR experience" },
-    "aiPhotos": { "ko": "AI 화보", "en": "AI Photos" },
-    "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique synthetic photos generated with AI technology" },
     "purchaseFromXromeda": { "ko": "XROMEDA에서 구매하기", "en": "Purchase from XROMEDA" },
     "packageGuide": { "ko": "패키지 안내", "en": "Package Guide" },
     "packageGuideDesc": { "ko": "세 가지 패키지 중 나에게 맞는 구성을 선택해보세요. 패키지별 특별 혜택과 함께 더욱 알찬 콘텐츠를 경험할 수 있습니다.", "en": "Choose the right package configuration for you among three options. Experience richer content with special benefits for each package." },
@@ -71,42 +59,276 @@
     "comingSoon": { "ko": "곧 공개 예정", "en": "Coming Soon" },
     "contentNotReady": { "ko": "아직 준비 중인 콘텐츠에요! 곧 만나보실 수 있어요 😊", "en": "This content is still being prepared! You'll be able to see it soon 😊" }
   },
-  "influencers": {
+   "influencers": {
     "gyeoudi": {
       "description": { "ko": "#화보장인 #넘사벽피지컬", "en": "#Photo_Master #Unrivaled_Physical" },
-      "bio": { "ko": "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.", "en": "A model with a unique atmosphere who turns even daily life into a pictorial. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK." }
+      "bio": { "ko": "독보적인 분위기, 일상마저 화보로 만드는 모델. 스크롤을 멈추게 하는 그녀의 감각적인 비주얼, 그 정점을 VROOK에서 만나보세요.", "en": "A model with a unique atmosphere who turns even daily life into a pictorial. Meet the pinnacle of her sensuous visuals that make you stop scrolling at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "오늘의 겨우디 메인 화보", "en": "Today's Gyeoudi Main Pictorial" },
+          "description": { "ko": "고급지게 빛나는 겨우디의 메인 화보 20컷, 시선을 끄는 완성컷만 모았습니다.", "en": "20 cuts of Gyeoudi's luxuriously shining main pictorial, featuring only the most captivating finished shots." }
+        },
+        "bcuts": {
+          "name": { "ko": "그날의 여운을 B컷으로", "en": "The Day's Lingering Moments in B-cuts" },
+          "description": { "ko": "카메라가 쉬는 순간 포착된 겨우디의 고급진 표정과 몸짓, 팬만을 위한 은밀한 틈새컷을 모았어요.", "en": "Gyeoudi's sophisticated expressions and gestures captured during camera breaks, intimate behind-the-scenes cuts just for fans." }
+        },
+        "video": {
+          "name": { "ko": "겨우디를 화보 영상으로 만나요", "en": "Meet Gyeoudi Through Pictorial Video" },
+          "description": { "ko": "코스튬 디테일부터 현장의 눈빛까지, 겨우디의 움직임이 모두 담겨 있는 감각적인 촬영 현장이에요.", "en": "From costume details to on-set gazes, a sensual filming scene capturing all of Gyeoudi's movements." }
+        },
+        "vrVideo": {
+          "name": { "ko": "눈 앞에 겨우디 VR", "en": "Gyeoudi VR Right Before Your Eyes" },
+          "description": { "ko": "시선이 마주친 순간, 1인칭 시점으로 만나는 겨우디 하이라이트 VR 영상만 모았어요.", "en": "The moment your eyes meet, a collection of Gyeoudi highlight VR videos from first-person perspective." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "눈 앞에 겨우디 VR 풀 버전", "en": "Gyeoudi VR Full Version Right Before Your Eyes" },
+          "description": { "ko": "방 안에서 단 둘이 있는 듯한 몰입감, 시작부터 끝까지 겨우디를 눈앞에서 지켜보세요.", "en": "The immersive feeling of being alone together in a room, watch Gyeoudi right before your eyes from start to finish." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "겨우디 AI 포토카드", "en": "Gyeoudi AI Photo Cards" },
+          "description": { "ko": "AI가 만들어낸 상상 속 겨우디예요. 현실과 환상의 경계에서 태어난 겨우디의 또 다른 모습들이에요.", "en": "Gyeoudi from imagination created by AI. Another side of Gyeoudi born at the boundary between reality and fantasy." }
+        }
+      }
     },
     "momorina": {
       "description": { "ko": "#코스튬여신 #우윳빛깔", "en": "#Costume_Goddess #Milky_Skin" },
-      "bio": { "ko": "일러스트는 기본, 룩북과 피규어 리뷰까지 섭렵한 만능 크리에이터, 모모리나. 그녀가 사랑하는 모든 것들을 VROOK에서 가장 가까이 만나보세요.", "en": "An all-around creator who has mastered everything from illustrations to lookbooks and figure reviews. Meet everything she loves closest at VROOK." }
+      "bio": { "ko": "일러스트는 기본, 룩북과 피규어 리뷰까지 섭렵한 만능 크리에이터, 모모리나. 그녀가 사랑하는 모든 것들을 VROOK에서 가장 가까이 만나보세요.", "en": "An all-around creator who has mastered everything from illustrations to lookbooks and figure reviews. Meet everything she loves closest at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "지금은 모모리나 메인 화보", "en": "Now Momorina Main Pictorial" },
+          "description": { "ko": "사랑스러움 가득한, 모모리나의 가장 완벽한 순간 20컷만 모았습니다.", "en": "Full of loveliness, featuring only Momorina's most perfect 20 moments." }
+        },
+        "bcuts": {
+          "name": { "ko": "모모리나, 숨겨진 순간들 B컷", "en": "Momorina's Hidden Moments B-cuts" },
+          "description": { "ko": "촬영장의 비하인드와 자연스러운 미소까지, 복숭아를 닮은 그녀의 B컷", "en": "Behind-the-scenes from filming and natural smiles, her B-cuts that resemble a peach." }
+        },
+        "video": {
+          "name": { "ko": "화보 영상 속의 모모리나", "en": "Momorina in Pictorial Video" },
+          "description": { "ko": "눈빛부터 제스처까지, 영상으로 전해지는 러블리한 무드. 화보 영상으로 생생하게 만나봐요.", "en": "From gazes to gestures, lovely mood conveyed through video. Experience vividly through pictorial video." }
+        },
+        "vrVideo": {
+          "name": { "ko": "모모리나를 VR로 소환합니다", "en": "Summoning Momorina in VR" },
+          "description": { "ko": "마주보는 듯한 몰입감, VR 영상을 통해 내 방에 들어 온 모모리나", "en": "Face-to-face immersion, Momorina entering my room through VR video." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "모모리나를 VR로 소환합니다 풀 버전", "en": "Summoning Momorina in VR Full Version" },
+          "description": { "ko": "사랑스러움의 끝판왕 모모리나 소환! 오직 당신만을 위해 모모리나가 왔어요", "en": "Summoning the ultimate lovely Momorina! Momorina has come just for you." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "모모리나 AI 포토카드", "en": "Momorina AI Photo Cards" },
+          "description": { "ko": "AI가 완성한 또 다른 모모리나, 상상 이상의 매력이 흘러 넘쳐요", "en": "Another Momorina completed by AI, charm beyond imagination overflows." }
+        }
+      }
     },
     "ssoblly": {
       "description": { "ko": "#러블리 #심쿵주의보", "en": "#Lovely #Heart_Flutter_Alert" },
-      "bio": { "ko": "이름처럼 사랑스러운, 당신의 '최애'가 될 모델. 청순함과 섹시함을 넘나드는 그녀의 다채로운 매력에 푹 빠져보세요.", "en": "A model as lovely as her name, who will become your 'favorite'. Fall deeply into her diverse charms that cross between innocence and sexiness." }
+      "bio": { "ko": "이름처럼 사랑스러운, 당신의 '최애'가 될 모델. 청순함과 섹시함을 넘나드는 그녀의 다채로운 매력에 푹 빠져보세요.", "en": "A model as lovely as her name, who will become your 'favorite'. Fall deeply into her diverse charms that cross between innocence and sexiness." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "쏘블리 왔어요! 메인 화보", "en": "Ssoblly is Here! Main Pictorial" },
+          "description": { "ko": "지금 이 표정, 이 분위기. 딱 당신만 아는 쏘블리예요. 20컷으로 충분히 즐겨볼 수 있어요.", "en": "This expression, this atmosphere right now. Ssoblly that only you know. You can enjoy it fully with 20 cuts." }
+        },
+        "bcuts": {
+          "name": { "ko": "쏘블리의 사랑스러운 B컷", "en": "Ssoblly's Lovely B-cuts" },
+          "description": { "ko": "방심한 웃음, 가벼운 시선, 그 속에서 피어나는 사랑스러운 그날의 쏘블리를 가득 담았어요.", "en": "Unguarded smiles, casual glances, filled with lovely Ssoblly blooming from those moments of that day." }
+        },
+        "video": {
+          "name": { "ko": "심쿵 여친 쏘블리의 화보 영상", "en": "Heart-fluttering Girlfriend Ssoblly's Pictorial Video" },
+          "description": { "ko": "장난도, 시선도, 몸짓까지도 사랑스러운 여친무드 가득 쏘블리의 화보 영상 함께 해요.", "en": "Playfulness, gazes, and even gestures - join Ssoblly's pictorial video full of lovely girlfriend vibes." }
+        },
+        "vrVideo": {
+          "name": { "ko": "혼자 볼 수 밖에 없는 VR 쏘블리", "en": "VR Ssoblly You Can Only Watch Alone" },
+          "description": { "ko": "눈 마주치면 살짝 웃어주는 진짜 쏘블리, 내 공간 속에 나타나다.", "en": "Real Ssoblly who smiles slightly when eyes meet, appearing in my space." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "나만 보는 VR 쏘블리 풀버전", "en": "VR Ssoblly Full Version Just for Me" },
+          "description": { "ko": "조용히 둘만 있는 시간이 너무 아쉽잖아, 오래도록 눈 앞에서 쏘블리 놓치지 말아요.", "en": "The quiet time together is too precious, don't miss Ssoblly in front of your eyes for a long time." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "쏘블리 AI 포토카드", "en": "Ssoblly AI Photo Cards" },
+          "description": { "ko": "AI가 만들어준 또다른 쏘블리, 익숙하면서도 새로울 걸? 얼른 들어와서 봐줘", "en": "Another Ssoblly created by AI, familiar yet new? Come in quickly and take a look." }
+        }
+      }
     },
     "yanghyewon": {
       "description": { "ko": "#하이패션 #고급미뿜뿜", "en": "#High_Fashion #Luxury_Beauty" },
-      "bio": { "ko": "시선을 압도하는 카리스마, 경계 없는 스펙트럼의 모델. 강렬한 눈빛과 독보적인 아우라, 그녀가 선보이는 새로운 아트를 VROOK에서 확인하세요.", "en": "A model with overwhelming charisma and boundless spectrum. Check out the new art she presents with intense eyes and unique aura at VROOK." }
+      "bio": { "ko": "시선을 압도하는 카리스마, 경계 없는 스펙트럼의 모델. 강렬한 눈빛과 독보적인 아우라, 그녀가 선보이는 새로운 아트를 VROOK에서 확인하세요.", "en": "A model with overwhelming charisma and boundless spectrum. Check out the new art she presents with intense eyes and unique aura at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "조금 더 가까이 양혜원 메인 화보", "en": "A Little Closer Yang Hyewon Main Pictorial" },
+          "description": { "ko": "눈빛, 실루엣, 그리고 분위기까지. 카메라에 포착된 혜원이의 정제된 20컷만 담았습니다.", "en": "Eyes, silhouette, and atmosphere. Featuring only 20 refined cuts of Hyewon captured by the camera." }
+        },
+        "bcuts": {
+          "name": { "ko": "혜원이의 B컷, 방심하지 마세요.", "en": "Hyewon's B-cuts, Don't Let Your Guard Down." },
+          "description": { "ko": "움직이던 중, 웃고 있던 중, 그리고 계획하지 않은 컷에서 오히려 더 매력이 보여요.", "en": "While moving, while laughing, and in unplanned cuts, her charm shows even more." }
+        },
+        "video": {
+          "name": { "ko": "움직이면 더 매력적인 혜원", "en": "Hyewon More Attractive When Moving" },
+          "description": { "ko": "조용히, 더 부드럽게 움직이는 그녀의 하루.. 촬영장의 공기와 감각까지 느껴지는 영상을 보세요.", "en": "Quietly, her day moving more softly.. Watch the video where you can feel even the air and sensation of the filming scene." }
+        },
+        "vrVideo": {
+          "name": { "ko": "상상이 현실로 되는 혜원VR", "en": "Hyewon VR Where Imagination Becomes Reality" },
+          "description": { "ko": "화면 속이 아닌 눈앞에 있는 듯한, 1인칭 VR시점으로 바라본 그녀의 눈맞춤을 담았어요.", "en": "Not in the screen but as if right before your eyes, capturing her eye contact from first-person VR perspective." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "오로지 둘 뿐의 공간 혜원VR 풀버전", "en": "Hyewon VR Full Version in a Space Just for Two" },
+          "description": { "ko": "고개를 돌려도 시선은 계속 머무는 VR 풀씬. 혜원이랑 함께 놀지 않을래?", "en": "VR full scene where your gaze continues to stay even when you turn your head. Want to play with Hyewon?" }
+        },
+        "aiPhotos": {
+          "name": { "ko": "양혜원 AI 포토카드", "en": "Yang Hyewon AI Photo Cards" },
+          "description": { "ko": "현실의 혜원을 넘어서 AI가 그려낸 혜원이는 낯설지만 분명히 아름다워요.", "en": "Beyond the real Hyewon, the Hyewon drawn by AI is unfamiliar but definitely beautiful." }
+        }
+      }
     },
     "kkyunyangnyang": {
       "description": { "ko": "#사차원매력 #댕냥이", "en": "#4D_Charm #Adorable_Cat" },
-      "bio": { "ko": "예측불허! 톡톡 튀는 매력의 스트리머. 언제나 유쾌한 그녀와의 소통, VROOK에서는 더욱 생생하고 특별한 모습으로 함께합니다.", "en": "Unpredictable! A streamer with sparkling charm. Always cheerful communication with her, at VROOK we're together in a more vivid and special way." }
+      "bio": { "ko": "예측불허! 톡톡 튀는 매력의 스트리머. 언제나 유쾌한 그녀와의 소통, VROOK에서는 더욱 생생하고 특별한 모습으로 함께합니다.", "en": "Unpredictable! A streamer with sparkling charm. Always cheerful communication with her, at VROOK we're together in a more vivid and special way." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "몸매 하나로 경고받은 치명적인 매력", "en": "Fatal Charm That Got Warned for Body Alone" },
+          "description": { "ko": "몸매만으로 경고를 받았던 뀨냥냥에 특별한 순간 20컷을 모았습니다.", "en": "Collected 20 special moments of Kkyunyangnyang who got warned just for her body." }
+        },
+        "bcuts": {
+          "name": { "ko": "B컷으로 만나는 매력덩어리 뀨냥냥", "en": "Charming Kkyunyangnyang Meeting Through B-cuts" },
+          "description": { "ko": "요즘 폼이 미친 뀨냥냥에 매력 놓칠 수 없어서 조금 더...!", "en": "Kkyunyangnyang's form is crazy these days, couldn't miss her charm so a little more...!" }
+        },
+        "video": {
+          "name": { "ko": "방송에서 볼 수 없는 뀨냥냥에 아주 특별한 화보", "en": "Very Special Pictorial of Kkyunyangnyang You Can't See on Broadcast" },
+          "description": { "ko": "가끔 튀어나오는 뀨여캠 모먼트를 특별한 영상으로 만나보세요", "en": "Meet the occasional cute cam moments through special video." }
+        },
+        "vrVideo": {
+          "name": { "ko": "뀨냥냥과 함께해", "en": "Together with Kkyunyangnyang" },
+          "description": { "ko": "눈앞에 뀨냥냥이 있다면 이런 느낌...?! 현장에 같이 있는 느낌을 느껴보세요", "en": "If Kkyunyangnyang was right in front of you, this feeling...?! Feel like you're there together at the scene." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "뀨냥냥과 함께해 풀 버전", "en": "Together with Kkyunyangnyang Full Version" },
+          "description": { "ko": "뀨냥냥에 작은 순간까지 다 담은 풀 버전", "en": "Full version capturing even the small moments of Kkyunyangnyang." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "뀨냥냥 AI 포토카드", "en": "Kkyunyangnyang AI Photo Cards" },
+          "description": { "ko": "AI를 통해 뀨냥냥에 또 다른 매력을 만나봐요", "en": "Meet another charm of Kkyunyangnyang through AI." }
+        }
+      }
     },
     "jeongdabyeol": {
       "description": { "ko": "#남심공략 #사랑스러움", "en": "#Heart_Captivator #Lovely_Charm" },
-      "bio": { "ko": "코스프레부터 룩북까지, 어떤 콘셉트든 완벽히 소화하는 '천의 얼굴'. 그녀의 끝없는 변신을 VROOK에서 가장 먼저 만나보세요.", "en": "From cosplay to lookbooks, the 'thousand faces' who perfectly digests any concept. Meet her endless transformations first at VROOK." }
+      "bio": { "ko": "코스프레부터 룩북까지, 어떤 콘셉트든 완벽히 소화하는 '천의 얼굴'. 그녀의 끝없는 변신을 VROOK에서 가장 먼저 만나보세요.", "en": "From cosplay to lookbooks, the 'thousand faces' who perfectly digests any concept. Meet her endless transformations first at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "소유 욕구를 마구 일으키는 A컷 화보", "en": "A-cut Pictorial That Greatly Arouses Desire to Possess" },
+          "description": { "ko": "정다별이에 특별한 순간 누구나 탐낼만 한걸로 20컷을 모았습니다", "en": "Collected 20 cuts of Jeongdabyeol's special moments that anyone would covet." }
+        },
+        "bcuts": {
+          "name": { "ko": "정다별이와 함께한 특별한 B컷", "en": "Special B-cuts with Jeongdabyeol" },
+          "description": { "ko": "정다별이에 매력이 넘처 모자라실 분들을 위해 B컷으로 더 자세히 만나봐요", "en": "For those who feel there's not enough of Jeongdabyeol's overflowing charm, meet more in detail through B-cuts." }
+        },
+        "video": {
+          "name": { "ko": "섹시다이너마이트 정다별이", "en": "Sexy Dynamite Jeongdabyeol" },
+          "description": { "ko": "팡팡 터지는 매력에 소유자 정다별이를 영상으로 만나보세요", "en": "Meet the possessor Jeongdabyeol through video with her explosive charm." }
+        },
+        "vrVideo": {
+          "name": { "ko": "VR로 만나요 정다별이", "en": "Meet Jeongdabyeol in VR" },
+          "description": { "ko": "VR로 만나서 교감하는 특별한 순간을 느껴보세요", "en": "Feel the special moment of meeting and connecting in VR." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "VR로 만나요 정다별이 풀 버전", "en": "Meet Jeongdabyeol in VR Full Version" },
+          "description": { "ko": "VR을 통해 정다별이와 직접 만나는 듯한 느낌을 받아보세요", "en": "Experience the feeling of meeting Jeongdabyeol directly through VR." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "정다별이 AI 포토카드", "en": "Jeongdabyeol AI Photo Cards" },
+          "description": { "ko": "AI를 통한 정다별이의 매력이 더해진 순간을 만나보세요", "en": "Meet moments where Jeongdabyeol's charm is enhanced through AI." }
+        }
+      }
     },
     "ina": {
       "description": { "ko": "#프로모델 #순수미여신", "en": "#Pro_Model #Pure_Beauty_Goddess" },
-      "bio": { "ko": "깊은 눈빛으로 모든 콘셉트를 소화하는 프로 모델. 한 번 보면 잊을 수 없는 그녀의 매혹적인 순간들을 VROOK에서 독점 공개합니다.", "en": "A professional model who digests all concepts with deep eyes. Exclusively reveal her fascinating moments that you can't forget once you see them at VROOK." }
+      "bio": { "ko": "깊은 눈빛으로 모든 콘셉트를 소화하는 프로 모델. 한 번 보면 잊을 수 없는 그녀의 매혹적인 순간들을 VROOK에서 독점 공개합니다.", "en": "A professional model who digests all concepts with deep eyes. Exclusively reveal her fascinating moments that you can't forget once you see them at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "지금 이나의 무드 메인 화보", "en": "Right Now Ina's Mood Main Pictorial" },
+          "description": { "ko": "보는 순간 분위기 정리 완료, 여러분 이나 궁금하지 않아요? 20컷으로 만나볼 수 있어요.", "en": "Atmosphere complete the moment you see it, aren't you curious about Ina? You can meet her with 20 cuts." }
+        },
+        "bcuts": {
+          "name": { "ko": "이나의 그날의 B컷들을 모았어", "en": "Collected Ina's B-cuts from That Day" },
+          "description": { "ko": "안 쓰기 아까운 장면들만 모아, 이나의 자세한 모습까지 담은 B컷 화보", "en": "Collecting only scenes too good to waste, B-cut pictorial capturing even Ina's detailed appearance." }
+        },
+        "video": {
+          "name": { "ko": "영상 속 자연스러운 이나의 모습", "en": "Natural Ina in Video" },
+          "description": { "ko": "움직이는 이나는 더욱 아름다워요, 이나와 같이 놀아 봐요.", "en": "Moving Ina is even more beautiful, let's play together with Ina." }
+        },
+        "vrVideo": {
+          "name": { "ko": "이나의 가장 가까운 모습을 VR로 담아", "en": "Capturing Ina's Closest Appearance in VR" },
+          "description": { "ko": "이나 곁에 훅 다가가는 시간이 필요해? 그렇다면 VR 영상 한번 즐겨봐요.", "en": "Need time to get close to Ina? Then enjoy VR video once." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "이나의 가까운 모습, VR 풀버전도 있어요", "en": "Ina's Close Appearance, VR Full Version Available Too" },
+          "description": { "ko": "더 오래 즐기고 싶다면 풀버전 VR 영상을 통해 완전한 몰입도 도전해봐요.", "en": "If you want to enjoy longer, try complete immersion through full version VR video." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "이나 AI 포토카드", "en": "Ina AI Photo Cards" },
+          "description": { "ko": "현실도 레전드, AI 화보도 레전드, 소장욕구 뿜뿜 차오르는 이나 AI 화보.", "en": "Reality is legendary, AI pictorial is legendary too, Ina AI pictorial that arouses overwhelming desire to collect." }
+        }
+      }
     },
     "cuina": {
       "description": { "ko": "#글래머러스 #지적매력", "en": "#Glamorous #Intellectual_Charm" },
-      "bio": { "ko": "모든 시선을 단숨에 사로잡는 고혹적인 매력의 모델, 큐이나. 그녀가 만들어내는 치명적인 아름다움을 VROOK에서 직접 확인하세요.", "en": "A model with seductive charm that captivates all eyes at once, Cuina. Check out the fatal beauty she creates directly at VROOK." }
+      "bio": { "ko": "모든 시선을 단숨에 사로잡는 고혹적인 매력의 모델, 큐이나. 그녀가 만들어내는 치명적인 아름다움을 VROOK에서 직접 확인하세요.", "en": "A model with seductive charm that captivates all eyes at once, Cuina. Check out the fatal beauty she creates directly at VROOK." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "큐이나한테 더 빠져들어봐 메인 화보", "en": "Fall Deeper into Cuina Main Pictorial" },
+          "description": { "ko": "한번 보면 빠져버리는 큐이나에 매력 20컷으로 만나봐요", "en": "Meet Cuina's charm that you fall for once you see it with 20 cuts." }
+        },
+        "bcuts": {
+          "name": { "ko": "조금 이라도 놓치긴 아쉽잖아? B컷도 준비했어", "en": "It Would Be a Shame to Miss Even a Little? B-cuts Prepared Too" },
+          "description": { "ko": "빼기에 너무 아쉬운 컷을 모아서 B컷으로 더 준비했어요", "en": "Collected cuts too precious to exclude and prepared more as B-cuts." }
+        },
+        "video": {
+          "name": { "ko": "영상으로 만나는 큐이나에 특별한 순간", "en": "Cuina's Special Moments Meeting Through Video" },
+          "description": { "ko": "방송과는 다른 또 다른 매력을 직접 확인해보세요", "en": "Check out another charm different from broadcasts directly." }
+        },
+        "vrVideo": {
+          "name": { "ko": "VR로 큐이나에 특별한 순간을 함께해", "en": "Share Cuina's Special Moments Together in VR" },
+          "description": { "ko": "함께 할 수록 더욱 특별해지는 순간들을 VR로 담아봤어요", "en": "Captured moments that become more special the more we're together in VR." }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "VR로 큐이나에 특별한 순간을 함께해 풀 버전", "en": "Share Cuina's Special Moments Together in VR Full Version" },
+          "description": { "ko": "VR 풀버전으로 조금 더 길게 만나봐요", "en": "Meet a little longer with VR full version." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "큐이나 AI 포토카드", "en": "Cuina AI Photo Cards" },
+          "description": { "ko": "특별하게 작업해서 한층 더 매력을 끌어올려봤어요 아주 특별한 큐이나 AI 화보.", "en": "Specially worked to enhance charm even more, very special Cuina AI pictorial." }
+        }
+      }
     },
     "trollya": {
       "description": { "ko": "#반전매력 #겜방언니", "en": "#Reverse_Charm #Gaming_Sister" },
-      "bio": { "ko": "털털함 속에 숨겨진 사랑스러움, 게임 스트리머. 옆집 언니 같은 친근함, VROOK에서는 그녀의 새로운 모습을 발견할 수 있습니다.", "en": "Loveliness hidden in frankness, a game streamer. The friendliness of a next-door sister, at VROOK you can discover her new side." }
+      "bio": { "ko": "털털함 속에 숨겨진 사랑스러움, 게임 스트리머. 옆집 언니 같은 친근함, VROOK에서는 그녀의 새로운 모습을 발견할 수 있습니다.", "en": "Loveliness hidden in frankness, a game streamer. The friendliness of a next-door sister, at VROOK you can discover her new side." },
+      "products": {
+        "photoSet": {
+          "name": { "ko": "트롤야 여캠일까? 아닐까? 이번엔 여캠이다!", "en": "Is Trollya a Girl Cam? Or Not? This Time It's Girl Cam!" },
+          "description": { "ko": "에겐녀 모습을 보여주는 특별한 순간", "en": "Special moments showing her aegyo girl appearance." }
+        },
+        "bcuts": {
+          "name": { "ko": "한순간도 놓칠 수 없다 에겐녀 모습 트롤야", "en": "Can't Miss a Single Moment Aegyo Girl Trollya" },
+          "description": { "ko": "버섯들에게 B컷으로 특별한 순간을 조금 더 준비해봤어요", "en": "Prepared a little more special moments as B-cuts for the mushrooms (fans)." }
+        },
+        "video": {
+          "name": { "ko": "버섯들이 탐낼 트롤야 그날에 영상", "en": "Video of Trollya That Day That Mushrooms Will Covet" },
+          "description": { "ko": "지구의 자전축이 기울어진 이유는 고개숙여 트롤야에게 감사를 표하기 위함이다.", "en": "The reason Earth's axis is tilted is to bow down and express gratitude to Trollya." }
+        },
+        "vrVideo": {
+          "name": { "ko": "VR로 만나는 트롤야에 특별한 모습", "en": "Trollya's Special Appearance Meeting in VR" },
+          "description": { "ko": "장카설트 트롤야는...신이야! 여신!!", "en": "Jangkaseolt Trollya is... a god! A goddess!!" }
+        },
+        "vrFullVideo": {
+          "name": { "ko": "VR로 만나는 트롤야에 특별한 모습 풀 버전", "en": "Trollya's Special Appearance Meeting in VR Full Version" },
+          "description": { "ko": "날개만 없는 천사 트롤야를 풀 버전으로 조금이라도 오래 만나봐요", "en": "Meet angel Trollya who only lacks wings a little longer with full version." }
+        },
+        "aiPhotos": {
+          "name": { "ko": "트롤야 AI 포토카드", "en": "Trollya AI Photo Cards" },
+          "description": { "ko": "ChatGPT 보다 더 섹시한 트롤야를 AI 화보로 만나봐요", "en": "Meet Trollya who is sexier than ChatGPT through AI pictorial." }
+        }
+      }
     }
   },
   "categories": {
@@ -136,14 +358,15 @@
     "price": { "ko": "(VAT 포함)", "en": "(incl. VAT)" },
     "priceFormat": { "ko": "₩{krw} / ${usd}", "en": "₩{krw} / ${usd}" },
     "features": {
-      "photos20": { "ko": "화보 사진 20장", "en": "20 Photo Collection" },
+      "photos20": { "ko": "메인 화보 20장", "en": "20 Main Photo Collection" },
       "bcuts20": { "ko": "B컷 화보 사진 20장", "en": "20 B-Cut Photo Collection" },
-      "photoVideo1": { "ko": "화보 영상 1개", "en": "1 Photo Video" },
+      "photoVideo1": { "ko": "메이킹 영상 1개", "en": "1 Making Video" },
       "vrVideo1": { "ko": "VR 영상 1개", "en": "1 VR Video" },
       "vrVideoFull1": { "ko": "VR 영상(풀버전) 1개", "en": "1 VR Video (Full Version)" },
-      "vrHmdGift": { "ko": "몰입형 VR HMD 특별 증정 (국내 배송만 가능)", "en": "Immersive VR HMD Special Gift (Korea shipping only)" },
-      "aiPhotos3": { "ko": "AI 스페셜 화보 3장", "en": "3 AI Special Photos" },
+      "vrHmdGift": { "ko": "몰입형 VR HMD 특별 증정(국내 배송만 가능)", "en": "Immersive VR HMD Special Gift(Korea shipping only)" },
+      "aiPhotos3": { "ko": "AI 포토카드 3장(디지털, 실물-국내 배송만 가능)", "en": "3 AI Photo Cards(Digital, Physical-Korea shipping only)" },
       "photocardGift": { "ko": "실물 포토카드 증정 (국내 배송만 가능)", "en": "Physical Photo Card Gift (Korea shipping only)" }
+ 
     }
   },
   "socialPlatforms": {

@@ -76,62 +76,64 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     window.open(link, "_blank", "noopener,noreferrer")
   }
 
-  const products = [
-    {
-      id: "photos",
-      name: t('influencer.photoSet'),
-      description: t('influencer.photoSetDesc'),
-      thumbnail: influencer.galleryImages[0],
-      icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.photos'),
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      id: "bcuts",
-      name: t('influencer.bcuts'),
-      description: t('influencer.bcutsDesc'),
-      thumbnail: influencer.galleryImages[1],
-      icon: <Image className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.bcuts'),
-      color: "from-indigo-500 to-purple-500",
-    },
-    {
-      id: "video",
-      name: t('influencer.video'),
-      description: t('influencer.videoDesc'),
-      thumbnail: influencer.videoThumbnail,
-      icon: <Play className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.video'),
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      id: "vr",
-      name: t('influencer.vrVideo'),
-      description: t('influencer.vrVideoDesc'),
-      thumbnail: influencer.vrPreview,
-      icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.vr'),
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      id: "vrFull",
-      name: t('influencer.vrFullVideo'),
-      description: t('influencer.vrFullVideoDesc'),
-      thumbnail: influencer.vrPreview,
-      icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.vrFull'),
-      color: "from-pink-500 to-rose-500",
-    },
-    {
-      id: "ai",
-      name: t('influencer.aiPhotos'),
-      description: t('influencer.aiPhotosDesc'),
-      thumbnail: influencer.aiSamples[0],
-      icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
-      badge: t('productBadges.ai'),
-      color: "from-orange-500 to-red-500",
-    },
-  ]
+  // client.tsx에서 products 배열 부분을 이렇게 수정하세요
+
+const products = [
+  {
+    id: "photos",
+    name: t(`influencers.${influencer.id}.products.photoSet.name`),
+    description: t(`influencers.${influencer.id}.products.photoSet.description`),
+    thumbnail: influencer.galleryImages[0],
+    icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.photos'),
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    id: "bcuts",
+    name: t(`influencers.${influencer.id}.products.bcuts.name`),
+    description: t(`influencers.${influencer.id}.products.bcuts.description`),
+    thumbnail: influencer.galleryImages[1],
+    icon: <Image className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.bcuts'),
+    color: "from-indigo-500 to-purple-500",
+  },
+  {
+    id: "video",
+    name: t(`influencers.${influencer.id}.products.video.name`),
+    description: t(`influencers.${influencer.id}.products.video.description`),
+    thumbnail: influencer.videoThumbnail,
+    icon: <Play className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.video'),
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    id: "vr",
+    name: t(`influencers.${influencer.id}.products.vrVideo.name`),
+    description: t(`influencers.${influencer.id}.products.vrVideo.description`),
+    thumbnail: influencer.vrPreview,
+    icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.vr'),
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    id: "vrFull",
+    name: t(`influencers.${influencer.id}.products.vrFullVideo.name`),
+    description: t(`influencers.${influencer.id}.products.vrFullVideo.description`),
+    thumbnail: influencer.vrPreview,
+    icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.vrFull'),
+    color: "from-pink-500 to-rose-500",
+  },
+  {
+    id: "ai",
+    name: t(`influencers.${influencer.id}.products.aiPhotos.name`),
+    description: t(`influencers.${influencer.id}.products.aiPhotos.description`),
+    thumbnail: influencer.aiSamples[0],
+    icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
+    badge: t('productBadges.ai'),
+    color: "from-orange-500 to-red-500",
+  },
+]
 
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
