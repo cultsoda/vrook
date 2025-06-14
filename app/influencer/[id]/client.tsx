@@ -524,7 +524,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 수정된 균형 잡힌 그리드 (v6.1 - 최종 완성) */}
+          {/* 🎯 수정된 균형 잡힌 그리드 (v6.2 - 최종 완성) */}
           <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => {
               const isFiveItems = products.length === 5;
@@ -588,14 +588,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                 <div
                   key={product.id}
                   className={`
-                    lg:col-span-4 ${/* PC에서는 기본 4칸 차지 */}
-                    ${isFiveItems && isFourthItem ? 'lg:col-start-3' : '' /* PC 5개일때 4번째 카드는 3번째 칸에서 시작 */}
-                    ${isFiveItems && isFifthItem ? 'sm:col-span-2 sm:flex sm:justify-center lg:col-span-4 lg:col-start-auto' : '' /* 태블릿 5번째 카드는 2칸 차지 & 중앙정렬 / PC에서는 다시 4칸 차지 */}
+                    lg:col-span-4
+                    ${isFiveItems && isFourthItem ? 'lg:col-start-3' : ''}
+                    ${isFiveItems && isFifthItem ? 'sm:col-span-2 sm:flex sm:justify-center lg:col-span-4 lg:col-start-auto' : ''}
                   `}
                 >
-                  {/* 태블릿 중앙정렬 카드가 늘어나지 않도록 너비 제한
-                    모바일에서는 100% 너비, 태블릿(sm)부터 최대 너비(max-w-sm) 적용
-                  */}
                   <div className={isFiveItems && isFifthItem ? "w-full sm:max-w-sm" : ""}>
                     {productCard}
                   </div>
