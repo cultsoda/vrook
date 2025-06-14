@@ -76,6 +76,17 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     window.open(link, "_blank", "noopener,noreferrer")
   }
 
+  const handlePackagePurchase = () => {
+  if (!canPurchase) {
+    toast.error(t('influencer.contentNotReady'))
+    return
+  }
+  
+  // 패키지의 대표 상품(화보)으로 이동
+  const link = getProductLink(influencer.id, 'photos')
+  window.open(link, "_blank", "noopener,noreferrer")
+  }
+
       const getInfluencerPackages = (influencerId: string): Package[] => {
         const basePrices = {
           gyeoudi: { 
