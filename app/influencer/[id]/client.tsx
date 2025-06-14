@@ -1,4 +1,4 @@
-// app/influencer/[id]/client.tsx (모모리나, 쏘블리 콘텐츠 구성 반영)
+// app/influencer/[id]/client.tsx (적응형 그리드 적용)
 "use client"
 
 import { useState } from "react"
@@ -189,6 +189,17 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
       color: "from-orange-500 to-red-500",
     },
   ]
+
+  // 🚀 적응형 그리드 클래스 - 콘텐츠 개수에 따라 동적 조정
+  const getGridClass = () => {
+    if (products.length === 5) {
+      // 5개 콘텐츠 (모모리나, 쏘블리): PC에서 2열로 균형감 있게
+      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
+    } else {
+      // 6개 콘텐츠 (기타 인플루언서): PC에서 3열 유지
+      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+    }
+  }
 
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
@@ -488,7 +499,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         </div>
       </section>
 
-      {/* Product Selection - 모바일에서 조건부 표시 */}
+      {/* Product Selection - 🚀 적응형 그리드 적용 */}
       <section className={`py-8 md:py-16 px-4 ${activeTab !== 'products' ? 'hidden md:block' : ''}`}>
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 text-center">
@@ -498,12 +509,8 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 상품 그리드 - 5개 또는 6개에 따른 레이아웃 조정 */}
-          <div className={`grid gap-4 md:gap-6 ${
-            hasVrVideo 
-              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' // 6개 상품 (2x3 그리드)
-              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' // 5개 상품 (1x5 또는 더 컴팩트하게)
-          }`}>
+          {/* 🎯 적응형 상품 그리드 - 콘텐츠 개수에 따라 자동 조정 */}
+          <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
