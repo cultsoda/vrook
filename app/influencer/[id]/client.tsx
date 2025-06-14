@@ -279,9 +279,9 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
       <section className="py-6 md:py-16 px-4">
         <div className="container mx-auto">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
-            {/* 모바일에서는 이미지가 먼저 표시 */}
+            {/* 모바일에서는 이미지가 먼저 표시, 모바일 프로필 이미지 width 100% 수정 */}
             <div className="w-full flex justify-center order-1 lg:order-2">
-              <div className="w-72 md:w-96 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="w-full md:w-96 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
                 <img
                   src={influencer.coverImage}
                   alt={`${influencer.name} - VROOK VR 셀럽 화보`}

@@ -16,7 +16,7 @@ export function generateInfluencerMetadata(influencer: Influencer): Metadata {
   const title = `${influencer.name} - VROOK VR 셀럽 화보`
   const description = `${influencer.name}의 독점 VR 화보와 AI 사진을 만나보세요. 프리미엄 콘텐츠로 새로운 몰입 경험을 제공합니다.`
   const url = `${SITE_CONFIG.url}/influencer/${influencer.id}`
-  const ogImageUrl = `${SITE_CONFIG.url}/og-${influencer.id}.jpg`
+  const ogImageUrl = `/og-${influencer.id}.jpg`
 
   return {
     title,
