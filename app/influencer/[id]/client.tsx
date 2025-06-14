@@ -599,21 +599,25 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 적응형 상품 그리드 - 마지막 줄 중앙 정렬 */}
-          <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
+          {/* 🎯 완벽한 중앙 정렬 그리드 */}
+          <div className={`${
+            products.length === 5 
+              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6' 
+              : `grid gap-4 md:gap-6 ${getGridClass()}`
+          }`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
                 className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
                   canPurchase ? "hover:scale-105 cursor-pointer" : "cursor-pointer"
                 } ${
-                  // 5개 콘텐츠일 때만 마지막 2개 아이템 중앙 정렬
+                  // 5개 콘텐츠 특별 배치: 첫 3개는 1-3열, 마지막 2개는 2-3열 (중앙 정렬)
                   products.length === 5 && index === 3 
-                    ? 'sm:col-span-1 lg:col-start-2' 
+                    ? 'lg:col-start-2 lg:col-span-1' 
                     : ''
                 } ${
                   products.length === 5 && index === 4 
-                    ? 'sm:col-start-2 sm:col-span-1 lg:col-start-3' 
+                    ? 'sm:col-start-2 lg:col-start-3 lg:col-span-1' 
                     : ''
                 }`}
                 onClick={() => handleProductClick(product.id)}
