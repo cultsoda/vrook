@@ -11,7 +11,7 @@
     "title": { "ko": "VROOK - VR 셀럽 화보 플랫폼", "en": "VROOK - VR Celebrity Photo Platform" },
     "subtitle": { "ko": "VR 셀럽 화보 - 더 가까이, 더 생생하게", "en": "VR Celebrity Photos - Closer and More Vivid" },
     "description": { "ko": "VR 영상과 AI 화보를 통해 팬들에게 새로운 몰입 경험을 전달합니다", "en": "Delivering new immersive experiences to fans through VR videos and AI photos" },
-    "vrExperience": { "ko": "VR 체험", "en": "VR Experience" },
+    "vrExperience": { "ko": "VR 영상", "en": "VR Videos" },
     "aiPhotos": { "ko": "AI 화보", "en": "AI Photos" },
     "aiPhotosDesc": { "ko": "AI 기술로 생성된 창의적이고 독특한 합성 화보", "en": "Creative and unique composite pictorial created with AI technology" },
     "celebContent": { "ko": "셀럽 콘텐츠", "en": "Celebrity Content" },
@@ -346,7 +346,7 @@
     "photos": { "ko": "20장", "en": "20 pics" },
     "bcuts": { "ko": "B컷", "en": "B-cut" },
     "video": { "ko": "HD 영상", "en": "HD Video" },
-    "vr": { "ko": "VR 체험", "en": "VR Experience" },
+    "vr": { "ko": "VR 영상", "en": "VR Videos" },
     "vrFull": { "ko": "풀버전", "en": "Full Ver." },
     "ai": { "ko": "3장", "en": "3 pics" }
   },
