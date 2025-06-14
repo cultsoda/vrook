@@ -71,7 +71,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       id: "all",
       name: "브이룩 ALL 패키지",
       price: prices.all,
-      features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3", "photocardGift"],
+      features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3" ],
       newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
     },
   ]
@@ -97,7 +97,7 @@ export const packages: Package[] = [
     id: "all",
     name: "브이룩 ALL 패키지",
     price: { krw: 79000, usd: 69 },
-    features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3", "photocardGift"],
+    features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
     newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
   },
 ]
