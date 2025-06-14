@@ -12,6 +12,7 @@ import { useTranslation } from "@/hooks/useTranslation"
 import { usePurchaseControl } from "@/hooks/usePurchaseControl"
 import { toast } from 'sonner'
 import type { Influencer, Package } from "@/types/influencer"
+import { trackEvent } from "@/lib/ga";
 
 interface InfluencerDetailClientProps {
   influencer: Influencer
@@ -72,6 +73,12 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
       toast.error(t('influencer.contentNotReady'))
       return
     }
+    // GA 이벤트 전송 코드 추가
+    trackEvent('click_product', { 
+      influencer_name: influencer.name, 
+      product_id: productType 
+    });
+    
     const link = getProductLink(influencer.id, productType)
     window.open(link, "_blank", "noopener,noreferrer")
   }
