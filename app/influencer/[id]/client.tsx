@@ -508,7 +508,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
 
           {/* 패키지 카드들 - 모바일에서 세로 스크롤 */}
           <div className="md:grid md:grid-cols-3 md:gap-6 mb-6 md:mb-8 space-y-4 md:space-y-0">
-            {getCustomPackages().map((pkg, index) => (
+            {packages.map((pkg, index) => (
               <Card
                 key={pkg.id}
                 className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative"
@@ -540,7 +540,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   <div className="px-4 md:px-6 pb-4 md:pb-6">
                     <ul className="space-y-2">
                       {pkg.features.map((featureKey, featureIndex) => {
-                        // 모모리나, 쏘블리의 경우 패키지별 새 기능 표시 로직
+                        // 패키지별 새 기능 표시 로직
                         const isNewFeature = pkg.newFeatures?.includes(featureKey)
                         
                         return (

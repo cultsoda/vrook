@@ -1,5 +1,7 @@
 import type { Influencer, Package, IndividualProduct } from "@/types/influencer"
 
+// data/influencers.ts에서 getInfluencerPackages 함수 수정
+
 export const getInfluencerPackages = (influencerId: string): Package[] => {
   const basePrices = {
     gyeoudi: { 
@@ -11,6 +13,11 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       basic: { krw: 39000, usd: 29.7 }, 
       special: { krw: 59000, usd: 49.5 }, 
       all: { krw: 79000, usd: 69.3 } 
+    },
+    ssoblly: { 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 }  
     },
     yanghyewon: { 
       basic: { krw: 39000, usd: 29.7 }, 
@@ -42,23 +49,20 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       special: { krw: 59000, usd: 49.5 }, 
       all: { krw: 79000, usd: 69.3 } 
     },
-    ssoblly: { 
-      basic: { krw: 39000, usd: 29.7 }, 
-      special: { krw: 59000, usd: 49.5 }, 
-      all: { krw: 79000, usd: 69.3 }  
-    },
   }
 
   const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
 
-  // 모모리나, 쏘블리는 VR 영상이 없어서 패키지 구성이 다름
-  if (influencerId === 'momorina' || influencerId === 'ssoblly') {
+  // 🎯 VR 영상이 없는 인플루언서들 (모모리나, 쏘블리) 전용 패키지 구성
+  const hasVrVideo = !['momorina', 'ssoblly'].includes(influencerId)
+  
+  if (!hasVrVideo) {
     return [
       {
         id: "basic",
         name: "브이룩 패키지",
         price: prices.basic,
-        features: ["photos20", "photoVideo1", "vrVideoFull1"], // VR 풀버전으로 변경
+        features: ["photos20", "vrVideoFull1"], // 메인 화보 + VR영상(풀버전)
         newFeatures: [],
       },
       {
@@ -66,7 +70,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
         name: "브이룩 스페셜 패키지",
         price: prices.special,
         features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
-        newFeatures: ["vrHmdGift"], // vrVideoFull1 제거
+        newFeatures: ["photoVideo1", "vrHmdGift"], // 메이킹 영상과 VR HMD가 새 기능
         highlight: true,
       },
       {
@@ -74,12 +78,12 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
         name: "브이룩 ALL 패키지",
         price: prices.all,
         features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
-        newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"], // vrVideoFull1 제거
+        newFeatures: ["bcuts20", "aiPhotos3"], // B컷과 AI 포토카드만 새 기능
       },
     ]
   }
 
-  // 기본 패키지 구성 (VR 영상 있는 인플루언서들)
+  // 🎯 VR 영상이 있는 인플루언서들 (기존 구성)
   return [
     {
       id: "basic",
@@ -101,7 +105,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       name: "브이룩 ALL 패키지",
       price: prices.all,
       features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
-      newFeatures: ["bcuts20", "aiPhotos3", "photocardGift"],
+      newFeatures: ["bcuts20", "aiPhotos3"],
     },
   ]
 }
