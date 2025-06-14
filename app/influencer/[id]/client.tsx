@@ -76,14 +76,82 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     window.open(link, "_blank", "noopener,noreferrer")
   }
 
-  const handlePackagePurchase = () => {
-    if (!canPurchase) {
-      showPurchaseUnavailableAlert()
-      return
-    }
-    const link = getProductLink(influencer.id, 'photos')
-    window.open(link, "_blank", "noopener,noreferrer")
-  }
+      const getInfluencerPackages = (influencerId: string): Package[] => {
+        const basePrices = {
+          gyeoudi: { 
+            basic: { krw: 39000, usd: 29.7 }, 
+            special: { krw: 59000, usd: 49.5 }, 
+            all: { krw: 79000, usd: 69.3 } 
+          },
+          momorina: { 
+            basic: { krw: 39000, usd: 29.7 }, 
+            special: { krw: 59000, usd: 49.5 }, 
+            all: { krw: 79000, usd: 69.3 } 
+          },
+          yanghyewon: { 
+            basic: { krw: 39000, usd: 29.7 }, 
+            special: { krw: 59000, usd: 49.5 }, 
+            all: { krw: 79000, usd: 69.3 }  
+          },
+          // ... 기타 인플루언서들
+        }
+
+        const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
+
+        // VR 영상이 없는 인플루언서들 (모모리나, 쏘블리) 전용 패키지 구성
+        if (!hasVrVideo) {
+          return [
+            {
+              id: "basic",
+              name: "브이룩 패키지",
+              price: prices.basic,
+              features: ["photos20"], // 메이킹 영상 제외
+              newFeatures: [],
+            },
+            {
+              id: "special",
+              name: "브이룩 스페셜 패키지", 
+              price: prices.special,
+              features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
+              newFeatures: ["photoVideo1", "vrVideoFull1", "vrHmdGift"], // 메이킹 영상이 새 기능
+              highlight: true,
+            },
+            {
+              id: "all",
+              name: "브이룩 ALL 패키지",
+              price: prices.all,
+              features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
+              newFeatures: ["bcuts20", "aiPhotos3"],
+            },
+          ]
+        }
+
+        // VR 영상이 있는 인플루언서들 (기존 구성)
+        return [
+          {
+            id: "basic", 
+            name: "브이룩 패키지",
+            price: prices.basic,
+            features: ["photos20", "photoVideo1", "vrVideo1"], // 메이킹 영상 포함
+            newFeatures: [],
+          },
+          {
+            id: "special",
+            name: "브이룩 스페셜 패키지",
+            price: prices.special,
+            features: ["photos20", "photoVideo1", "vrVideoFull1", "vrHmdGift"],
+            newFeatures: ["vrVideoFull1", "vrHmdGift"],
+            highlight: true,
+          },
+          {
+            id: "all",
+            name: "브이룩 ALL 패키지", 
+            price: prices.all,
+            features: ["photos20", "bcuts20", "photoVideo1", "vrVideoFull1", "vrHmdGift", "aiPhotos3"],
+            newFeatures: ["bcuts20", "aiPhotos3"],
+          },
+        ]
+      }
 
   // 콘텐츠 구성 - VR 영상 여부에 따라 다르게 구성
   const products = hasVrVideo ? [
@@ -440,7 +508,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
 
           {/* 패키지 카드들 - 모바일에서 세로 스크롤 */}
           <div className="md:grid md:grid-cols-3 md:gap-6 mb-6 md:mb-8 space-y-4 md:space-y-0">
-            {packages.map((pkg, index) => (
+            {getCustomPackages().map((pkg, index) => (
               <Card
                 key={pkg.id}
                 className="bg-slate-800/50 border-slate-700 backdrop-blur-sm relative"
@@ -472,10 +540,8 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   <div className="px-4 md:px-6 pb-4 md:pb-6">
                     <ul className="space-y-2">
                       {pkg.features.map((featureKey, featureIndex) => {
-                        // 모모리나, 쏘블리의 경우 스페셜/ALL 패키지에서 VR 풀버전 앞에 ✨ 표시 안함
-                        const isNewFeature = !hasVrVideo && featureKey === 'vrVideoFull1' 
-                          ? false // VR 영상이 없는 인플루언서는 VR 풀버전이 새 기능이 아님
-                          : pkg.newFeatures?.includes(featureKey)
+                        // 모모리나, 쏘블리의 경우 패키지별 새 기능 표시 로직
+                        const isNewFeature = pkg.newFeatures?.includes(featureKey)
                         
                         return (
                           <li key={featureIndex} className="flex items-start text-slate-300 text-xs md:text-sm">
