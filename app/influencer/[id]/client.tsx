@@ -190,15 +190,28 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     },
   ]
 
-  // 🚀 적응형 그리드 클래스 - 콘텐츠 개수에 따라 동적 조정
+  // 🚀 적응형 그리드 클래스 - 모든 인플루언서 동일한 열 구조 유지
   const getGridClass = () => {
+    // 모든 인플루언서: 모바일 1열, 태블릿 2열, PC 3열 통일
+    return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  }
+
+  // 🎯 5개 콘텐츠일 때 마지막 줄 중앙 정렬을 위한 스타일
+  const getGridStyles = () => {
     if (products.length === 5) {
-      // 5개 콘텐츠 (모모리나, 쏘블리): PC에서 2열로 균형감 있게
-      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
-    } else {
-      // 6개 콘텐츠 (기타 인플루언서): PC에서 3열 유지
-      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      return {
+        display: 'grid',
+        gap: '1rem',
+        gridTemplateColumns: 'repeat(1, 1fr)', // 모바일: 1열
+        '@media (min-width: 640px)': {
+          gridTemplateColumns: 'repeat(2, 1fr)', // 태블릿: 2열
+        },
+        '@media (min-width: 1024px)': {
+          gridTemplateColumns: 'repeat(3, 1fr)', // PC: 3열
+        }
+      }
     }
+    return {}
   }
 
   return (
@@ -509,13 +522,25 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
             {t('influencer.productGuideDesc')}
           </p>
 
-          {/* 🎯 적응형 상품 그리드 - 콘텐츠 개수에 따라 자동 조정 */}
-          <div className={`grid gap-4 md:gap-6 ${getGridClass()}`}>
+          {/* 🎯 적응형 상품 그리드 - 마지막 줄 중앙 정렬 */}
+          <div className={`grid gap-4 md:gap-6 ${getGridClass()} ${
+            products.length === 5 ? 'justify-items-center' : ''
+          }`}>
             {products.map((product, index) => (
               <Card
                 key={product.id}
                 className={`bg-slate-800/50 border-slate-700 backdrop-blur-sm transition-all duration-300 group ${
                   canPurchase ? "hover:scale-105 cursor-pointer" : "cursor-pointer"
+                } ${
+                  // 5개 콘텐츠일 때 마지막 2개 아이템(index 3, 4)에 특별 스타일 적용
+                  products.length === 5 && index >= 3 
+                    ? 'lg:col-start-2 lg:col-span-1' + (index === 3 ? ' lg:col-start-2' : ' lg:col-start-3')
+                    : ''
+                } ${
+                  // 태블릿에서 5번째 아이템(index 4) 중앙 정렬
+                  products.length === 5 && index === 4 
+                    ? 'sm:col-start-2 sm:col-span-1 lg:col-start-3' 
+                    : ''
                 }`}
                 onClick={() => handleProductClick(product.id)}
               >
