@@ -33,12 +33,12 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
   const getProductLink = (influencerId: string, productType: string): string => {
     const productLinks: Record<string, Record<string, string>> = {
       gyeoudi: {
-        photos: "https://stg.xromeda.com/play/2d/mazvc9h9vrbwm419?mode=login&from=ep",
-        bcuts: "https://stg.xromeda.com/play/2d/gukqxxyva6vzjuzr?mode=login&from=ep",
-        video: "https://stg.xromeda.com/play/media/opxtqff6u9wqch1t?mode=login&from=ep",
-        vr: "https://stg.xromeda.com/play/media/tetf4z2pwdkcsnyi?mode=login&from=ep",
-        vrFull: "https://stg.xromeda.com/play/media/xo3pg10md1i96fot?mode=login&from=ep",
-        ai: "https://stg.xromeda.com/play/2d/btq0c4w2jaf0rmox?mode=login&from=ep"
+        photos: "https://xromeda.com/play/2d/abgt23csrh6ji21e",        // 화보A (메인 화보)
+        bcuts: "https://xromeda.com/play/2d/grgx7le6efx0vaha",         // 화보B (B컷)
+        video: "https://xromeda.com/play/media/cc08lh3sir8wo9pz",       // 메이킹영상
+        vr: "https://xromeda.com/play/media/0fevoxlaxxfbvqjd",          // VR01 (일반 VR)
+        vrFull: "https://xromeda.com/play/media/bbrzw24imaijxzzss",     // VR02 (풀버전)
+        ai: "https://xromeda.com/play/2d/q1ajrxwz6tfxoqyq",            // AI포카
       },
       momorina: {
         photos: "https://xromeda.com/play/2d/r9dtvl07xworbq05",
