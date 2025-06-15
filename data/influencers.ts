@@ -40,9 +40,9 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       all: { krw: 79000, usd: 69.3 }  
     },
     cuina: { 
-      basic: { krw: 59000, usd: 49.5 }, 
-      special: { krw: 79000, usd: 69.3 }, 
-      all: { krw: 99000, usd: 89.1 } 
+      basic: { krw: 39000, usd: 29.7 }, 
+      special: { krw: 59000, usd: 49.5 }, 
+      all: { krw: 79000, usd: 69.3 }  
     },
     trollya: { 
       basic: { krw: 39000, usd: 29.7 }, 
