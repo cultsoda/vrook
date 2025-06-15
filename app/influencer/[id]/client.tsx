@@ -478,7 +478,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                     <img
                       src={`/images/products/${influencer.id}_${pkg.id}.webp`}
                       alt={`${influencer.name} ${t(`packages.${pkg.id}`)}`}
-                      className="w-full h-48 md:h-auto object-cover"
+                      className="w-full h-auto md:h-auto object-cover"
                       style={{ aspectRatio: '16/9' }}
                       loading={index === 0 ? "eager" : "lazy"}
                       onError={(e) => {
