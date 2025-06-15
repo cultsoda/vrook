@@ -13,7 +13,7 @@ export const purchaseSettings: PurchaseSettings = {
   jeongdabyeol: true,   // 정다별이 구매 가능
   ina: true,            // 이나 구매 가능
   cuina: true,          // 큐이나 구매 가능
-  trollya: false,        // 트롤야 구매 불가
+  trollya: true,        // 트롤야 구매 가능
 }
 
 // 설정 업데이트 히스토리 (참고용)
@@ -26,7 +26,7 @@ export const updateHistory = [
   {
     date: "2025-06-15",
     updatedBy: "admin",
-    changes: "모모리나 ON, 트롤야 OFF",
+    changes: "트롤야 풀기",
   },
   // 새로운 업데이트는 여기에 추가하세요
 ]
