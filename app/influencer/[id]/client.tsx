@@ -86,7 +86,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         vrFull: "https://xromeda.com/play/media/bpgtquoexqdsus0b",      // VR02 (풀버전)
         ai: "https://xromeda.com/play/2d/aw1ndp1r12lv3a2p",            // AI포카
       },
-      tsxina: {
+      ina: {
         photos: "https://xromeda.com/play/2d/pyazyiwkqngdum58",        // 화보A (메인 화보)
         bcuts: "https://xromeda.com/play/2d/y5xpa5x4egaiu46b",         // 화보B (B컷)
         video: "https://xromeda.com/play/media/n7jlqf1ab3td97ci",       // 메이킹영상

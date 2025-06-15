@@ -46,7 +46,7 @@
     "specialBenefit": { "ko": "특별 혜택", "en": "Special Benefits" },
     "specialDesc": { "ko": "팬미팅 참여 기회 제공", "en": "Fan meeting participation opportunities" },
     "purchaseProcess": { "ko": "구매 프로세스", "en": "Purchase Process" },
-    "step1": { "ko": "콘텐츠 확인", "en": "Product Review" },
+    "step1": { "ko": "상품 확인", "en": "Product Review" },
     "step1Desc": { "ko": "패키지 구성과 포함된 콘텐츠들을 확인하고 구매 버튼을 클릭합니다", "en": "Review the package contents and included products, then click the purchase button" },
     "step2": { "ko": "XROMEDA 이동", "en": "Move to XROMEDA" },
     "step2Desc": { "ko": "XROMEDA 플랫폼으로 자동 이동됩니다", "en": "Automatically move to XROMEDA platform" },
