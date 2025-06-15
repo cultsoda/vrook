@@ -563,7 +563,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                   onClick={() => handleProductClick(product.id)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg" style={{ aspectRatio: '16 / 9' }}>
+                    <div className="relative overflow-hidden rounded-t-lg h-48 md:h-56">
                       <img
                         src={product.thumbnail}
                         alt={`${influencer.name} ${product.name}`}
