@@ -59,7 +59,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         bcuts: "https://xromeda.com/play/2d/b3tl63wlb2uabvln",         // 화보B (B컷)
         video: "https://xromeda.com/play/media/29siky981w4px159",       // 메이킹영상
         vr: "https://xromeda.com/play/media/033himk6wv5a9qvd",          // VR01 (일반 VR)
-        vr2: "https://xromeda.com/play/media/744p9flyx33asxzj",         // VR02 (풀버전)
+        vrFull: "https://xromeda.com/play/media/744p9flyx33asxzj",         // VR02 (풀버전)
         ai: "https://xromeda.com/play/2d/wvbgjitz8k9cbgn1",            // AI포카
       },
       default: {
