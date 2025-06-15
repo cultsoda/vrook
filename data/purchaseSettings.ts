@@ -8,8 +8,8 @@ export const purchaseSettings: PurchaseSettings = {
   gyeoudi: true,        // 겨우디 구매 가능
   momorina: true,       // 모모리나 구매 가능
   ssoblly: true,        // 쏘블리 구매 가능
-  yanghyewon: true,     // 양혜원 구매 가능
-  kkyunyangnyang: true, // 뀨냥냥 구매 가능
+  yanghyewon: false,     // 양혜원 구매 불가
+  kkyunyangnyang: false, // 뀨냥냥 구매 불가
   jeongdabyeol: true,   // 정다별이 구매 가능
   ina: true,            // 이나 구매 가능
   cuina: true,          // 큐이나 구매 가능
@@ -26,7 +26,7 @@ export const updateHistory = [
   {
     date: "2025-06-15",
     updatedBy: "admin",
-    changes: "테스트를 위해 풀기",
+    changes: "뀨냥냥, 양혜원 OFF",
   },
   // 새로운 업데이트는 여기에 추가하세요
 ]
