@@ -181,6 +181,9 @@ const getInfluencerImagePath = (id: string, type: 'profile' | 'cover' = 'profile
 
 // 상품별 썸네일 이미지 경로 생성 함수
 const getProductThumbnail = (influencerId: string, productType: string) => {
+  if (productType === "vrFull") {
+    return `/images/products/${influencerId}_vr2.webp`
+  }
   return `/images/products/${influencerId}_${productType}.webp`
 }
 
