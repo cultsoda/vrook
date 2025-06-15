@@ -186,14 +186,14 @@
       "products": {
         "photoSet": {
           "name": { "ko": "몸매 하나로 경고받은 치명적인 매력", "en": "Fatal Charm That Got Warned for Body Alone" },
-          "description": { "ko": "몸매만으로 경고를 받았던 뀨냥냥에 특별한 순간 20컷을 모았습니다.", "en": "Collected 20 special moments of Kkyunyangnyang who got warned just for her body." }
+          "description": { "ko": "몸매만으로 경고를 받았던 뀨냥냥의 특별한 순간 20컷을 모았습니다.", "en": "Collected 20 special moments of Kkyunyangnyang who got warned just for her body." }
         },
         "bcuts": {
           "name": { "ko": "B컷으로 만나는 매력덩어리 뀨냥냥", "en": "Charming Kkyunyangnyang Meeting Through B-cuts" },
-          "description": { "ko": "요즘 폼이 미친 뀨냥냥에 매력 놓칠 수 없어서 조금 더...!", "en": "Kkyunyangnyang's form is crazy these days, couldn't miss her charm so a little more...!" }
+          "description": { "ko": "요즘 폼이 미친 뀨냥냥의 매력 놓칠 수 없어서 조금 더...!", "en": "Kkyunyangnyang's form is crazy these days, couldn't miss her charm so a little more...!" }
         },
         "video": {
-          "name": { "ko": "방송에서 볼 수 없는 뀨냥냥에 아주 특별한 화보", "en": "Very Special Pictorial of Kkyunyangnyang You Can't See on Broadcast" },
+          "name": { "ko": "방송에서 볼 수 없는 뀨냥냥의 아주 특별한 화보", "en": "Very Special Pictorial of Kkyunyangnyang You Can't See on Broadcast" },
           "description": { "ko": "가끔 튀어나오는 뀨여캠 모먼트를 특별한 영상으로 만나보세요", "en": "Meet the occasional cute cam moments through special video." }
         },
         "vrVideo": {
@@ -202,11 +202,11 @@
         },
         "vrFullVideo": {
           "name": { "ko": "뀨냥냥과 함께해 풀 버전", "en": "Together with Kkyunyangnyang Full Version" },
-          "description": { "ko": "뀨냥냥에 작은 순간까지 다 담은 풀 버전", "en": "Full version capturing even the small moments of Kkyunyangnyang." }
+          "description": { "ko": "뀨냥냥의 작은 순간까지 다 담은 풀 버전", "en": "Full version capturing even the small moments of Kkyunyangnyang." }
         },
         "aiPhotos": {
           "name": { "ko": "뀨냥냥 AI 포토카드", "en": "Kkyunyangnyang AI Photo Cards" },
-          "description": { "ko": "AI를 통해 뀨냥냥에 또 다른 매력을 만나봐요", "en": "Meet another charm of Kkyunyangnyang through AI." }
+          "description": { "ko": "AI를 통해 뀨냥냥의 또 다른 매력을 만나봐요", "en": "Meet another charm of Kkyunyangnyang through AI." }
         }
       }
     },
@@ -276,22 +276,22 @@
       "products": {
         "photoSet": {
           "name": { "ko": "큐이나한테 더 빠져들어봐 메인 화보", "en": "Fall Deeper into Cuina Main Pictorial" },
-          "description": { "ko": "한번 보면 빠져버리는 큐이나에 매력 20컷으로 만나봐요", "en": "Meet Cuina's charm that you fall for once you see it with 20 cuts." }
+          "description": { "ko": "한번 보면 빠져버리는 큐이나의 매력 20컷으로 만나봐요", "en": "Meet Cuina's charm that you fall for once you see it with 20 cuts." }
         },
         "bcuts": {
           "name": { "ko": "조금 이라도 놓치긴 아쉽잖아? B컷도 준비했어", "en": "It Would Be a Shame to Miss Even a Little? B-cuts Prepared Too" },
           "description": { "ko": "빼기에 너무 아쉬운 컷을 모아서 B컷으로 더 준비했어요", "en": "Collected cuts too precious to exclude and prepared more as B-cuts." }
         },
         "video": {
-          "name": { "ko": "영상으로 만나는 큐이나에 특별한 순간", "en": "Cuina's Special Moments Meeting Through Video" },
+          "name": { "ko": "영상으로 만나는 큐이나의 특별한 순간", "en": "Cuina's Special Moments Meeting Through Video" },
           "description": { "ko": "방송과는 다른 또 다른 매력을 직접 확인해보세요", "en": "Check out another charm different from broadcasts directly." }
         },
         "vrVideo": {
-          "name": { "ko": "VR로 큐이나에 특별한 순간을 함께해", "en": "Share Cuina's Special Moments Together in VR" },
+          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해", "en": "Share Cuina's Special Moments Together in VR" },
           "description": { "ko": "함께 할 수록 더욱 특별해지는 순간들을 VR로 담아봤어요", "en": "Captured moments that become more special the more we're together in VR." }
         },
         "vrFullVideo": {
-          "name": { "ko": "VR로 큐이나에 특별한 순간을 함께해 풀 버전", "en": "Share Cuina's Special Moments Together in VR Full Version" },
+          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해 풀 버전", "en": "Share Cuina's Special Moments Together in VR Full Version" },
           "description": { "ko": "VR 풀버전으로 조금 더 길게 만나봐요", "en": "Meet a little longer with VR full version." }
         },
         "aiPhotos": {
@@ -313,8 +313,8 @@
           "description": { "ko": "버섯들에게 B컷으로 특별한 순간을 조금 더 준비해봤어요", "en": "Prepared a little more special moments as B-cuts for the mushrooms (fans)." }
         },
         "video": {
-          "name": { "ko": "버섯들이 탐낼 트롤야 그날에 영상", "en": "Video of Trollya That Day That Mushrooms Will Covet" },
-          "description": { "ko": "지구의 자전축이 기울어진 이유는 고개숙여 트롤야에게 감사를 표하기 위함이다.", "en": "The reason Earth's axis is tilted is to bow down and express gratitude to Trollya." }
+          "name": { "ko": "버섯들이 탐낼 트롤야 그날의 영상", "en": "Video of Trollya That Day That Mushrooms Will Covet" },
+          "description": { "ko": "지구의 자전축이 기울어진 이유는 고개숙여 트롤야의게 감사를 표하기 위함이다.", "en": "The reason Earth's axis is tilted is to bow down and express gratitude to Trollya." }
         },
         "vrVideo": {
           "name": { "ko": "VR로 만나는 트롤야에 특별한 모습", "en": "Trollya's Special Appearance Meeting in VR" },
