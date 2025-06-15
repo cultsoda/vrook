@@ -48,11 +48,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         ai: "https://xromeda.com/play/2d/1z025ba608gl91pr"
       },
       ssoblly: {
-        photos: "https://stg.xromeda.com/play/2d/default-photo", // 임시 링크
-        bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
-        video: "https://stg.xromeda.com/play/media/default-video",
-        vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
-        ai: "https://stg.xromeda.com/play/2d/default-ai"
+        photos: "https://xromeda.com/play/2d/p5val9j2t345szcd",        // 화보A (메인 화보)
+        bcuts: "https://xromeda.com/play/2d/aaczskusce578dy8",         // 화보B (B컷)
+        video: "https://xromeda.com/play/media/zha841f00kt11we3",       // 메이킹영상
+        vrFull: "https://xromeda.com/play/media/tulzv3mqt2u72xsh",     // VR01 (풀버전)
+        ai: "https://xromeda.com/play/2d/4ybujes9seg6et0y",            // AI포카
       },
       cuina: {
         photos: "https://xromeda.com/play/2d/t31xrh1uctjtbxuv",        // 화보A (메인 화보)
