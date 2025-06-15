@@ -54,13 +54,21 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
         ai: "https://stg.xromeda.com/play/2d/default-ai"
       },
-        cuina: {
+      cuina: {
         photos: "https://xromeda.com/play/2d/t31xrh1uctjtbxuv",        // 화보A (메인 화보)
         bcuts: "https://xromeda.com/play/2d/b3tl63wlb2uabvln",         // 화보B (B컷)
         video: "https://xromeda.com/play/media/29siky981w4px159",       // 메이킹영상
         vr: "https://xromeda.com/play/media/033himk6wv5a9qvd",          // VR01 (일반 VR)
         vrFull: "https://xromeda.com/play/media/744p9flyx33asxzj",         // VR02 (풀버전)
         ai: "https://xromeda.com/play/2d/wvbgjitz8k9cbgn1",            // AI포카
+      },
+      jeongdabyeol: {
+        photos: "https://xromeda.com/play/2d/0l86vu6mrnwplx1f",        // 화보A
+        bcuts: "https://xromeda.com/play/2d/v7aw0z8wlsyfgz5l",         // 화보B  
+        video: "https://xromeda.com/play/media/rn020w6htkyb8e5s",       // 메이킹영상
+        vr: "https://xromeda.com/play/media/o6ssrluzwqzc3cg6",          // VR01
+        vrFull: "https://xromeda.com/play/media/c7u9rfo4yt59bo19",      // VR02
+        ai: "https://xromeda.com/play/2d/9ig2bv5lhf8tm08k",            // AI포카
       },
       default: {
         photos: "https://stg.xromeda.com/play/2d/default-photo",
