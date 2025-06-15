@@ -186,7 +186,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
       id: "vrFull",
       name: t(`influencers.${influencer.id}.products.vrFullVideo.name`),
       description: t(`influencers.${influencer.id}.products.vrFullVideo.description`),
-      thumbnail: influencer.vrPreview,
+      thumbnail: `/images/products/${influencer.id}_vr2.webp`, // ✅ 직접 vr2 파일 참조
       icon: <Eye className="w-5 h-5 md:w-6 md:h-6" />,
       badge: t('productBadges.vrFull'),
       color: "from-pink-500 to-rose-500",
