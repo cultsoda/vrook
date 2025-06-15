@@ -37,7 +37,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         bcuts: "https://xromeda.com/play/2d/grgx7le6efx0vaha",         // 화보B (B컷)
         video: "https://xromeda.com/play/media/cc08lh3sir8wo9pz",       // 메이킹영상
         vr: "https://xromeda.com/play/media/0fevoxlaxxfbvqjd",          // VR01 (일반 VR)
-        vrFull: "https://xromeda.com/play/media/bbrzw24imaijxzzss",     // VR02 (풀버전)
+        vrFull: "https://xromeda.com/play/media/bbrzw24imaijxzzs",     // VR02 (풀버전)
         ai: "https://xromeda.com/play/2d/q1ajrxwz6tfxoqyq",            // AI포카
       },
       momorina: {
