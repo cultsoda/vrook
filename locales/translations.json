@@ -344,12 +344,12 @@
   },
   "productBadges": {
     "photos": { "ko": "20장", "en": "20 pics" },
-    "bcuts": { "ko": "B컷", "en": "B-cut" },
-    "video": { "ko": "비하인드", "en": "BEHIND" },
-    "vr": { "ko": "VR 영상", "en": "VR Videos" },
-    "vrFull": { "ko": "풀버전", "en": "Full Ver." },
-    "ai": { "ko": "3장", "en": "3 pics" }
-  },
+    "bcuts": { "ko": "B컷 20장", "en": "B-cut 20 pics" },
+    "video": { "ko": "메이킹 영상", "en": "Making Video" },
+    "vr": { "ko": "VR 영상", "en": "VR Video" },
+    "vrFull": { "ko": "VR 영상 풀버전", "en": "VR Video Full" },
+    "ai": { "ko": "AI 3장", "en": "AI 3 pics" }
+  }
   "packages": {
     "basic": { "ko": "브이룩 패키지", "en": "VROOK Package" },
     "special": { "ko": "브이룩 스페셜 패키지", "en": "VROOK Special Package" },
