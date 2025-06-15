@@ -41,11 +41,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         ai: "https://stg.xromeda.com/play/2d/btq0c4w2jaf0rmox?mode=login&from=ep"
       },
       momorina: {
-        photos: "https://stg.xromeda.com/play/2d/vpu20s7qpaj1pu6j?mode=login&from=ep",
-        bcuts: "https://stg.xromeda.com/play/2d/cdysghp7925gxuht?mode=login&from=ep",
-        video: "https://stg.xromeda.com/play/media/1y6ghrtma0fis6a8?mode=login&from=ep",
-        vrFull: "https://stg.xromeda.com/play/media/jyfakgdc2uxubza5?mode=login&from=ep",
-        ai: "https://stg.xromeda.com/play/2d/d8m4qr1vx1een0cl?mode=login&from=ep"
+        photos: "https://xromeda.com/play/2d/r9dtvl07xworbq05",
+        bcuts: "https://xromeda.com/play/2d/ughm42d2i90a73v5",
+        video: "https://xromeda.com/play/media/rnaob4fof6tyso3b",
+        vrFull: "https://xromeda.com/play/media/ghr9htn0gql0r4do",
+        ai: "https://xromeda.com/play/2d/1z025ba608gl91pr"
       },
       ssoblly: {
         photos: "https://stg.xromeda.com/play/2d/default-photo", // 임시 링크
@@ -53,6 +53,14 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         video: "https://stg.xromeda.com/play/media/default-video",
         vrFull: "https://stg.xromeda.com/play/media/default-vr-full",
         ai: "https://stg.xromeda.com/play/2d/default-ai"
+      },
+        cuina: {
+        photos: "https://xromeda.com/play/2d/t31xrh1uctjtbxuv",        // 화보A (메인 화보)
+        bcuts: "https://xromeda.com/play/2d/b3tl63wlb2uabvln",         // 화보B (B컷)
+        video: "https://xromeda.com/play/media/29siky981w4px159",       // 메이킹영상
+        vr: "https://xromeda.com/play/media/033himk6wv5a9qvd",          // VR01 (일반 VR)
+        vr2: "https://xromeda.com/play/media/744p9flyx33asxzj",         // VR02 (풀버전)
+        ai: "https://xromeda.com/play/2d/wvbgjitz8k9cbgn1",            // AI포카
       },
       default: {
         photos: "https://stg.xromeda.com/play/2d/default-photo",
