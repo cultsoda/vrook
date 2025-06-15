@@ -94,6 +94,14 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         vrFull: "https://xromeda.com/play/media/w19ge5uc4yhz8ide",      // VR02 (풀버전)
         ai: "https://xromeda.com/play/2d/1vbdjg0qckrsq3px",            // AI포카
       },
+      trollya: {
+        photos: "https://xromeda.com/play/2d/khfcaeyjhuwt0yrz",        // 화보A (메인 화보)
+        bcuts: "https://xromeda.com/play/2d/vxxci62f6hsyrky8",         // 화보B (B컷)
+        video: "https://xromeda.com/play/media/e5jorhhjpamz61oy",       // 메이킹영상
+        vr: "https://xromeda.com/play/media/r2t894njj3966pyo",          // VR01 (일반 VR)
+        vrFull: "https://xromeda.com/play/media/a0cfcshpw478bv5w",      // VR02 (풀버전)
+        ai: "https://xromeda.com/play/2d/8ik4h49j0bpe4kwv",            // AI포카
+      },
       default: {
         photos: "https://stg.xromeda.com/play/2d/default-photo",
         bcuts: "https://stg.xromeda.com/play/2d/default-bcuts",
