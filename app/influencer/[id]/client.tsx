@@ -136,6 +136,11 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
     toast.error(t('influencer.contentNotReady'))
     return
   }
+  // ▼▼▼ 이 코드를 여기에 추가해주세요 ▼▼▼
+    trackEvent('click_purchase_package', {
+      influencer_name: influencer.name,
+    });
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
   
   // 패키지의 대표 상품(화보)으로 이동
   const link = getProductLink(influencer.id, 'photos')
