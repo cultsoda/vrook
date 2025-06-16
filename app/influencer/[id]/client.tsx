@@ -709,7 +709,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
                 >
                   VROOK
                 </button>
-                <span className="text-slate-500 hidden sm:inline">by</span>
+                <span className="text-slate-500 hidden sm:inline">powered by</span>
                 <a 
                   href="https://xromeda.com" 
                   target="_blank" 
