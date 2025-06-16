@@ -406,7 +406,7 @@ export const influencers: Influencer[] = [
     profileImage: getInfluencerImagePath("trollya"),
     coverImage: getInfluencerImagePath("trollya"),
     socialLinks: [
-      "instagram.com/trollya_1",
+      "https://instagram.com/trollya_1",
       "https://www.youtube.com/channel/UC2KFBTZ9d-mOa0zCytAZRMw",
       "https://chzzk.naver.com/826f57d3283418e1fa39dfb23dc1dea8"
     ],
