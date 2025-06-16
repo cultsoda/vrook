@@ -314,14 +314,14 @@
         },
         "video": {
           "name": { "ko": "버섯들이 탐낼 트롤야 그날의 영상", "en": "Video of Trollya That Day That Mushrooms Will Covet" },
-          "description": { "ko": "지구의 자전축이 기울어진 이유는 고개숙여 트롤야의게 감사를 표하기 위함이다.", "en": "The reason Earth's axis is tilted is to bow down and express gratitude to Trollya." }
+          "description": { "ko": "지구의 자전축이 기울어진 이유는 고개숙여 트롤야에게 감사를 표하기 위함이다.", "en": "The reason Earth's axis is tilted is to bow down and express gratitude to Trollya." }
         },
         "vrVideo": {
-          "name": { "ko": "VR로 만나는 트롤야에 특별한 모습", "en": "Trollya's Special Appearance Meeting in VR" },
+          "name": { "ko": "VR로 만나는 트롤야의 특별한 모습", "en": "Trollya's Special Appearance Meeting in VR" },
           "description": { "ko": "장카설트 트롤야는...신이야! 여신!!", "en": "Jangkaseolt Trollya is... a god! A goddess!!" }
         },
         "vrFullVideo": {
-          "name": { "ko": "VR로 만나는 트롤야에 특별한 모습 풀 버전", "en": "Trollya's Special Appearance Meeting in VR Full Version" },
+          "name": { "ko": "VR로 만나는 트롤야의 특별한 모습 풀 버전", "en": "Trollya's Special Appearance Meeting in VR Full Version" },
           "description": { "ko": "날개만 없는 천사 트롤야를 풀 버전으로 조금이라도 오래 만나봐요", "en": "Meet angel Trollya who only lacks wings a little longer with full version." }
         },
         "aiPhotos": {
