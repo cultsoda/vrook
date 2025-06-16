@@ -122,31 +122,31 @@
     },
     "ssoblly": {
       "description": { "ko": "#러블리 #심쿵주의", "en": "#Lovely #HeartFlutterAlert" },
-      "bio": { "ko": "청순과 섹시, 두 가지 매력을 한 번에! 쏘블리의 반전 매력을 브이룩에서 확인해보세요.", "en": "Pure and sexy, two charms at once! Check out Ssoblly's surprising charm at VROOK." },
+      "bio": { "ko": "청순과 섹시, 두 가지 매력을 한 번에! 쏘블리의 반전 매력을 브이룩에서 확인해보세요.", "en": "Pure and sexy, two charms at once! Check out leeesovely's surprising charm at VROOK." },
       "products": {
         "photoSet": {
-          "name": { "ko": "쏘블리 왔어요! 메인 화보", "en": "Ssoblly is Here! Main Pictorial" },
-          "description": { "ko": "지금 이 표정, 이 분위기. 딱 당신만 아는 쏘블리예요. 20컷으로 충분히 즐겨볼 수 있어요.", "en": "This expression, this atmosphere right now. Ssoblly that only you know. You can enjoy it fully with 20 cuts." }
+          "name": { "ko": "쏘블리 왔어요! 메인 화보", "en": "Leeesovely is Here! Main Pictorial" },
+          "description": { "ko": "지금 이 표정, 이 분위기. 딱 당신만 아는 쏘블리예요. 20컷으로 충분히 즐겨볼 수 있어요.", "en": "This expression, this atmosphere right now. Leeesovely that only you know. You can enjoy it fully with 20 cuts." }
         },
         "bcuts": {
-          "name": { "ko": "쏘블리의 사랑스러운 B컷", "en": "Ssoblly's Lovely B-cuts" },
-          "description": { "ko": "방심한 웃음, 가벼운 시선, 그 속에서 피어나는 사랑스러운 그날의 쏘블리를 가득 담았어요.", "en": "Unguarded smiles, casual glances, filled with lovely Ssoblly blooming from those moments of that day." }
+          "name": { "ko": "쏘블리의 사랑스러운 B컷", "en": "Leeesovely's Lovely B-cuts" },
+          "description": { "ko": "방심한 웃음, 가벼운 시선, 그 속에서 피어나는 사랑스러운 그날의 쏘블리를 가득 담았어요.", "en": "Unguarded smiles, casual glances, filled with lovely leeesovely blooming from those moments of that day." }
         },
         "video": {
-          "name": { "ko": "심쿵 여친 쏘블리의 화보 영상", "en": "Heart-fluttering Girlfriend Ssoblly's Pictorial Video" },
-          "description": { "ko": "장난도, 시선도, 몸짓까지도 사랑스러운 여친무드 가득 쏘블리의 화보 영상 함께 해요.", "en": "Playfulness, gazes, and even gestures - join Ssoblly's pictorial video full of lovely girlfriend vibes." }
+          "name": { "ko": "심쿵 여친 쏘블리의 화보 영상", "en": "Heart-fluttering Girlfriend leeesovely's Pictorial Video" },
+          "description": { "ko": "장난도, 시선도, 몸짓까지도 사랑스러운 여친무드 가득 쏘블리의 화보 영상 함께 해요.", "en": "Playfulness, gazes, and even gestures - join leeesovely's pictorial video full of lovely girlfriend vibes." }
         },
         "vrVideo": {
-          "name": { "ko": "혼자 볼 수 밖에 없는 VR 쏘블리", "en": "VR Ssoblly You Can Only Watch Alone" },
-          "description": { "ko": "눈 마주치면 살짝 웃어주는 진짜 쏘블리, 내 공간 속에 나타나다.", "en": "Real Ssoblly who smiles slightly when eyes meet, appearing in my space." }
+          "name": { "ko": "혼자 볼 수 밖에 없는 VR 쏘블리", "en": "VR leeesovely You Can Only Watch Alone" },
+          "description": { "ko": "눈 마주치면 살짝 웃어주는 진짜 쏘블리, 내 공간 속에 나타나다.", "en": "Real leeesovely who smiles slightly when eyes meet, appearing in my space." }
         },
         "vrFullVideo": {
-          "name": { "ko": "나만 보는 VR 쏘블리 풀버전", "en": "VR Ssoblly Full Version Just for Me" },
-          "description": { "ko": "조용히 둘만 있는 시간이 너무 아쉽잖아, 오래도록 눈 앞에서 쏘블리 놓치지 말아요.", "en": "The quiet time together is too precious, don't miss Ssoblly in front of your eyes for a long time." }
+          "name": { "ko": "나만 보는 VR 쏘블리 풀버전", "en": "VR leeesovely Full Version Just for Me" },
+          "description": { "ko": "조용히 둘만 있는 시간이 너무 아쉽잖아, 오래도록 눈 앞에서 쏘블리 놓치지 말아요.", "en": "The quiet time together is too precious, don't miss leeesovely in front of your eyes for a long time." }
         },
         "aiPhotos": {
-          "name": { "ko": "쏘블리 AI 포토카드", "en": "Ssoblly AI Photo Cards" },
-          "description": { "ko": "AI가 만들어준 또다른 쏘블리, 익숙하면서도 새로울 걸? 얼른 들어와서 봐줘", "en": "Another Ssoblly created by AI, familiar yet new? Come in quickly and take a look." }
+          "name": { "ko": "쏘블리 AI 포토카드", "en": "Leeesovely AI Photo Cards" },
+          "description": { "ko": "AI가 만들어준 또다른 쏘블리, 익숙하면서도 새로울 걸? 얼른 들어와서 봐줘", "en": "Another leeesovely created by AI, familiar yet new? Come in quickly and take a look." }
         }
       }
     },
