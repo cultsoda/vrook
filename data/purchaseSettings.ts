@@ -7,7 +7,7 @@ export interface PurchaseSettings {
 export const purchaseSettings: PurchaseSettings = {
   gyeoudi: true,        // 겨우디 구매 가능
   momorina: true,       // 모모리나 구매 가능
-  ssoblly: true,        // 쏘블리 구매 가능
+  leeesovely: true,        // 쏘블리 구매 가능
   yanghyewon: true,     // 양혜원 구매 가능
   kkyunyangnyang: true, // 뀨냥냥 구매 가능
   jeongdabyeol: true,   // 정다별이 구매 가능

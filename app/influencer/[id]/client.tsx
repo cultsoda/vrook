@@ -28,7 +28,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
   const canPurchase = isPurchaseEnabled(influencer.id)
 
   // 모모리나와 쏘블리는 VR 영상이 없음
-  const hasVrVideo = !['momorina', 'ssoblly'].includes(influencer.id)
+  const hasVrVideo = !['momorina', 'leeesovely'].includes(influencer.id)
 
   const getProductLink = (influencerId: string, productType: string): string => {
     const productLinks: Record<string, Record<string, string>> = {
@@ -47,7 +47,7 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
         vrFull: "https://xromeda.com/play/media/ghr9htn0gql0r4do",
         ai: "https://xromeda.com/play/2d/1z025ba608gl91pr"
       },
-      ssoblly: {
+      leeesovely: {
         photos: "https://xromeda.com/play/2d/p5val9j2t345szcd",        // 화보A (메인 화보)
         bcuts: "https://xromeda.com/play/2d/aaczskusce578dy8",         // 화보B (B컷)
         video: "https://xromeda.com/play/media/zha841f00kt11we3",       // 메이킹영상

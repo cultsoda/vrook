@@ -14,7 +14,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
       special: { krw: 59000, usd: 49.5 }, 
       all: { krw: 79000, usd: 69.3 } 
     },
-    ssoblly: { 
+    leeesovely: { 
       basic: { krw: 39000, usd: 29.7 }, 
       special: { krw: 59000, usd: 49.5 }, 
       all: { krw: 79000, usd: 69.3 }  
@@ -54,7 +54,7 @@ export const getInfluencerPackages = (influencerId: string): Package[] => {
   const prices = basePrices[influencerId as keyof typeof basePrices] || basePrices.yanghyewon
 
   // 🎯 VR 영상이 없는 인플루언서들 (모모리나, 쏘블리) 전용 패키지 구성
-  const hasVrVideo = !['momorina', 'ssoblly'].includes(influencerId)
+  const hasVrVideo = !['momorina', 'leeesovely'].includes(influencerId)
   
   if (!hasVrVideo) {
     return [
@@ -245,12 +245,12 @@ export const influencers: Influencer[] = [
     ],
   },
   {
-    id: "ssoblly",
+    id: "leeesovely",
     name: "쏘블리",
-    descriptionKey: "influencers.ssoblly.description",
-    bioKey: "influencers.ssoblly.bio",
-    profileImage: getInfluencerImagePath("ssoblly"),
-    coverImage: getInfluencerImagePath("ssoblly"),
+    descriptionKey: "influencers.leeesovely.description",
+    bioKey: "influencers.leeesovely.bio",
+    profileImage: getInfluencerImagePath("leeesovely"),
+    coverImage: getInfluencerImagePath("leeesovely"),
     socialLinks: [
       "https://www.instagram.com/leeesovelys2/",
       "https://www.youtube.com/channel/UCO2GVjlhscG3hxfOZYUYLxg",
@@ -258,17 +258,17 @@ export const influencers: Influencer[] = [
       "https://x.com/leeesovely"
     ],
     galleryImages: [
-      getProductThumbnail("ssoblly", "photos"),
-      getProductThumbnail("ssoblly", "bcuts"),
-      getProductThumbnail("ssoblly", "video"),
-      getProductThumbnail("ssoblly", "vrFull"), // VR 영상 없으므로 vrFull만
+      getProductThumbnail("leeesovely", "photos"),
+      getProductThumbnail("leeesovely", "bcuts"),
+      getProductThumbnail("leeesovely", "video"),
+      getProductThumbnail("leeesovely", "vrFull"), // VR 영상 없으므로 vrFull만
     ],
-    videoThumbnail: getProductThumbnail("ssoblly", "video"),
-    vrPreview: getProductThumbnail("ssoblly", "vrFull"), // VR 영상 없으므로 vrFull
+    videoThumbnail: getProductThumbnail("leeesovely", "video"),
+    vrPreview: getProductThumbnail("leeesovely", "vrFull"), // VR 영상 없으므로 vrFull
     aiSamples: [
-      getProductThumbnail("ssoblly", "ai"),
-      getProductThumbnail("ssoblly", "ai"),
-      getProductThumbnail("ssoblly", "ai"),
+      getProductThumbnail("leeesovely", "ai"),
+      getProductThumbnail("leeesovely", "ai"),
+      getProductThumbnail("leeesovely", "ai"),
     ],
   },
   {
