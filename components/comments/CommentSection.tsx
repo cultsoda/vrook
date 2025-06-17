@@ -53,9 +53,9 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
           .orderBy('createdAt', 'desc')
 
         unsubscribe = commentsRef.onSnapshot(
-          (snapshot) => {
+          (snapshot: any) => {
             const commentsData: Comment[] = []
-            snapshot.forEach((doc) => {
+            snapshot.forEach((doc: any) => {
               const data = doc.data()
               commentsData.push({
                 id: doc.id,
@@ -68,7 +68,7 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
             setComments(commentsData)
             setIsLoading(false)
           },
-          (error) => {
+          (error: any) => {
             console.error('댓글 로딩 실패:', error)
             toast.error('댓글을 불러오는데 실패했습니다')
             setIsLoading(false)
