@@ -83,7 +83,7 @@ export default function RootLayout({
         
         {/* 🆕 네이버 서치 애드바이저 - 사이트 소유 확인 */}
         <meta name="naver-site-verification" content="398fd9d412e242bc22d42ad995729ae477494a44" />
-        
+
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -103,7 +103,7 @@ export default function RootLayout({
             __html: JSON.stringify(websiteSchema)
           }}
         />
-        
+      
         {/* Google Analytics (실제 GA ID로 교체) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-84WGC59PNZ"></script>
         <script
@@ -159,6 +159,7 @@ export default function RootLayout({
         >
           메인 콘텐츠로 건너뛰기
         </a>
+        <script type="module" src="/firebase-init.js"></script>
       </body>
     </html>
   )
