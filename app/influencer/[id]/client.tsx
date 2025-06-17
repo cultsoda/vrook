@@ -13,7 +13,7 @@ import { usePurchaseControl } from "@/hooks/usePurchaseControl"
 import { toast } from 'sonner'
 import type { Influencer, Package } from "@/types/influencer"
 import { trackEvent } from "@/lib/ga";
-
+import CommentSection from '@/components/comments/CommentSection'
 
 interface InfluencerDetailClientProps {
   influencer: Influencer
@@ -700,6 +700,15 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
               ))}
             </div>
           </div>
+        </div>
+      </section>
+      {/* 🔥 NEW: Comments Section 추가 */}
+      <section className="py-8 md:py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <CommentSection 
+            influencerId={influencer.id} 
+            contentId="vrook-1"  // 일단 기본값으로 설정
+          />
         </div>
       </section>
 

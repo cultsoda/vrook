@@ -380,5 +380,71 @@
     "ctee": { "ko": "씨티", "en": "C-tee" },
     "djawa": { "ko": "자와", "en": "Djawa" },
     "sooplive": { "ko": "숲라이브", "en": "SoopLive" }
+  },
+  "comments": {
+    "form": {
+      "title": { "ko": "댓글 작성", "en": "Write Comment" },
+      "email": { "ko": "이메일", "en": "Email" },
+      "emailPlaceholder": { "ko": "example@gmail.com", "en": "example@gmail.com" },
+      "password": { "ko": "간단 비밀번호", "en": "Simple Password" },
+      "passwordHelp": { "ko": "(댓글 수정/삭제 시 사용)", "en": "(Used for editing/deleting comments)" },
+      "passwordPlaceholder": { "ko": "4자 이상 입력", "en": "Enter 4+ characters" },
+      "content": { "ko": "댓글 내용", "en": "Comment Content" },
+      "contentPlaceholder": { "ko": "댓글을 입력해주세요...", "en": "Please enter your comment..." },
+      "submitButton": { "ko": "댓글 작성", "en": "Post Comment" },
+      "submitting": { "ko": "댓글 작성 중...", "en": "Posting comment..." }
+    },
+    "list": {
+      "title": { "ko": "댓글", "en": "Comments" },
+      "sortNewest": { "ko": "최신 순", "en": "Newest" },
+      "sortOldest": { "ko": "오래된 순", "en": "Oldest" },
+      "sortMostLiked": { "ko": "좋아요 순", "en": "Most Liked" },
+      "refresh": { "ko": "새로고침", "en": "Refresh" },
+      "noComments": { "ko": "아직 댓글이 없습니다", "en": "No comments yet" },
+      "noCommentsSubtext": { "ko": "첫 번째 댓글을 작성해보세요!", "en": "Be the first to leave a comment!" },
+      "totalComments": { "ko": "총 {count}개의 댓글", "en": "Total {count} comments" },
+      "totalLikes": { "ko": "총 {count}개의 좋아요", "en": "Total {count} likes" }
+    },
+    "item": {
+      "edit": { "ko": "수정", "en": "Edit" },
+      "delete": { "ko": "삭제", "en": "Delete" },
+      "cancel": { "ko": "취소", "en": "Cancel" },
+      "save": { "ko": "저장", "en": "Save" },
+      "justNow": { "ko": "방금 전", "en": "just now" },
+      "minuteAgo": { "ko": "1분 전", "en": "1 minute ago" },
+      "minutesAgo": { "ko": "{count}분 전", "en": "{count} minutes ago" },
+      "hourAgo": { "ko": "1시간 전", "en": "1 hour ago" },
+      "hoursAgo": { "ko": "{count}시간 전", "en": "{count} hours ago" },
+      "dayAgo": { "ko": "1일 전", "en": "1 day ago" },
+      "daysAgo": { "ko": "{count}일 전", "en": "{count} days ago" },
+      "edited": { "ko": "(수정됨)", "en": "(edited)" },
+      "deleteTitle": { "ko": "댓글 삭제", "en": "Delete Comment" },
+      "deleteDescription": { "ko": "댓글을 삭제하려면 작성 시 입력한 비밀번호를 입력해주세요.", "en": "Please enter the password you used when writing the comment to delete it." },
+      "deletePasswordLabel": { "ko": "비밀번호", "en": "Password" },
+      "deletePasswordPlaceholder": { "ko": "비밀번호 입력", "en": "Enter password" },
+      "verifying": { "ko": "확인 중...", "en": "Verifying..." }
+    },
+    "errors": {
+      "emailRequired": { "ko": "이메일을 입력해주세요", "en": "Please enter your email" },
+      "emailInvalid": { "ko": "올바른 이메일 형식이 아닙니다", "en": "Invalid email format" },
+      "passwordRequired": { "ko": "비밀번호를 입력해주세요", "en": "Please enter a password" },
+      "passwordMinLength": { "ko": "비밀번호는 4자 이상 입력해주세요", "en": "Password must be at least 4 characters" },
+      "contentRequired": { "ko": "댓글 내용을 입력해주세요", "en": "Please enter comment content" },
+      "contentMinLength": { "ko": "댓글은 2자 이상 입력해주세요", "en": "Comment must be at least 2 characters" },
+      "contentMaxLength": { "ko": "댓글은 500자를 초과할 수 없습니다", "en": "Comment cannot exceed 500 characters" },
+      "passwordIncorrect": { "ko": "비밀번호가 올바르지 않습니다", "en": "Incorrect password" },
+      "likeFailed": { "ko": "좋아요 처리에 실패했습니다", "en": "Failed to process like" },
+      "editFailed": { "ko": "댓글 수정에 실패했습니다", "en": "Failed to edit comment" },
+      "deleteFailed": { "ko": "댓글 삭제에 실패했습니다", "en": "Failed to delete comment" },
+      "submitFailed": { "ko": "댓글 작성에 실패했습니다. 다시 시도해주세요.", "en": "Failed to submit comment. Please try again." },
+      "firebaseNotInitialized": { "ko": "Firebase가 초기화되지 않았습니다", "en": "Firebase is not initialized" },
+      "loginRequired": { "ko": "좋아요를 하려면 이메일을 입력한 댓글을 작성해주세요", "en": "Please write a comment with your email to like comments" },
+      "formValidation": { "ko": "입력한 정보를 다시 확인해주세요", "en": "Please check the information you entered" }
+    },
+    "success": {
+      "commentCreated": { "ko": "댓글이 작성되었습니다!", "en": "Comment has been posted!" },
+      "commentEdited": { "ko": "댓글이 수정되었습니다", "en": "Comment has been edited" },
+      "commentDeleted": { "ko": "댓글이 삭제되었습니다", "en": "Comment has been deleted" }
+    }
   }
 }
