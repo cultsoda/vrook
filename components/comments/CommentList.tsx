@@ -88,14 +88,14 @@ export default function CommentList({
 
   return (
     <Card className="bg-slate-900 border-slate-700">
-      <CardHeader className="text-center p-4 md:p-8">
-        {/* ✅ 수정: 폰트 크기를 모바일/데스크톱에 맞게 세분화 */}
-        <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8">
-          {t('comments.list.title')} ({activeComments.length})
-        </CardTitle>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div />
-          <div className="flex items-center space-x-2">
+      {/* ✅ 수정: CardHeader에서 text-center 제거, 내부 div에서 레이아웃 처리 */}
+      <CardHeader className="p-4 md:p-8">
+        {/* ✅ 수정된 부분: 제목과 버튼을 하나의 flex 컨테이너로 그룹화 */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+            {t('comments.list.title')} ({activeComments.length})
+          </CardTitle>
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <Button
               variant="outline"
               size="sm"
@@ -105,7 +105,6 @@ export default function CommentList({
               {getSortIcon()}
               <span className="ml-1 font-medium">{getSortButtonText()}</span>
             </Button>
-            
             <Button
               variant="outline"
               size="sm"
@@ -117,11 +116,11 @@ export default function CommentList({
             </Button>
           </div>
         </div>
+        {/* ✅ 수정 끝 */}
       </CardHeader>
       
       <CardContent>
         {isLoading ? (
-          // 로딩 상태
           <div className="space-y-4">
             {[...Array(3)].map((_, index) => (
               <div
@@ -146,7 +145,6 @@ export default function CommentList({
             ))}
           </div>
         ) : activeComments.length === 0 ? (
-          // 댓글이 없을 때
           <div className="text-center py-12">
             <MessageSquare className="w-12 h-12 text-slate-600 mx-auto mb-4" />
             <p className="text-slate-400 text-lg mb-2">{t('comments.list.noComments')}</p>
@@ -155,7 +153,6 @@ export default function CommentList({
             </p>
           </div>
         ) : (
-          // 댓글 목록
           <div className="space-y-4">
             {activeComments.map((comment) => (
               <CommentItem
@@ -170,7 +167,6 @@ export default function CommentList({
           </div>
         )}
 
-        {/* 댓글 통계 */}
         {activeComments.length > 0 && (
           <div className="mt-6 pt-4 border-t border-slate-700">
             <div className="flex items-center justify-between text-sm text-slate-400">
