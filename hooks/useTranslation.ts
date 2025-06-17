@@ -13,7 +13,7 @@ interface TranslationContextType {
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-export function TranslationProvider({ children }: { children: ReactNode }): JSX.Element {
+export function TranslationProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const [locale, setLocale] = useState<'ko' | 'en'>('ko')
 
   // 초기 언어 설정 로드
