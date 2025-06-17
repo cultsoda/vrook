@@ -3,9 +3,10 @@ import { generateInfluencerMetadata, generateStructuredData } from "@/lib/seo"
 import type { Metadata } from 'next'
 import InfluencerDetailClient from './client'
 
-// 동적 메타데이터 생성 함수 (서버 컴포넌트)
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const influencer = influencers.find((inf) => inf.id === params.id)
+// ✅ 수정 1: 타입 정의 변경
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params  // ✅ 수정 2: await 추가
+  const influencer = influencers.find((inf) => inf.id === id)  // params.id → id
   
   if (!influencer) {
     return {
@@ -21,16 +22,17 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   return generateInfluencerMetadata(influencer)
 }
 
-// 정적 경로 생성 (서버 컴포넌트)
+// 정적 경로 생성 (변경 없음)
 export async function generateStaticParams() {
   return influencers.map((influencer) => ({
     id: influencer.id,
   }))
 }
 
-// 서버 컴포넌트 (메타데이터와 구조화된 데이터 처리)
-export default function InfluencerDetailPage({ params }: { params: { id: string } }) {
-  const influencer = influencers.find((inf) => inf.id === params.id)
+// ✅ 수정 3: 메인 함수도 동일하게 수정
+export default async function InfluencerDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params  // ✅ await 추가
+  const influencer = influencers.find((inf) => inf.id === id)  // params.id → id
 
   if (!influencer) {
     return (
@@ -45,7 +47,7 @@ export default function InfluencerDetailPage({ params }: { params: { id: string 
     )
   }
 
-  // 구조화된 데이터 생성
+  // 구조화된 데이터 생성 (변경 없음)
   const structuredData = generateStructuredData(influencer)
   const packages = getInfluencerPackages(influencer.id)
 
