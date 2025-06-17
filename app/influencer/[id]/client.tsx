@@ -13,6 +13,7 @@ import { usePurchaseControl } from "@/hooks/usePurchaseControl"
 import { toast } from 'sonner'
 import type { Influencer, Package } from "@/types/influencer"
 import { trackEvent } from "@/lib/ga";
+import FirebaseTest from '@/components/FirebaseTest'
 
 interface InfluencerDetailClientProps {
   influencer: Influencer
@@ -701,7 +702,15 @@ export default function InfluencerDetailClient({ influencer, packages }: Influen
           </div>
         </div>
       </section>
+  {/* 🧪 임시 Firebase 테스트 (나중에 제거) */}
+      <section className="py-8 px-4">
+        <div className="container mx-auto">
+          <FirebaseTest />
+        </div>
+      </section>
 
+      {/* Footer */}
+      <footer className="bg-slate-900 py-8 md:py-12 px-4 border-t border-slate-700"></footer>
       {/* Footer - 모바일 최적화 */}
       <footer className="bg-slate-900 py-8 md:py-12 px-4 border-t border-slate-700">
         <div className="container mx-auto">
