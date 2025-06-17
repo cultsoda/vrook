@@ -159,7 +159,9 @@ export default function RootLayout({
         >
           메인 콘텐츠로 건너뛰기
         </a>
-
+         {/* Firebase CDN - 빌드 에러 방지를 위해 body 끝에 배치 */}
+          <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
       </body>
     </html>
   )
