@@ -95,24 +95,24 @@ export default function CommentList({
             {t('comments.list.title')} ({activeComments.length})
           </CardTitle>
           <div className="flex items-center space-x-2">
-            {/* 정렬 버튼 */}
+            {/* 정렬 버튼 - 스타일 개선 */}
             <Button
               variant="outline"
               size="sm"
               onClick={cycleSortOption}
-              className="border-slate-600 text-slate-300 hover:bg-slate-800"
+              className="border-slate-600 text-slate-200 bg-slate-800/70 hover:bg-slate-700 hover:text-white hover:border-slate-500 transition-all duration-200"
             >
               {getSortIcon()}
-              <span className="ml-1">{getSortButtonText()}</span>
+              <span className="ml-1 font-medium">{getSortButtonText()}</span>
             </Button>
             
-            {/* 새로고침 버튼 */}
+            {/* 새로고침 버튼 - 스타일 개선 */}
             <Button
               variant="outline"
               size="sm"
               onClick={onRefresh}
               disabled={isLoading}
-              className="border-slate-600 text-slate-300 hover:bg-slate-800"
+              className="border-slate-600 text-slate-200 bg-slate-800/70 hover:bg-slate-700 hover:text-white hover:border-slate-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
             </Button>

@@ -160,10 +160,10 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
     }
   }
 
-  // 좋아요 토글
+  // 좋아요 토글 - localStorage 기반으로 변경
   const handleLikeComment = async (commentId: string) => {
-    if (!window.db || !currentUserEmail) {
-      throw new Error(t('comments.errors.loginRequired'))
+    if (!window.db) {
+      throw new Error(t('comments.errors.firebaseNotInitialized'))
     }
 
     try {
@@ -176,18 +176,23 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
 
       const commentData = commentDoc.data()
       const likedBy = commentData?.likedBy || []
-      const isLiked = likedBy.includes(currentUserEmail)
+      
+      // localStorage에서 좋아요 상태 확인
+      const likeKey = `vrook_liked_${commentId}`
+      const hasLiked = typeof window !== 'undefined' && localStorage.getItem(likeKey) === 'true'
 
       let newLikedBy: string[]
       let newLikes: number
 
-      if (isLiked) {
-        // 좋아요 취소
-        newLikedBy = likedBy.filter((email: string) => email !== currentUserEmail)
+      if (hasLiked) {
+        // 좋아요 취소 - localStorage 기반 사용자만 제거
+        const userKey = `localStorage_${Date.now()}_${Math.random()}`
+        newLikedBy = likedBy.filter((key: string) => key !== userKey)
         newLikes = Math.max(0, (commentData?.likes || 0) - 1)
       } else {
-        // 좋아요 추가
-        newLikedBy = [...likedBy, currentUserEmail]
+        // 좋아요 추가 - 고유한 localStorage 기반 키 생성
+        const userKey = `localStorage_${Date.now()}_${Math.random()}`
+        newLikedBy = [...likedBy, userKey]
         newLikes = (commentData?.likes || 0) + 1
       }
 
@@ -212,15 +217,7 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
 
   return (
     <div className="space-y-6">
-      {/* 댓글 작성 폼 */}
-      <CommentForm
-        influencerId={influencerId}
-        contentId={contentId}
-        onSubmit={handleSubmitComment}
-        isSubmitting={isSubmitting}
-      />
-
-      {/* 댓글 목록 */}
+      {/* 댓글 목록 먼저 표시 */}
       <CommentList
         influencerId={influencerId}
         contentId={contentId}
@@ -231,6 +228,14 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
         onLike={handleLikeComment}
         onRefresh={handleRefresh}
         currentUserEmail={currentUserEmail}
+      />
+
+      {/* 댓글 작성 폼을 아래로 */}
+      <CommentForm
+        influencerId={influencerId}
+        contentId={contentId}
+        onSubmit={handleSubmitComment}
+        isSubmitting={isSubmitting}
       />
     </div>
   )
