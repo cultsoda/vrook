@@ -1,6 +1,6 @@
-// types/global.d.ts
 declare global {
   interface Window {
+    firebase: any;
     db: any;
   }
 }

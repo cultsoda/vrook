@@ -1,7 +1,5 @@
 // public/firebase-init.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
+// CDN 방식으로 Firebase 초기화
 const firebaseConfig = {
   apiKey: "AIzaSyC9xebZWI6ItNYr2iGhmenZNMZj1fhmMBE",
   authDomain: "vrook-comments.firebaseapp.com",
@@ -11,8 +9,8 @@ const firebaseConfig = {
   appId: "1:281211962162:web:1febe65d503b555bbf4d2b"
 };
 
-// Firebase 초기화
-const app = initializeApp(firebaseConfig);
-window.db = getFirestore(app);
+// Firebase 초기화 (글로벌 firebase 객체 사용)
+const app = firebase.initializeApp(firebaseConfig);
+window.db = firebase.firestore();
 
 console.log('Firebase 초기화 완료');

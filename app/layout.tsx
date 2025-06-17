@@ -159,7 +159,12 @@ export default function RootLayout({
         >
           메인 콘텐츠로 건너뛰기
         </a>
-        <script type="module" src="/firebase-init.js"></script>
+         {/* 🔥 Firebase CDN Scripts (ES6 import 대신) */}
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+        
+        {/* Firebase 초기화 */}
+        <script src="/firebase-init.js"></script>
       </body>
     </html>
   )
