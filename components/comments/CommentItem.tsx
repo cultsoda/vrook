@@ -44,13 +44,28 @@ export default function CommentItem({
   const { t } = useTranslation()
   const [isEditing, setIsEditing] = useState(false)
   const [editContent, setEditContent] = useState(comment.content)
-  const [isLiked, setIsLiked] = useState(
-    currentUserEmail ? comment.likedBy.includes(currentUserEmail) : false
-  )
+  
+  // 좋아요 상태 - localStorage 기반으로 변경
+  const getLikeKey = () => `vrook_liked_${comment.id}`
+  const [isLiked, setIsLiked] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(getLikeKey()) === 'true'
+    }
+    return false
+  })
   const [likeCount, setLikeCount] = useState(comment.likes)
+  
+  // 삭제 관련 state
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+  const [deleteEmail, setDeleteEmail] = useState('')
   const [deletePassword, setDeletePassword] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
+  
+  // 수정 인증 관련 state
+  const [showEditDialog, setShowEditDialog] = useState(false)
+  const [editEmail, setEditEmail] = useState('')
+  const [editPassword, setEditPassword] = useState('')
+  const [isEditVerifying, setIsEditVerifying] = useState(false)
 
   const formatDate = (date: Date) => {
     const now = new Date()
@@ -75,18 +90,58 @@ export default function CommentItem({
   }
 
   const handleLike = async () => {
-    if (!currentUserEmail) {
-      toast.error(t('comments.errors.loginRequired'))
-      return
-    }
-
     try {
       await onLike(comment.id)
-      setIsLiked(!isLiked)
-      setLikeCount(prev => isLiked ? prev - 1 : prev + 1)
+      const newIsLiked = !isLiked
+      setIsLiked(newIsLiked)
+      setLikeCount(prev => newIsLiked ? prev + 1 : prev - 1)
+      
+      // localStorage에 좋아요 상태 저장
+      if (typeof window !== 'undefined') {
+        if (newIsLiked) {
+          localStorage.setItem(getLikeKey(), 'true')
+        } else {
+          localStorage.removeItem(getLikeKey())
+        }
+      }
     } catch (error) {
       console.error('좋아요 처리 실패:', error)
       toast.error(t('comments.errors.likeFailed'))
+    }
+  }
+
+  const handleEditAuth = async () => {
+    if (!editEmail || !editPassword) {
+      toast.error('이메일과 비밀번호를 모두 입력해주세요')
+      return
+    }
+
+    setIsEditVerifying(true)
+    try {
+      // 이메일 확인
+      if (editEmail.toLowerCase().trim() !== comment.email.toLowerCase()) {
+        toast.error('이메일이 일치하지 않습니다')
+        return
+      }
+
+      // 비밀번호 확인
+      const isValid = await verifyPassword(editPassword, comment.password)
+      if (!isValid) {
+        toast.error(t('comments.errors.passwordIncorrect'))
+        setEditPassword('')
+        return
+      }
+
+      // 인증 성공 - 수정 모드로 전환
+      setShowEditDialog(false)
+      setIsEditing(true)
+      setEditEmail('')
+      setEditPassword('')
+    } catch (error) {
+      console.error('수정 인증 실패:', error)
+      toast.error('인증에 실패했습니다')
+    } finally {
+      setIsEditVerifying(false)
     }
   }
 
@@ -112,13 +167,22 @@ export default function CommentItem({
   }
 
   const handleDelete = async () => {
-    if (!deletePassword) {
-      toast.error(t('comments.errors.passwordRequired'))
+    if (!deleteEmail || !deletePassword) {
+      toast.error('이메일과 비밀번호를 모두 입력해주세요')
       return
     }
 
     setIsVerifying(true)
     try {
+      // 이메일 확인
+      if (deleteEmail.toLowerCase().trim() !== comment.email.toLowerCase()) {
+        toast.error('이메일이 일치하지 않습니다')
+        setDeleteEmail('')
+        setDeletePassword('')
+        return
+      }
+
+      // 비밀번호 확인
       const isValid = await verifyPassword(deletePassword, comment.password)
       if (!isValid) {
         toast.error(t('comments.errors.passwordIncorrect'))
@@ -136,8 +200,6 @@ export default function CommentItem({
       setIsVerifying(false)
     }
   }
-
-  const canModify = currentUserEmail === comment.email
 
   return (
     <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
@@ -161,32 +223,30 @@ export default function CommentItem({
           </div>
         </div>
 
-        {/* 더보기 메뉴 (본인 댓글만) */}
-        {canModify && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                <MoreVertical className="h-4 w-4 text-slate-400" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-slate-800 border-slate-700">
-              <DropdownMenuItem 
-                onClick={() => setIsEditing(true)}
-                className="text-slate-300 hover:bg-slate-700"
-              >
-                <Edit3 className="w-4 h-4 mr-2" />
-                {t('comments.item.edit')}
-              </DropdownMenuItem>
-              <DropdownMenuItem 
-                onClick={() => setShowDeleteDialog(true)}
-                className="text-red-400 hover:bg-slate-700"
-              >
-                <Trash2 className="w-4 h-4 mr-2" />
-                {t('comments.item.delete')}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
+        {/* 더보기 메뉴 (모든 사용자에게 표시) */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+              <MoreVertical className="h-4 w-4 text-slate-400" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="bg-slate-800 border-slate-700">
+            <DropdownMenuItem 
+              onClick={() => setShowEditDialog(true)}
+              className="text-slate-300 hover:bg-slate-700"
+            >
+              <Edit3 className="w-4 h-4 mr-2" />
+              {t('comments.item.edit')}
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              onClick={() => setShowDeleteDialog(true)}
+              className="text-red-400 hover:bg-slate-700"
+            >
+              <Trash2 className="w-4 h-4 mr-2" />
+              {t('comments.item.delete')}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* 댓글 내용 */}
@@ -252,16 +312,94 @@ export default function CommentItem({
         </div>
       )}
 
+      {/* 수정 인증 다이얼로그 */}
+      <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
+        <DialogContent className="bg-slate-900 border-slate-700">
+          <DialogHeader>
+            <DialogTitle className="text-white">댓글 수정 인증</DialogTitle>
+            <DialogDescription className="text-slate-400">
+              댓글을 수정하려면 작성 시 사용한 이메일과 비밀번호를 입력해주세요.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="edit-email" className="text-white">이메일</Label>
+              <Input
+                id="edit-email"
+                type="email"
+                value={editEmail}
+                onChange={(e) => setEditEmail(e.target.value)}
+                placeholder="이메일 입력"
+                className="bg-slate-800 border-slate-600 text-white"
+                disabled={isEditVerifying}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="edit-password" className="text-white">비밀번호</Label>
+              <Input
+                id="edit-password"
+                type="password"
+                value={editPassword}
+                onChange={(e) => setEditPassword(e.target.value)}
+                placeholder="비밀번호 입력"
+                className="bg-slate-800 border-slate-600 text-white"
+                disabled={isEditVerifying}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setShowEditDialog(false)
+                setEditEmail('')
+                setEditPassword('')
+              }}
+              disabled={isEditVerifying}
+              className="border-slate-600 text-slate-300"
+            >
+              {t('comments.item.cancel')}
+            </Button>
+            <Button
+              onClick={handleEditAuth}
+              disabled={isEditVerifying || !editEmail || !editPassword}
+              className="bg-purple-600 hover:bg-purple-700"
+            >
+              {isEditVerifying ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                  {t('comments.item.verifying')}
+                </>
+              ) : (
+                '인증하고 수정하기'
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
       {/* 삭제 확인 다이얼로그 */}
       <Dialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <DialogContent className="bg-slate-900 border-slate-700">
           <DialogHeader>
             <DialogTitle className="text-white">{t('comments.item.deleteTitle')}</DialogTitle>
             <DialogDescription className="text-slate-400">
-              {t('comments.item.deleteDescription')}
+              댓글을 삭제하려면 작성 시 사용한 이메일과 비밀번호를 입력해주세요.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="delete-email" className="text-white">이메일</Label>
+              <Input
+                id="delete-email"
+                type="email"
+                value={deleteEmail}
+                onChange={(e) => setDeleteEmail(e.target.value)}
+                placeholder="이메일 입력"
+                className="bg-slate-800 border-slate-600 text-white"
+                disabled={isVerifying}
+              />
+            </div>
             <div className="space-y-2">
               <Label htmlFor="delete-password" className="text-white">
                 {t('comments.item.deletePasswordLabel')}
@@ -282,6 +420,7 @@ export default function CommentItem({
               variant="outline"
               onClick={() => {
                 setShowDeleteDialog(false)
+                setDeleteEmail('')
                 setDeletePassword('')
               }}
               disabled={isVerifying}
@@ -291,7 +430,7 @@ export default function CommentItem({
             </Button>
             <Button
               onClick={handleDelete}
-              disabled={isVerifying || !deletePassword}
+              disabled={isVerifying || !deleteEmail || !deletePassword}
               className="bg-red-600 hover:bg-red-700"
             >
               {isVerifying ? (
