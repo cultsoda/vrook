@@ -88,14 +88,14 @@ export default function CommentList({
 
   return (
     <Card className="bg-slate-900 border-slate-700">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-white flex items-center">
-            <MessageSquare className="w-5 h-5 mr-2" />
-            {t('comments.list.title')} ({activeComments.length})
-          </CardTitle>
+      <CardHeader className="text-center p-4 md:p-8">
+        {/* ✅ 수정: 폰트 크기를 모바일/데스크톱에 맞게 세분화 */}
+        <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8">
+          {t('comments.list.title')} ({activeComments.length})
+        </CardTitle>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div />
           <div className="flex items-center space-x-2">
-            {/* 정렬 버튼 - 스타일 개선 */}
             <Button
               variant="outline"
               size="sm"
@@ -106,7 +106,6 @@ export default function CommentList({
               <span className="ml-1 font-medium">{getSortButtonText()}</span>
             </Button>
             
-            {/* 새로고침 버튼 - 스타일 개선 */}
             <Button
               variant="outline"
               size="sm"

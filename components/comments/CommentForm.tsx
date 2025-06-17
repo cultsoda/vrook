@@ -25,7 +25,6 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
   const validateForm = (): boolean => {
     const newErrors: Partial<CommentFormData> = {}
 
-    // 이메일 검증
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email) {
       newErrors.email = t('comments.errors.emailRequired')
@@ -33,14 +32,12 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
       newErrors.email = t('comments.errors.emailInvalid')
     }
 
-    // 비밀번호 검증
     if (!formData.password) {
       newErrors.password = t('comments.errors.passwordRequired')
     } else if (formData.password.length < 4) {
       newErrors.password = t('comments.errors.passwordMinLength')
     }
 
-    // 댓글 내용 검증
     if (!formData.content.trim()) {
       newErrors.content = t('comments.errors.contentRequired')
     } else if (formData.content.trim().length < 2) {
@@ -63,12 +60,7 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
 
     try {
       await onSubmit(formData)
-      // 성공 시 폼 초기화
-      setFormData({
-        email: '',
-        password: '',
-        content: ''
-      })
+      setFormData({ email: '', password: '', content: '' })
       setErrors({})
       toast.success(t('comments.success.commentCreated'))
     } catch (error) {
@@ -79,7 +71,6 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
 
   const handleInputChange = (field: keyof CommentFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-    // 입력 시 해당 필드 에러 제거
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }))
     }
@@ -87,26 +78,28 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
 
   return (
     <Card className="bg-slate-900 border-slate-700 mb-6">
-      <CardHeader>
-        <CardTitle className="text-white flex items-center">
-          <MessageCircle className="w-5 h-5 mr-2" />
+      <CardHeader className="text-center p-4 md:p-8">
+        {/* ✅ 수정: 폰트 크기를 모바일/데스크톱에 맞게 세분화 */}
+        <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 flex items-center justify-center">
+          <MessageCircle className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 mr-2" />
           {t('comments.form.title')}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* 이메일 입력 */}
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-white">
+            {/* ✅ 수정: Label에 text-sm 추가 */}
+            <Label htmlFor="email" className="text-white text-sm">
               {t('comments.form.email')}
             </Label>
+            {/* ✅ 수정: Input에 text-sm 추가하여 기본 스타일 덮어쓰기 */}
             <Input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               placeholder={t('comments.form.emailPlaceholder')}
-              className={`bg-slate-800 border-slate-600 text-white ${
+              className={`bg-slate-800 border-slate-600 text-white text-sm ${
                 errors.email ? 'border-red-500' : ''
               }`}
               disabled={isSubmitting}
@@ -116,19 +109,20 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
             )}
           </div>
 
-          {/* 비밀번호 입력 */}
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-white">
+            {/* ✅ 수정: Label에 text-sm 추가 */}
+            <Label htmlFor="password" className="text-white text-sm">
               {t('comments.form.password')} {t('comments.form.passwordHelp')}
             </Label>
             <div className="relative">
+              {/* ✅ 수정: Input에 text-sm 추가 */}
               <Input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={formData.password}
                 onChange={(e) => handleInputChange('password', e.target.value)}
                 placeholder={t('comments.form.passwordPlaceholder')}
-                className={`bg-slate-800 border-slate-600 text-white pr-10 ${
+                className={`bg-slate-800 border-slate-600 text-white text-sm pr-10 ${
                   errors.password ? 'border-red-500' : ''
                 }`}
                 disabled={isSubmitting}
@@ -153,17 +147,18 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
             )}
           </div>
 
-          {/* 댓글 내용 */}
           <div className="space-y-2">
-            <Label htmlFor="content" className="text-white">
+            {/* ✅ 수정: Label에 text-sm 추가 */}
+            <Label htmlFor="content" className="text-white text-sm">
               {t('comments.form.content')}
             </Label>
+            {/* ✅ 수정: Textarea에 text-sm 추가 */}
             <Textarea
               id="content"
               value={formData.content}
               onChange={(e) => handleInputChange('content', e.target.value)}
               placeholder={t('comments.form.contentPlaceholder')}
-              className={`bg-slate-800 border-slate-600 text-white resize-none ${
+              className={`bg-slate-800 border-slate-600 text-white text-sm resize-none ${
                 errors.content ? 'border-red-500' : ''
               }`}
               rows={4}
@@ -181,7 +176,6 @@ export default function CommentForm({ influencerId, contentId, onSubmit, isSubmi
             </div>
           </div>
 
-          {/* 제출 버튼 */}
           <Button
             type="submit"
             disabled={isSubmitting}

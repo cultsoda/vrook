@@ -45,7 +45,6 @@ export default function CommentItem({
   const [isEditing, setIsEditing] = useState(false)
   const [editContent, setEditContent] = useState(comment.content)
   
-  // 좋아요 상태 - localStorage 기반으로 변경
   const getLikeKey = () => `vrook_liked_${comment.id}`
   const [isLiked, setIsLiked] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -55,13 +54,11 @@ export default function CommentItem({
   })
   const [likeCount, setLikeCount] = useState(comment.likes)
   
-  // 삭제 관련 state
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
   const [deleteEmail, setDeleteEmail] = useState('')
   const [deletePassword, setDeletePassword] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
   
-  // 수정 인증 관련 state
   const [showEditDialog, setShowEditDialog] = useState(false)
   const [editEmail, setEditEmail] = useState('')
   const [editPassword, setEditPassword] = useState('')
@@ -96,7 +93,6 @@ export default function CommentItem({
       setIsLiked(newIsLiked)
       setLikeCount(prev => newIsLiked ? prev + 1 : prev - 1)
       
-      // localStorage에 좋아요 상태 저장
       if (typeof window !== 'undefined') {
         if (newIsLiked) {
           localStorage.setItem(getLikeKey(), 'true')
@@ -118,13 +114,11 @@ export default function CommentItem({
 
     setIsEditVerifying(true)
     try {
-      // 이메일 확인
       if (editEmail.toLowerCase().trim() !== comment.email.toLowerCase()) {
         toast.error('이메일이 일치하지 않습니다')
         return
       }
 
-      // 비밀번호 확인
       const isValid = await verifyPassword(editPassword, comment.password)
       if (!isValid) {
         toast.error(t('comments.errors.passwordIncorrect'))
@@ -132,7 +126,6 @@ export default function CommentItem({
         return
       }
 
-      // 인증 성공 - 수정 모드로 전환
       setShowEditDialog(false)
       setIsEditing(true)
       setEditEmail('')
@@ -174,7 +167,6 @@ export default function CommentItem({
 
     setIsVerifying(true)
     try {
-      // 이메일 확인
       if (deleteEmail.toLowerCase().trim() !== comment.email.toLowerCase()) {
         toast.error('이메일이 일치하지 않습니다')
         setDeleteEmail('')
@@ -182,7 +174,6 @@ export default function CommentItem({
         return
       }
 
-      // 비밀번호 확인
       const isValid = await verifyPassword(deletePassword, comment.password)
       if (!isValid) {
         toast.error(t('comments.errors.passwordIncorrect'))
@@ -203,7 +194,6 @@ export default function CommentItem({
 
   return (
     <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
-      {/* 댓글 헤더 */}
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
@@ -223,7 +213,6 @@ export default function CommentItem({
           </div>
         </div>
 
-        {/* 더보기 메뉴 (모든 사용자에게 표시) */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
@@ -249,14 +238,13 @@ export default function CommentItem({
         </DropdownMenu>
       </div>
 
-      {/* 댓글 내용 */}
       <div className="mb-3">
         {isEditing ? (
           <div className="space-y-3">
             <Textarea
               value={editContent}
               onChange={(e) => setEditContent(e.target.value)}
-              className="bg-slate-800 border-slate-600 text-white resize-none"
+              className="bg-slate-800 border-slate-600 text-white resize-none text-sm"
               rows={3}
             />
             <div className="flex justify-between items-center">
@@ -289,13 +277,13 @@ export default function CommentItem({
             </div>
           </div>
         ) : (
-          <p className="text-slate-200 whitespace-pre-wrap">
+          /* ✅ 수정: 댓글 내용 폰트 크기를 text-sm으로 지정 */
+          <p className="text-slate-200 whitespace-pre-wrap text-sm">
             {comment.content}
           </p>
         )}
       </div>
 
-      {/* 좋아요 버튼 */}
       {!isEditing && (
         <div className="flex items-center">
           <Button
@@ -312,7 +300,6 @@ export default function CommentItem({
         </div>
       )}
 
-      {/* 수정 인증 다이얼로그 */}
       <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
         <DialogContent className="bg-slate-900 border-slate-700">
           <DialogHeader>
@@ -323,26 +310,26 @@ export default function CommentItem({
           </DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="edit-email" className="text-white">이메일</Label>
+              <Label htmlFor="edit-email" className="text-white text-sm">이메일</Label>
               <Input
                 id="edit-email"
                 type="email"
                 value={editEmail}
                 onChange={(e) => setEditEmail(e.target.value)}
                 placeholder="이메일 입력"
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-slate-800 border-slate-600 text-white text-sm"
                 disabled={isEditVerifying}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="edit-password" className="text-white">비밀번호</Label>
+              <Label htmlFor="edit-password" className="text-white text-sm">비밀번호</Label>
               <Input
                 id="edit-password"
                 type="password"
                 value={editPassword}
                 onChange={(e) => setEditPassword(e.target.value)}
                 placeholder="비밀번호 입력"
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-slate-800 border-slate-600 text-white text-sm"
                 disabled={isEditVerifying}
               />
             </div>
@@ -378,7 +365,6 @@ export default function CommentItem({
         </DialogContent>
       </Dialog>
 
-      {/* 삭제 확인 다이얼로그 */}
       <Dialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <DialogContent className="bg-slate-900 border-slate-700">
           <DialogHeader>
@@ -389,19 +375,19 @@ export default function CommentItem({
           </DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="delete-email" className="text-white">이메일</Label>
+              <Label htmlFor="delete-email" className="text-white text-sm">이메일</Label>
               <Input
                 id="delete-email"
                 type="email"
                 value={deleteEmail}
                 onChange={(e) => setDeleteEmail(e.target.value)}
                 placeholder="이메일 입력"
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-slate-800 border-slate-600 text-white text-sm"
                 disabled={isVerifying}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="delete-password" className="text-white">
+              <Label htmlFor="delete-password" className="text-white text-sm">
                 {t('comments.item.deletePasswordLabel')}
               </Label>
               <Input
@@ -410,7 +396,7 @@ export default function CommentItem({
                 value={deletePassword}
                 onChange={(e) => setDeletePassword(e.target.value)}
                 placeholder={t('comments.item.deletePasswordPlaceholder')}
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-slate-800 border-slate-600 text-white text-sm"
                 disabled={isVerifying}
               />
             </div>
