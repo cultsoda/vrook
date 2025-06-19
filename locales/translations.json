@@ -272,31 +272,31 @@
     },
     "cuina": {
       "description": { "ko": "#글래머러스 #다양한표정", "en": "#Glamorous #VariousExpressions" },
-      "bio": { "ko": "컨셉요정 큐이나가 준비한 특별한 브이룩. 다른 곳에선 볼 수 없는 매력적인 모습의 큐이나를 지금 확인하세요!", "en": "Special VROOK prepared by concept fairy Cuina. Check out Cuina's attractive appearance that you can't see anywhere else right now!" },
+      "bio": { "ko": "컨셉요정 큐이나가 준비한 특별한 브이룩. 다른 곳에선 볼 수 없는 매력적인 모습의 큐이나를 지금 확인하세요!", "en": "Special VROOK prepared by concept fairy CUE ENA. Check out CUE ENA's attractive appearance that you can't see anywhere else right now!" },
       "products": {
         "photoSet": {
-          "name": { "ko": "큐이나한테 더 빠져들어봐 메인 화보", "en": "Fall Deeper into Cuina Main Pictorial" },
-          "description": { "ko": "한번 보면 빠져버리는 큐이나의 매력 20컷으로 만나봐요", "en": "Meet Cuina's charm that you fall for once you see it with 20 cuts." }
+          "name": { "ko": "큐이나한테 더 빠져들어봐 메인 화보", "en": "Fall Deeper into CUE ENA Main Pictorial" },
+          "description": { "ko": "한번 보면 빠져버리는 큐이나의 매력 20컷으로 만나봐요", "en": "Meet CUE ENA's charm that you fall for once you see it with 20 cuts." }
         },
         "bcuts": {
           "name": { "ko": "조금 이라도 놓치긴 아쉽잖아? B컷도 준비했어", "en": "It Would Be a Shame to Miss Even a Little? B-cuts Prepared Too" },
           "description": { "ko": "빼기에 너무 아쉬운 컷을 모아서 B컷으로 더 준비했어요", "en": "Collected cuts too precious to exclude and prepared more as B-cuts." }
         },
         "video": {
-          "name": { "ko": "영상으로 만나는 큐이나의 특별한 순간", "en": "Cuina's Special Moments Meeting Through Video" },
+          "name": { "ko": "영상으로 만나는 큐이나의 특별한 순간", "en": "CUE ENA's Special Moments Meeting Through Video" },
           "description": { "ko": "방송과는 다른 또 다른 매력을 직접 확인해보세요", "en": "Check out another charm different from broadcasts directly." }
         },
         "vrVideo": {
-          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해", "en": "Share Cuina's Special Moments Together in VR" },
+          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해", "en": "Share CUE ENA's Special Moments Together in VR" },
           "description": { "ko": "함께 할 수록 더욱 특별해지는 순간들을 VR로 담아봤어요", "en": "Captured moments that become more special the more we're together in VR." }
         },
         "vrFullVideo": {
-          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해 풀 버전", "en": "Share Cuina's Special Moments Together in VR Full Version" },
+          "name": { "ko": "VR로 큐이나의 특별한 순간을 함께해 풀 버전", "en": "Share CUE ENA's Special Moments Together in VR Full Version" },
           "description": { "ko": "VR 풀버전으로 조금 더 길게 만나봐요", "en": "Meet a little longer with VR full version." }
         },
         "aiPhotos": {
-          "name": { "ko": "큐이나 AI 포토카드", "en": "Cuina AI Photo Cards" },
-          "description": { "ko": "특별하게 작업해서 한층 더 매력을 끌어올려봤어요 아주 특별한 큐이나 AI 화보.", "en": "Specially worked to enhance charm even more, very special Cuina AI pictorial." }
+          "name": { "ko": "큐이나 AI 포토카드", "en": "CUE ENA AI Photo Cards" },
+          "description": { "ko": "특별하게 작업해서 한층 더 매력을 끌어올려봤어요 아주 특별한 큐이나 AI 화보.", "en": "Specially worked to enhance charm even more, very special CUE ENA AI pictorial." }
         }
       }
     },
