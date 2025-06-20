@@ -134,7 +134,7 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
     try {
       await window.db.collection('comments').doc(commentId).update({
         content: newContent.trim(),
-        updatedAt: window.firebase.firestore.Timestamp.now()
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp()
       })
     } catch (error) {
       console.error('댓글 수정 실패:', error)
@@ -152,7 +152,7 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
       await window.db.collection('comments').doc(commentId).update({
         isDeleted: true,
         deletedBy: 'user',
-        updatedAt: window.firebase.firestore.Timestamp.now()
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp()
       })
     } catch (error) {
       console.error('댓글 삭제 실패:', error)
@@ -199,7 +199,7 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
       await commentRef.update({
         likes: newLikes,
         likedBy: newLikedBy,
-        updatedAt: window.firebase.firestore.Timestamp.now()
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp()
       })
     } catch (error) {
       console.error('좋아요 처리 실패:', error)
