@@ -540,6 +540,7 @@
           "rights": {
             "title": { "ko": "4. 동의 거부권", "en": "4. Right to Refuse Consent" },
             "content": { "ko": "귀하는 회사의 정보수집에 대해 동의하지 않거나 거부할 수 있습니다. 다만, 이때 원활한 문의 및 서비스 이용 등이 제한될 수 있습니다.", "en": "You may refuse or disagree with the company's information collection. However, this may limit smooth inquiries and service usage." }
+        }
       }
     }
   }
