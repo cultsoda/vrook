@@ -110,8 +110,8 @@ export default function CommentSection({ influencerId, contentId }: CommentSecti
         content: formData.content.trim(),
         likes: 0,
         likedBy: [],
-        createdAt: window.firebase.firestore.Timestamp.now(),
-        updatedAt: window.firebase.firestore.Timestamp.now(),
+        createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
         isDeleted: false
       }
 
