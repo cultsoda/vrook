@@ -109,13 +109,8 @@ export default function CollaborationInquiry() {
             appId: "1:281211962162:web:1febe65d503b555bbf4d2b"
           }
 
-         // 앱 이름 제거하고 기본 앱으로 초기화
-          try {
-            const app = window.firebase.app() // 기존 앱 확인
-          } catch (error) {
-            // 기존 앱이 없으면 새로 생성 (이름 없이)
-            window.firebase.initializeApp(firebaseConfig)
-          }
+           // 간단하게 바로 초기화 (이름 없이)
+          window.firebase.initializeApp(firebaseConfig)
           window.db = window.firebase.firestore()
         }
 
