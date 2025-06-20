@@ -9,6 +9,8 @@ import { Eye, Sparkles, Users, Camera, Headphones, ExternalLink } from "lucide-r
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { useTranslation } from "@/hooks/useTranslation"
 import { OptimizedImage } from "@/components/OptimizedImage"
+import CollaborationInquiry from "@/components/collaboration/CollaborationInquiry"
+
 
 export default function HomePage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -144,6 +146,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* 🎬 협업 문의 섹션 - Footer 위에 추가 */}
+      <CollaborationInquiry />
 
       {/* Footer - 모바일 최적화 */}
       <footer className="bg-slate-900 py-6 md:py-8 px-4 border-t border-slate-700">
