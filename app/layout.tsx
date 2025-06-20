@@ -119,6 +119,9 @@ export default function RootLayout({
             `,
           }}
         />
+       {/* Firebase CDN 스크립트들 */}
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
         
         {/* Microsoft Clarity (선택사항) */}
