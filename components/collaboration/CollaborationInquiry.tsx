@@ -114,8 +114,11 @@ export default function CollaborationInquiry() {
         }
 
         // Firestore에 저장
+        // privacyConsent 제외하고 저장
+        const { privacyConsent, ...dataToSave } = formData
+
         await window.db.collection('collaboration-inquiries').add({
-          ...formData,
+          ...dataToSave,  // privacyConsent 제외된 데이터
           createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
           status: 'pending',
           ip: await fetch('https://api.ipify.org?format=json')
