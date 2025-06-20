@@ -474,23 +474,23 @@
       "title": { "ko": "VROOK 협업 문의", "en": "VROOK Collaboration Inquiry" },
       "subtitle": { "ko": "모든 정보는 검토 후 개별 연락드리며, 안전하게 보관됩니다.", "en": "All information will be reviewed and contacted individually, and stored securely." },
       "fields": {
-        "name": { "ko": "이름 / 활동명", "en": "Name / Activity Name" },
+        "name": { "ko": "1. 이름 / 활동명", "en": "1. Name / Activity Name" },
         "namePlaceholder": { "ko": "ex. 김민지 / MINJI", "en": "ex. Kim Minji / MINJI" },
-        "contact": { "ko": "연락처 (이메일 또는 휴대폰)", "en": "Contact (Email or Phone)" },
+        "contact": { "ko": "2. 연락처 (이메일 또는 휴대폰)", "en": "2. Contact (Email or Phone)" },
         "contactPlaceholder": { "ko": "ex. hello@creator.com / 010-1234-5678", "en": "ex. hello@creator.com / 010-1234-5678" },
-        "snsLinks": { "ko": "SNS/채널 링크 (최소 1개 이상)", "en": "SNS/Channel Links (At least 1)" },
+        "snsLinks": { "ko": "3. SNS/채널 링크 (최소 1개 이상)", "en": "3. SNS/Channel Links (At least 1)" },
         "snsPlaceholder": { 
           "ko": "ex. 인스타그램: @username\n유튜브: youtube.com/channel/...\n틱톡: @username", 
           "en": "ex. Instagram: @username\nYouTube: youtube.com/channel/...\nTikTok: @username" 
         },
-        "activityField": { "ko": "활동 분야 / 직업", "en": "Activity Field / Occupation" },
+        "activityField": { "ko": "4. 활동 분야 / 직업", "en": "4. Activity Field / Occupation" },
         "activityPlaceholder": { "ko": "ex. 모델, 댄서, 유튜버, 버츄얼 크리에이터 등", "en": "ex. Model, Dancer, YouTuber, Virtual Creator, etc." },
-        "participationReason": { "ko": "브이룩 참여 희망 이유", "en": "Reason for VROOK Participation" },
+        "participationReason": { "ko": "5. 브이룩 참여 희망 이유", "en": "5. Reason for VROOK Participation" },
         "participationPlaceholder": { "ko": "자유롭게 기재해주세요", "en": "Please write freely" },
-        "contentIdea": { "ko": "콘텐츠 아이디어 또는 콘셉트가 있다면 알려주세요 (선택)", "en": "Content Ideas or Concepts (Optional)" },
+        "contentIdea": { "ko": "6. 콘텐츠 아이디어 또는 콘셉트가 있다면 알려주세요 (선택)", "en": "6. Content Ideas or Concepts (Optional)" },
         "contentIdeaPlaceholder": { "ko": "ex. 도심 데이트 VR, 콘셉트 화보 등", "en": "ex. Urban Date VR, Concept Photoshoot, etc." },
-        "preferredFormats": { "ko": "희망 촬영 형태 (복수 선택 가능)", "en": "Preferred Shooting Format (Multiple Selection)" },
-        "referenceContent": { "ko": "참고할 수 있는 본인의 콘텐츠가 있다면 업로드 또는 링크 공유해주세요 (선택)", "en": "Reference Content Upload or Link Share (Optional)" },
+        "preferredFormats": { "ko": "7. 희망 촬영 형태 (복수 선택 가능)", "en": "7. Preferred Shooting Format (Multiple Selection)" },
+        "referenceContent": { "ko": "8. 참고할 수 있는 본인의 콘텐츠가 있다면 업로드 또는 링크 공유해주세요 (선택)", "en": "8. Reference Content Upload or Link Share (Optional)" },
         "referencePlaceholder": { "ko": "ex. Google Drive 링크, 유튜브 링크 등", "en": "ex. Google Drive link, YouTube link, etc." }
       },
       "formats": {
@@ -511,15 +511,36 @@
         "cancel": { "ko": "취소", "en": "Cancel" },
         "submit": { "ko": "문의 접수하기", "en": "Submit Inquiry" },
         "submitting": { "ko": "접수 중...", "en": "Submitting..." },
-        "inquire": { "ko": "협업 문의하기", "en": "Collaboration Inquiry" }
+        "inquire": { "ko": "🎬 협업 문의하기", "en": "🎬 Collaboration Inquiry" }
       },
       "messages": {
         "required": { "ko": "필수 항목을 모두 입력해주세요.", "en": "Please fill in all required fields." },
         "success": { "ko": "문의가 성공적으로 접수되었습니다! 검토 후 개별 연락드리겠습니다.", "en": "Inquiry submitted successfully! We will contact you individually after review." },
         "error": { "ko": "문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.", "en": "An error occurred while submitting your inquiry. Please try again." },
         "firebaseError": { "ko": "Firebase를 사용할 수 없습니다.", "en": "Firebase is not available." }
+      },
+      "privacy": {
+        "consent": { "ko": "개인정보 수집 및 이용에 동의합니다.", "en": "I agree to the collection and use of personal information." },
+        "view": { "ko": "보기", "en": "View" },
+        "title": { "ko": "개인정보 수집 및 이용 동의", "en": "Personal Information Collection and Use Agreement" },
+        "confirm": { "ko": "확인", "en": "Confirm" },
+        "items": {
+          "collection": {
+            "title": { "ko": "1. 수집 하는 내용", "en": "1. Information Collected" },
+            "content": { "ko": "이름, 연락처, 이메일", "en": "Name, contact information, email" }
+          },
+          "purpose": {
+            "title": { "ko": "2. 수집 목적", "en": "2. Purpose of Collection" },
+            "content": { "ko": "문의자 확인, 문의에 대한 회신 등의 처리", "en": "Inquirer identification, inquiry response processing" }
+          },
+          "retention": {
+            "title": { "ko": "3. 보유 기간", "en": "3. Retention Period" },
+            "content": { "ko": "목적 달성 후 파기, 단, 관계법령에 따라 또는 회사 정책에 따른 정보보유사유가 발생하여 보존할 필요가 있는 경우에는 필요한 기간 동안 해당 정보를 보관합니다. 전자상거래 등에서의 소비자 보호에 관한 법률, 전자금융거래법, 통신비밀보호법 등 법령에서 일정기간 정보의 보관을 규정하는 경우, 이 기간 동안 법령의 규정에 따라 개인정보를 보관하며, 다른 목적으로는 절대 이용하지 않습니다.", "en": "Destroyed after purpose fulfillment, however, if there is a need to preserve information due to legal requirements or company policy, the information will be retained for the necessary period. When laws such as the Act on Consumer Protection in Electronic Commerce, Electronic Financial Transactions Act, and Communications Secret Protection Act require information retention for a certain period, personal information will be stored according to legal provisions during this period and will never be used for other purposes." }
+          },
+          "rights": {
+            "title": { "ko": "4. 동의 거부권", "en": "4. Right to Refuse Consent" },
+            "content": { "ko": "귀하는 회사의 정보수집에 대해 동의하지 않거나 거부할 수 있습니다. 다만, 이때 원활한 문의 및 서비스 이용 등이 제한될 수 있습니다.", "en": "You may refuse or disagree with the company's information collection. However, this may limit smooth inquiries and service usage." }
       }
     }
   }
 }
-
