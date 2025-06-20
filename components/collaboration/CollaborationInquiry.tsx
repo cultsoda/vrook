@@ -13,6 +13,9 @@ import { X, Upload, Star, Camera, Video, Eye, Sparkles } from 'lucide-react'
 import { toast } from 'sonner'
 import { useTranslation } from '@/hooks/useTranslation'
 
+// Radix UI Checkbox 정확한 타입 정의
+type CheckedState = boolean | "indeterminate"
+
 interface CollaborationFormData {
   name: string
   contact: string
@@ -22,12 +25,14 @@ interface CollaborationFormData {
   contentIdea: string
   preferredFormats: string[]
   referenceContent: string
+  privacyConsent: boolean // 개인정보 동의 추가
 }
 
 export default function CollaborationInquiry() {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false) // 개인정보 모달 상태
   const [formData, setFormData] = useState<CollaborationFormData>({
     name: '',
     contact: '',
@@ -36,7 +41,8 @@ export default function CollaborationInquiry() {
     participationReason: '',
     contentIdea: '',
     preferredFormats: [],
-    referenceContent: ''
+    referenceContent: '',
+    privacyConsent: false // 초기값 false
   })
 
   const shootingFormats = [
@@ -46,7 +52,7 @@ export default function CollaborationInquiry() {
     { id: 'aiPhoto', label: 'AI 합성 포토카드', icon: Sparkles }
   ]
 
-  const handleFormatChange = (formatId: string, checked: string | boolean | "indeterminate") => {
+  const handleFormatChange = (formatId: string, checked: CheckedState) => {
     const isChecked = checked === true
     setFormData(prev => ({
       ...prev,
@@ -82,8 +88,8 @@ export default function CollaborationInquiry() {
     
     // 필수 필드 검증
     if (!formData.name || !formData.contact || !formData.snsLinks || 
-        !formData.activityField || !formData.participationReason) {
-      toast.error('필수 항목을 모두 입력해주세요.')
+        !formData.activityField || !formData.participationReason || !formData.privacyConsent) {
+      toast.error(t('collaboration.form.messages.required'))
       return
     }
 
@@ -121,7 +127,7 @@ export default function CollaborationInquiry() {
         // Slack 알림 전송
         await sendSlackNotification(formData)
 
-        toast.success('문의가 성공적으로 접수되었습니다! 검토 후 개별 연락드리겠습니다.')
+        toast.success(t('collaboration.form.messages.success'))
         
         // 폼 초기화 및 모달 닫기
         setFormData({
@@ -132,17 +138,18 @@ export default function CollaborationInquiry() {
           participationReason: '',
           contentIdea: '',
           preferredFormats: [],
-          referenceContent: ''
+          referenceContent: '',
+          privacyConsent: false
         })
         setIsOpen(false)
 
       } else {
-        throw new Error('Firebase를 사용할 수 없습니다.')
+        throw new Error(t('collaboration.form.messages.firebaseError'))
       }
 
     } catch (error) {
       console.error('문의 접수 실패:', error)
-      toast.error('문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.')
+      toast.error(t('collaboration.form.messages.error'))
     } finally {
       setIsSubmitting(false)
     }
@@ -195,17 +202,17 @@ export default function CollaborationInquiry() {
               size="lg" 
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              🎬 협업 문의하기
+              {t('collaboration.form.buttons.inquire')}
             </Button>
           </DialogTrigger>
           
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-slate-900 border-slate-700">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-white mb-2">
-                VROOK 협업 문의
+                {t('collaboration.form.title')}
               </DialogTitle>
               <p className="text-slate-400 text-sm">
-                모든 정보는 검토 후 개별 연락드리며, 안전하게 보관됩니다.
+                {t('collaboration.form.subtitle')}
               </p>
             </DialogHeader>
 
@@ -213,11 +220,11 @@ export default function CollaborationInquiry() {
               {/* 1. 이름/활동명 */}
               <div>
                 <Label htmlFor="name" className="text-white font-medium">
-                  1. 이름 / 활동명 <span className="text-red-400">*</span>
+                  {t('collaboration.form.fields.name')} <span className="text-red-400">*</span>
                 </Label>
                 <Input
                   id="name"
-                  placeholder="ex. 김민지 / MINJI"
+                  placeholder={t('collaboration.form.fields.namePlaceholder')}
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400"
@@ -228,11 +235,11 @@ export default function CollaborationInquiry() {
               {/* 2. 연락처 */}
               <div>
                 <Label htmlFor="contact" className="text-white font-medium">
-                  2. 연락처 (이메일 또는 휴대폰) <span className="text-red-400">*</span>
+                  {t('collaboration.form.fields.contact')} <span className="text-red-400">*</span>
                 </Label>
                 <Input
                   id="contact"
-                  placeholder="ex. hello@creator.com / 010-1234-5678"
+                  placeholder={t('collaboration.form.fields.contactPlaceholder')}
                   value={formData.contact}
                   onChange={(e) => setFormData(prev => ({ ...prev, contact: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400"
@@ -243,11 +250,11 @@ export default function CollaborationInquiry() {
               {/* 3. SNS/채널 링크 */}
               <div>
                 <Label htmlFor="snsLinks" className="text-white font-medium">
-                  3. SNS/채널 링크 (최소 1개 이상) <span className="text-red-400">*</span>
+                  {t('collaboration.form.fields.snsLinks')} <span className="text-red-400">*</span>
                 </Label>
                 <Textarea
                   id="snsLinks"
-                  placeholder="ex. 인스타그램: @username&#10;유튜브: youtube.com/channel/...&#10;틱톡: @username"
+                  placeholder={t('collaboration.form.fields.snsPlaceholder')}
                   value={formData.snsLinks}
                   onChange={(e) => setFormData(prev => ({ ...prev, snsLinks: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400 min-h-[80px]"
@@ -258,11 +265,11 @@ export default function CollaborationInquiry() {
               {/* 4. 활동 분야/직업 */}
               <div>
                 <Label htmlFor="activityField" className="text-white font-medium">
-                  4. 활동 분야 / 직업 <span className="text-red-400">*</span>
+                  {t('collaboration.form.fields.activityField')} <span className="text-red-400">*</span>
                 </Label>
                 <Input
                   id="activityField"
-                  placeholder="ex. 모델, 댄서, 유튜버, 버츄얼 크리에이터 등"
+                  placeholder={t('collaboration.form.fields.activityPlaceholder')}
                   value={formData.activityField}
                   onChange={(e) => setFormData(prev => ({ ...prev, activityField: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400"
@@ -273,11 +280,11 @@ export default function CollaborationInquiry() {
               {/* 5. 참여 희망 이유 */}
               <div>
                 <Label htmlFor="participationReason" className="text-white font-medium">
-                  5. 브이룩 참여 희망 이유 <span className="text-red-400">*</span>
+                  {t('collaboration.form.fields.participationReason')} <span className="text-red-400">*</span>
                 </Label>
                 <Textarea
                   id="participationReason"
-                  placeholder="자유롭게 기재해주세요"
+                  placeholder={t('collaboration.form.fields.participationPlaceholder')}
                   value={formData.participationReason}
                   onChange={(e) => setFormData(prev => ({ ...prev, participationReason: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400 min-h-[100px]"
@@ -288,11 +295,11 @@ export default function CollaborationInquiry() {
               {/* 6. 콘텐츠 아이디어 */}
               <div>
                 <Label htmlFor="contentIdea" className="text-white font-medium">
-                  6. 콘텐츠 아이디어 또는 콘셉트가 있다면 알려주세요 (선택)
+                  {t('collaboration.form.fields.contentIdea')}
                 </Label>
                 <Textarea
                   id="contentIdea"
-                  placeholder="ex. 도심 데이트 VR, 콘셉트 화보 등"
+                  placeholder={t('collaboration.form.fields.contentIdeaPlaceholder')}
                   value={formData.contentIdea}
                   onChange={(e) => setFormData(prev => ({ ...prev, contentIdea: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400 min-h-[80px]"
@@ -302,7 +309,7 @@ export default function CollaborationInquiry() {
               {/* 7. 희망 촬영 형태 */}
               <div>
                 <Label className="text-white font-medium mb-3 block">
-                  7. 희망 촬영 형태 (복수 선택 가능)
+                  {t('collaboration.form.fields.preferredFormats')}
                 </Label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {shootingFormats.map((format) => (
@@ -310,12 +317,12 @@ export default function CollaborationInquiry() {
                       <Checkbox
                         id={format.id}
                         checked={formData.preferredFormats.includes(format.id)}
-                        onCheckedChange={(checked: boolean | "indeterminate") => handleFormatChange(format.id, checked)}
+                        onCheckedChange={(checked: CheckedState) => handleFormatChange(format.id, checked)}
                         className="border-slate-500"
                       />
                       <format.icon className="w-5 h-5 text-purple-400" />
                       <Label htmlFor={format.id} className="text-white cursor-pointer flex-1">
-                        {format.label}
+                        {t(`collaboration.form.formats.${format.id}`)}
                       </Label>
                     </div>
                   ))}
@@ -325,24 +332,50 @@ export default function CollaborationInquiry() {
               {/* 8. 참고 콘텐츠 */}
               <div>
                 <Label htmlFor="referenceContent" className="text-white font-medium">
-                  8. 참고할 수 있는 본인의 콘텐츠가 있다면 업로드 또는 링크 공유해주세요 (선택)
+                  {t('collaboration.form.fields.referenceContent')}
                 </Label>
                 <Textarea
                   id="referenceContent"
-                  placeholder="ex. Google Drive 링크, 유튜브 링크 등"
+                  placeholder={t('collaboration.form.fields.referencePlaceholder')}
                   value={formData.referenceContent}
                   onChange={(e) => setFormData(prev => ({ ...prev, referenceContent: e.target.value }))}
                   className="mt-2 bg-slate-800 border-slate-600 text-white placeholder-slate-400 min-h-[80px]"
                 />
               </div>
 
+              {/* 개인정보 수집 동의 */}
+              <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-600">
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="privacyConsent"
+                    checked={formData.privacyConsent}
+                    onCheckedChange={(checked: CheckedState) => 
+                      setFormData(prev => ({ ...prev, privacyConsent: checked === true }))
+                    }
+                    className="border-slate-500 mt-1"
+                  />
+                  <div className="flex-1">
+                    <Label htmlFor="privacyConsent" className="text-white cursor-pointer">
+                      {t('collaboration.form.privacy.consent')} <span className="text-red-400">*</span>
+                    </Label>
+                    <button
+                      type="button"
+                      onClick={() => setShowPrivacyModal(true)}
+                      className="text-purple-400 hover:text-purple-300 text-sm underline ml-2"
+                    >
+                      {t('collaboration.form.privacy.view')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               {/* 참고 사항 */}
               <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-600">
-                <h4 className="text-white font-medium mb-2">📋 참고 사항</h4>
+                <h4 className="text-white font-medium mb-2">📋 {t('collaboration.form.notes.title')}</h4>
                 <ul className="text-slate-300 text-sm space-y-1">
-                  <li>• 선정된 분께는 개별 연락 드립니다.</li>
-                  <li>• 촬영은 서울 스튜디오 또는 지정 장소에서 진행됩니다.</li>
-                  <li>• 수익모델, 제작 콘텐츠 활용 범위는 협의 후 진행됩니다.</li>
+                  <li>• {t('collaboration.form.notes.items.selection')}</li>
+                  <li>• {t('collaboration.form.notes.items.location')}</li>
+                  <li>• {t('collaboration.form.notes.items.revenue')}</li>
                 </ul>
               </div>
 
@@ -355,17 +388,54 @@ export default function CollaborationInquiry() {
                   className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-800"
                   disabled={isSubmitting}
                 >
-                  취소
+                  {t('collaboration.form.buttons.cancel')}
                 </Button>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                 >
-                  {isSubmitting ? '접수 중...' : '문의 접수하기'}
+                  {isSubmitting ? t('collaboration.form.buttons.submitting') : t('collaboration.form.buttons.submit')}
                 </Button>
               </div>
             </form>
+          </DialogContent>
+        </Dialog>
+
+        {/* 개인정보 처리방침 모달 */}
+        <Dialog open={showPrivacyModal} onOpenChange={setShowPrivacyModal}>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-slate-900 border-slate-700">
+            <DialogHeader>
+              <DialogTitle className="text-xl font-bold text-white mb-2">
+                {t('collaboration.form.privacy.title')}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 text-slate-300 text-sm">
+              <div>
+                <h4 className="text-white font-medium mb-2">{t('collaboration.form.privacy.items.collection.title')}</h4>
+                <p>{t('collaboration.form.privacy.items.collection.content')}</p>
+              </div>
+              <div>
+                <h4 className="text-white font-medium mb-2">{t('collaboration.form.privacy.items.purpose.title')}</h4>
+                <p>{t('collaboration.form.privacy.items.purpose.content')}</p>
+              </div>
+              <div>
+                <h4 className="text-white font-medium mb-2">{t('collaboration.form.privacy.items.retention.title')}</h4>
+                <p>{t('collaboration.form.privacy.items.retention.content')}</p>
+              </div>
+              <div>
+                <h4 className="text-white font-medium mb-2">{t('collaboration.form.privacy.items.rights.title')}</h4>
+                <p>{t('collaboration.form.privacy.items.rights.content')}</p>
+              </div>
+            </div>
+            <div className="flex justify-end pt-4">
+              <Button
+                onClick={() => setShowPrivacyModal(false)}
+                className="bg-purple-600 hover:bg-purple-700"
+              >
+                {t('collaboration.form.privacy.confirm')}
+              </Button>
+            </div>
           </DialogContent>
         </Dialog>
       </div>
