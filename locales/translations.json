@@ -474,7 +474,7 @@
       "title": { "ko": "VROOK 협업 문의", "en": "VROOK Collaboration Inquiry" },
       "subtitle": { "ko": "모든 정보는 검토 후 개별 연락드리며, 안전하게 보관됩니다.", "en": "All information will be reviewed and contacted individually, and stored securely." },
       "fields": {
-        "name": { "ko": "1. 이름 / 활동명", "en": "1. Name / Activity Name" },
+         "name": { "ko": "1. 이름 / 활동명", "en": "1. Name / Activity Name" },
         "namePlaceholder": { "ko": "ex. 김민지 / MINJI", "en": "ex. Kim Minji / MINJI" },
         "contact": { "ko": "2. 연락처 (이메일 또는 휴대폰)", "en": "2. Contact (Email or Phone)" },
         "contactPlaceholder": { "ko": "ex. hello@creator.com / 010-1234-5678", "en": "ex. hello@creator.com / 010-1234-5678" },
@@ -511,7 +511,7 @@
         "cancel": { "ko": "취소", "en": "Cancel" },
         "submit": { "ko": "문의 접수하기", "en": "Submit Inquiry" },
         "submitting": { "ko": "접수 중...", "en": "Submitting..." },
-        "inquire": { "ko": "🎬 협업 문의하기", "en": "🎬 Collaboration Inquiry" }
+        "inquire": { "ko": "협업 문의하기", "en": "Collaboration Inquiry" }
       },
       "messages": {
         "required": { "ko": "필수 항목을 모두 입력해주세요.", "en": "Please fill in all required fields." },
@@ -540,8 +540,11 @@
           "rights": {
             "title": { "ko": "4. 동의 거부권", "en": "4. Right to Refuse Consent" },
             "content": { "ko": "귀하는 회사의 정보수집에 대해 동의하지 않거나 거부할 수 있습니다. 다만, 이때 원활한 문의 및 서비스 이용 등이 제한될 수 있습니다.", "en": "You may refuse or disagree with the company's information collection. However, this may limit smooth inquiries and service usage." }
-        }
-      }
     }
   }
 }
+    }
+  }
+}
+
+
