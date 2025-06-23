@@ -2,7 +2,7 @@
 "use client"
 
 import * as React from "react"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -12,6 +12,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { X, Upload, Star, Camera, Video, Eye, Sparkles } from 'lucide-react'
 import { toast } from 'sonner'
 import { useTranslation } from '@/hooks/useTranslation'
+import { useSearchParams } from 'next/navigation'
+
+
 
 // Radix UI Checkbox 정확한 타입 정의
 type CheckedState = boolean | "indeterminate"
@@ -32,6 +35,7 @@ export default function CollaborationInquiry() {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const searchParams = useSearchParams() // 모달 링크를 위한 작업
   const [showPrivacyModal, setShowPrivacyModal] = useState(false) // 개인정보 모달 상태
   const [formData, setFormData] = useState<CollaborationFormData>({
     name: '',
@@ -44,6 +48,19 @@ export default function CollaborationInquiry() {
     referenceContent: '',
     privacyConsent: false // 초기값 false
   })
+  
+  useEffect(() => {
+    const openInquiry = searchParams.get('inquiry')
+    if (openInquiry === 'collabo') {
+      setIsOpen(true)
+      // URL에서 파라미터 제거 (선택사항)
+      if (window.history.replaceState) {
+        const url = new URL(window.location.href)
+        url.searchParams.delete('inquiry')
+        window.history.replaceState({}, '', url.toString())
+      }
+    }
+  }, [searchParams])
 
   const shootingFormats = [
     { id: 'photo', label: '이미지 화보', icon: Camera },
