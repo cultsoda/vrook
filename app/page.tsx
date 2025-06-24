@@ -165,7 +165,7 @@ export default function HomePage() {
                 href="https://xromeda.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-sm md:text-base font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-105 transform"
+                className="text-sm md:text-base font-semibold transition-colors duration-200 hover:scale-105 transform"
               >
                 XROMEDA
               </a>

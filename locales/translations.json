@@ -471,7 +471,7 @@
       }
     },
     "form": {
-      "title": { "ko": "VROOK 협업 문의", "en": "VROOK Collaboration Inquiry" },
+      "title": { "ko": "VROOK 비즈니스 문의", "en": "VROOK Business Inquiry" },
       "subtitle": { "ko": "모든 정보는 검토 후 개별 연락드리며, 안전하게 보관됩니다.", "en": "All information will be reviewed and contacted individually, and stored securely." },
       "fields": {
          "name": { "ko": "1. 이름 / 활동명", "en": "1. Name / Activity Name" },
@@ -511,7 +511,7 @@
         "cancel": { "ko": "취소", "en": "Cancel" },
         "submit": { "ko": "문의 접수하기", "en": "Submit Inquiry" },
         "submitting": { "ko": "접수 중...", "en": "Submitting..." },
-        "inquire": { "ko": "협업 문의하기", "en": "Collaboration Inquiry" }
+        "inquire": { "ko": "브이룩 비즈니스 문의", "en": "Business Inquiry" }
       },
       "messages": {
         "required": { "ko": "필수 항목을 모두 입력해주세요.", "en": "Please fill in all required fields." },
