@@ -231,7 +231,7 @@ export default function CollaborationInquiry() {
           {t('collaboration.form.buttons.inquire')}
         </Button>
 
-        {/* 추가 안내 텍스트 */}
+        {/* 추가 안내 텍스트
         <p className="text-slate-400 text-sm mt-4">
           XROMEDA 플랫폼에서 문의를 접수하실 수 있습니다
           <br />
@@ -239,7 +239,7 @@ export default function CollaborationInquiry() {
             (모바일: 현재 창 이동 | 데스크톱: 새 탭 열기)
           </span>
         </p>
-
+          */}
         {/* 🚫 모달 관련 컴포넌트들 모두 주석처리 */}
         {/* 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
