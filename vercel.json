@@ -1,5 +1,5 @@
 {
-  "redirects": [
-    { "source": "/(.*)", "destination": "https://vrook.io/$1", "permanent": true }
-  ]
+//  "redirects": [
+//    { "source": "/(.*)", "destination": "https://vrook.io/$1", "permanent": true }
+//  ]
 }
